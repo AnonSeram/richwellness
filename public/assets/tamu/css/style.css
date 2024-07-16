@@ -1,0 +1,68 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-image: url('/nyoba/images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.container-fluid {
+    margin-top: 50px;
+}
+
+/* Form Container Styles */
+.form-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Set background color with transparency */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+    margin-right: 15px; /* Memberikan margin kanan */
+    margin-bottom: 30px; /* Menambahkan margin bottom */
+    margin-top: 30px; /* Menambahkan margin top */
+}
+
+.form-container h2 {
+    margin-bottom: 30px;
+}
+
+/* Kamar Container Styles */
+.kamar-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Set background color with transparency */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+    margin-left: 15px; /* Memberikan margin kiri */
+    margin-bottom: 30px; /* Menambahkan margin bottom */
+    margin-top: 30px; /* Menambahkan margin top */
+    height: fit-content; /* Menetapkan ketinggian agar menyesuaikan dengan konten */
+}
+
+.kamar-container h2 {
+    margin-bottom: 30px;
+}
+
+.card {
+    border: none;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card .card-body {
+    padding: 15px;
+}
+
+.icon-box {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.card-title {
+    color: #000000;
+    font-weight: bold;
+}
+
+/* Flex Container */
+.row {
+    display: flex; /* Mengubah row menjadi flex container */
+}
