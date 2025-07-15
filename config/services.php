@@ -30,4 +30,10 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'dialogflow' => [
+        'project_id' => env('DIALOGFLOW_PROJECT_ID'),
+        'credentials_path' => env('DIALOGFLOW_CREDENTIALS_PATH', storage_path('app/dialogflow.json')),
+        'language_code' => env('DIALOGFLOW_LANGUAGE_CODE', 'id'),
+    ],
+
 ];

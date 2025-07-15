@@ -3,53 +3,55 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth; // Pastikan ini ada
 
 class LoginController extends Controller
 {
-    use AuthenticatesUsers;
-
-    protected $redirectTo = RouteServiceProvider::HOME;
+    // Jangan gunakan trait AuthenticatesUsers jika buat login manual
+    // use AuthenticatesUsers; 
 
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
     }
 
+    public function showLoginForm()
+    {
+        return view('auth.login'); // Pastikan view login tersedia
+    }
+
     public function login(Request $request)
     {
-        $input = $request->all();
-        $this->validate($request, [
+        $request->validate([  // gunakan validate() dari request
             'email' => 'required|email',
             'password' => 'required',
-            'role' => 'required'  // Tambahkan validasi untuk role
         ]);
 
-        $credentials = [
-            'email' => $input['email'],
-            'password' => $input['password']
-        ];
+        $credentials = $request->only('email', 'password');
 
-        if (auth()->attempt($credentials)) {
-            $user = auth()->user();
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
 
-            // Periksa apakah email sesuai dengan peran yang dipilih
-            if (($input['role'] == 'admin' && $user->is_admin == 1) ||
-                ($input['role'] == 'receptionist' && $user->is_admin == 0)) {
-
-                if ($user->is_admin == 1) {
-                    return redirect()->route('admin.home');
-                } else {
-                    return redirect()->route('home');
-                }
-            } else {
-                auth()->logout(); // Logout user jika role tidak sesuai
-                return redirect()->route('login')->with('error', 'Role and Email do not match');
-            }
-        } else {
-            return redirect()->route('login')->with('error', 'Wrong Email and Password');
+            if ($user->role === 'admin') {
+        return redirect()->route('admin.home');
+    } elseif ($user->role === 'resepsionis') {
+        return redirect()->route('resepsionis');
+    } else {
+        return redirect()->route('home');
+    }
         }
+
+
+        return redirect()->route('login')->with('error', 'Email atau password salah');
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 }

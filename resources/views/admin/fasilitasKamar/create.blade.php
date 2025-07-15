@@ -11,11 +11,16 @@
                             @csrf
                             <div class="form-group">
                                 <label for="tipe_kamar">Tipe Kamar</label>
-                                <input type="text" class="form-control" name="tipe_kamar" id="tipe_kamar" placeholder="Masukan tipe kamar" value="{{ old('tipe_kamar') }}">
+                                <select class="form-control @error('tipe_kamar') is-invalid @enderror" name="tipe_kamar" id="tipe_kamar" required>
+                                    <option value="" disabled selected>Pilih tipe kamar</option>
+                                    @foreach($tipeKamars as $kamar)
+                                        <option value="{{ $kamar->tipe_kamar }}" {{ old('tipe_kamar') == $kamar->tipe_kamar ? 'selected' : '' }}>
+                                            {{ $kamar->tipe_kamar }}
+                                        </option>
+                                    @endforeach
+                                </select>
                                 @error('tipe_kamar')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
+                                    <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group">

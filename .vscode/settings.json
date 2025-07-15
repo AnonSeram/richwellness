@@ -1,0 +1,21 @@
+{
+    "git.ignoreLimitWarning": true,
+
+    // Batasi penggunaan memori Intelephense (default: 1536 MB)
+    "intelephense.files.maxMemory": 512,
+
+    // Kecualikan folder besar dari pemindaian
+    "files.watcherExclude": {
+        "**/node_modules/**": true,
+        "**/vendor/**": true,
+        "**/storage/**": true,
+        "**/.git/**": true
+    },
+
+    // Nonaktifkan fitur auto-diagnostics dari Intelephense
+    "intelephense.diagnostics.enable": false,
+
+    // Nonaktifkan validasi PHP bawaan jika pakai Intelephense
+    "php.validate.enable": false
+
+}

@@ -94,6 +94,26 @@
         updateCountdown();
         var x = setInterval(updateCountdown, 1000);
     </script>
+    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('midtrans.clientKey') }}"></script>
+    <script type="text/javascript">
+    window.onload = function() {
+        snap.pay('{{ $snapToken }}', {
+            onSuccess: function(result){
+                console.log('success'); console.log(result);
+                window.location.href = '/sukses'; // Redirect setelah sukses
+            },
+            onPending: function(result){
+                console.log('pending'); console.log(result);
+            },
+            onError: function(result){
+                console.log('error'); console.log(result);
+            },
+            onClose: function(){
+                alert('Anda menutup popup tanpa menyelesaikan pembayaran');
+            }
+        });
+    }
+</script>
 </body>
 
 </html>

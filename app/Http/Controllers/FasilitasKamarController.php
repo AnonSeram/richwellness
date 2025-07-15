@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\FasilitasKamar;
 use App\Models\FasilitasHotel;
+use App\Models\DataKamar;
 use Illuminate\Http\Request;
 
 class FasilitasKamarController extends Controller
@@ -27,7 +28,8 @@ class FasilitasKamarController extends Controller
      */
     public function create()
     {
-        return view('admin.fasilitasKamar.create');
+        $tipeKamars = DataKamar::select('tipe_kamar')->distinct()->get();
+    return view('admin.fasilitasKamar.create', compact('tipeKamars'));
     }
 
     /**

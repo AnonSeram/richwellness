@@ -17,7 +17,9 @@ class CreateDataKamarTable extends Migration
             $table->id();
             $table->string('tipe_kamar');
             $table->integer('jumlah_kamar');
+            $table->integer('jumlah_tersedia')->default(0);
             $table->bigInteger('harga')->default(0);
+            $table->enum('status', ['tersedia', 'tidak_tersedia'])->default('tersedia');
             $table->timestamps();
         });
     }

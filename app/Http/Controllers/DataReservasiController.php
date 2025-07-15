@@ -9,97 +9,57 @@ use Illuminate\Support\Facades\DB;
 class DataReservasiController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Tampilkan semua data reservasi.
      */
     public function index()
     {
-        return view('resepsionis.dataReservasi', [
-            'dataReservasi' => DataReservasi::latest()->get()
+        return view('admin.dataReservasi.index', [
+            'dataReservasi' => DataReservasi::latest()->paginate(10)
         ]);
     }
+
+    /**
+     * Cari berdasarkan nama tamu.
+     */
     public function cari(Request $request)
     {
-        // Menangkap data pencarian
         $cari = $request->cari;
-    
-        // Mengambil data dari table pemesanan sesuai pencarian data
-        $dataReservasi = DataReservasi::where('nama_tamu', 'like', "%" . $cari . "%")->paginate();
-    
-        // Mengirim data reservasi ke view
-        return view('resepsionis.dataReservasi', ['dataReservasi' => $dataReservasi]);
-    }
-    
 
+        $dataReservasi = DataReservasi::where('nama_tamu', 'like', "%" . $cari . "%")
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
+
+        return view('admin.dataReservasi.index', ['dataReservasi' => $dataReservasi]);
+    }
+
+    /**
+     * Filter berdasarkan tanggal check-in dan check-out.
+     */
     public function tanggal(Request $request)
     {
-        // menangkap data pencarian
         $fromdate = $request->fromdate;
         $todate = $request->todate;
 
-        // mengambil data dari table pegawai sesuai pencarian data
         $dataReservasi = DB::table('pemesanan')
-            ->where('tgl_check_in', 'like', "%" . $fromdate . "%")
-            ->where('tgl_check_out', 'like', "%" . $todate . "%")
-            ->paginate();
+            ->whereDate('tgl_check_in', '>=', $fromdate)
+            ->whereDate('tgl_check_out', '<=', $todate)
+            ->orderBy('tgl_check_in', 'desc')
+            ->paginate(10);
 
-        // mengirim data pegawai ke view index
-        return view('resepsionis.dataReservasi', ['dataReservasi' => $dataReservasi]);
+        return view('admin.dataReservasi.index', ['dataReservasi' => $dataReservasi]);
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Tampilkan form edit data reservasi.
      */
     public function edit($id)
     {
-
         $dataReservasi = DataReservasi::findOrFail($id);
-        return view('resepsionis.edit', compact('dataReservasi'));
-
+        return view('admin.dataReservasi.edit', compact('dataReservasi'));
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Proses update data reservasi.
      */
     public function update(Request $request, $id)
     {
@@ -115,21 +75,17 @@ class DataReservasiController extends Controller
         $dataReservasi = DataReservasi::findOrFail($id);
         $dataReservasi->update($request->all());
 
-        return redirect('/dataReservasi')->with('success', 'Data reservasi berhasil diperbarui.');
+        return redirect()->route('dataReservasi.index')->with('success', 'Data reservasi berhasil diperbarui.');
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Hapus data reservasi.
      */
     public function destroy($id)
     {
         $dataReservasi = DataReservasi::findOrFail($id);
         $dataReservasi->delete();
 
-        return redirect('/dataReservasi')->with('success', 'Data reservasi berhasil dihapus.');
+        return redirect()->route('dataReservasi.index')->with('success', 'Data reservasi berhasil dihapus.');
     }
-
 }

@@ -14,7 +14,7 @@ class AddKodeBookingToPemesananTable extends Migration
     public function up()
     {
         Schema::table('pemesanan', function (Blueprint $table) {
-            $table->string('kode_booking', 6)->nullable()->unique()->after('harga');
+            $table->string('kode_booking', 20)->nullable()->unique()->after('harga');
         });
     }
 

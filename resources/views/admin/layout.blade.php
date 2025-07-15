@@ -153,6 +153,14 @@
                         <span class="menu-title">Fasilitas Kamar</span>
                     </a>
                 </li>
+                 <li class="nav-item menu-home">
+                    <a class="nav-link" href="/">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-home"></i>
+                        </span>
+                        <span class="menu-title">Home</span>
+                    </a>
+                </li>
                 <li class="nav-item menu-items">
                     <a class="nav-link" href="{{ route('logout') }}"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

@@ -1,26 +1,33 @@
 {
     "name": "laravel/laravel",
     "type": "project",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "description": "The skeleton application for the Laravel framework.",
+    "keywords": ["laravel", "framework"],
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
-        "guzzlehttp/guzzle": "^7.2",
+        "firebase/php-jwt": "^6.11",
+        "fruitcake/laravel-cors": "^3.0",
+        "google/auth": "^1.47",
+        "google/cloud": "^0.290.0",
+        "google/cloud-core": "*",
+        "google/gax": "^1.36",
+        "grpc/grpc": "^1.57",
+        "guzzlehttp/guzzle": "^7.9",
         "laravel/framework": "^9.19",
-        "fruitcake/laravel-cors": "^2.0",
-        "laravel/sanctum": "^3.0",
+        "laravel/sanctum": "^2.15",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^4.5",
+        "midtrans/midtrans-php": "^2.6",
         "realrashid/sweet-alert": "^5.1"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
-        "laravel/sail": "^1.0.1",
+        "laravel/sail": "^1.18",
         "mockery/mockery": "^1.4.4",
-        "nunomaduro/collision": "^6.1",
-        "phpunit/phpunit": "^9.5.10",
+        "nunomaduro/collision": "^7.0",
+        "phpunit/phpunit": "^10.1",
         "spatie/laravel-ignition": "^1.0"
     },
     "autoload": {
@@ -60,9 +67,10 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "allow-plugins": {
-            "pestphp/pest-plugin": true
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }

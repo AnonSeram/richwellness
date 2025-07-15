@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "gen-lang-client-0113095756",
+  "private_key_id": "baa6058180cb997bfd50b9ea391ea90357590288",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCyRubSyfFItnvu\nexQvlgXCHgVveNTsjNu21KCHdGOq8ABZ3owk1uJ7OyyduBqGoFVNp/OtWlVe+D6p\n3ceJe+l/cl1pgojV6SClH5WJnRwX487k5dcHgzLUN37hrZl2OdjE+yfWkD46JkLi\n1m831ZqJZ/PffAZwzncRIS0989Ih1p8qcVIgYUMfsQTLrb00zANEdiocINtpVUTU\nfWK1DVKud2umAz56InSgnBjNWUpmiWPXBL4t+Mu8NlgU1wQuMHLxh91hATSSZj7D\natOSlRPzlzMC179fhj4LExTGtj9r7Ma0jxYP4dwFymj1XpvQhlQZXCm4dby8CA4u\n5EB5BHdlAgMBAAECggEAH8WWjAD87RxGjHsnXw6x0oVWqyXh7pFw883DmThjLdrt\neRa6K7OXM+aZHjeqFI2c/kS9HwsvFUiRJGVX0xcAB1xarPvcRqEwVfVByX90Owa4\nv979WkOlyp/kTzSI2cLX8M0g7bKRwHvCploYgp8hFjVuR0k7fZ2yJx2eSkD6lVh2\nJKLg/DBqGZ3I3KkSRkejTTe3eD1SM7CBJCRSQmCLDeO7i8ZMn9aOTNcV8MjwDPVq\nHh7WHsZ3LIoOdYvmN2BMfE9iaaparifcXHUiwM5NcD+JXIyxlNfu2yuSu4auifUi\nAxjUXoV44lTYVdG4pmJvlMgpw44zpOhbg2lKe/peaQKBgQDa07q3SOz9n7Xa/xYp\nFVzqXXYYAxZrQwApoTghXOHuvgBpnLMPVfwV9/XcoRDE1nbsN6wZDMl5BQsU4zoR\nin21LVahHIumb6ql/1aSrhu75a5RZpTE1My4fZZFLLZxBw1yVuoH8Lv1erabPqCG\n+4QfmHnwbysXJ6i+wg+Nj8epKQKBgQDQj76CW39gscErAYKACE/meh7u2UTGXXPP\n3pLahXwAeFzkzBfn3CZd4goVRVgSJLYx9FXcky93eOvoYO6oq5EIs9xO5DGZ2cyA\nN0mBOrigrIhmbYOj5ISg5iHQWZ8lK8FL9IGY/Pm3I2pSg1kvzkAbySuYHc0OYSIA\nRx6IaqbX3QKBgHa2AAfoXvCkEMLSOVJmTXay5xrVqfbcbR0oYcvvmH2sw4qHwLfk\nHJJKZy2ejvtJoVA6T3lzb2TgsIdPUbQsXk/IXcOfOb87uua8o1mFbHQ9gJiWPsSc\n8MZxEvFJ9VtRySCrN+DA3yanwKJtkiZIEgAV9qjRlh3EnQ2HN2rDgjwpAoGBAJFZ\nvKHI9qsC9ubr9HEaWeT8cxZu4VmFw7K5IYudv9/sAoGKI5b5fNutLu3IGCr83uVN\nrZE+GrSe13pqI6n1d+yivQVWT6MzgSxSW63uqMGBvMX1yOqt1ij0edhkvV8AcYRn\n8PIYTEhwLCc5VyzUByXWO8WV71T4KOQcrJDSE1kZAoGAdYmvggatz45wYqyV7Kib\nc88Hrmia5otwevPr/onz0zaE+lhTLGDqCv0BUepjimiFWo0uO9gmD9G/JL1hrUhY\nq4aItP9/5DdVpzX3urkp8y7QUKP/d1KIMPutt6yxDR4OoF5LM8K2dWyPWqmasIq3\nmCGnnww9aIkiJiA+TwcIngI=\n-----END PRIVATE KEY-----\n",
+  "client_email": "richwellness@gen-lang-client-0113095756.iam.gserviceaccount.com",
+  "client_id": "108180602342584568685",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/richwellness%40gen-lang-client-0113095756.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

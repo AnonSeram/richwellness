@@ -1,156 +1,275 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="C:\xampp\htdocs\project4mk\public\assets\homepage\img\favicon.png" type="image/png">
+@section('content')
+<div class="container py-5">
+    <div class="card shadow-lg border-0 rounded-5 p-5" style="background: #fdfefe; font-family: 'Segoe UI', sans-serif;">
+        <h2 class="mb-4 text-center fw-bold" style="color: #7AA2E3; font-size: 2rem;">Pemesanan Kamar</h2>
 
-    <title>Pesan Reservasi - Rich Wellness</title>
+        <div class="mb-4 text-center">
+            <button id="step1Btn" class="btn step-btn me-2" style="background-color: #7AA2E3; color: white;">
+                <span id="step1Indicator">1. Pilih Kamar</span>
+            </button>
+            <button class="btn step-btn" disabled id="step2Btn">
+                2. Isi Data
+            </button>
+        </div>
 
-    <!-- Google font -->
-    <link href="http://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css" />
-
-    <!-- Bootstrap -->
-    <link type="text/css" rel="stylesheet" href="assets/tamu/css/bootstrap.min.css" />
-
-    <!-- Custom stylesheet -->
-    <link type="text/css" rel="stylesheet" href="assets/tamu/css/style.css" />
-
-</head>
-
-<body>
-    <div class="container">
-        <div class="row">
-            <!-- Form Container -->
-            <div class="col-md-6 form-container">
-                <form method="post" action="{{ route('pesanReservasi.store') }}">
-                    @csrf
-                    @if($errors->any())
-                        <div class="alert alert-danger">
-                            @foreach($errors->all() as $error)
-                                <p>{{ $error }}</p>
-                            @endforeach
-                        </div>
-                    @endif
-                    <div class="form-group">
-                        <label for="nama_tamu">Nama Tamu</label>
-                        <input class="form-control" type="text" required placeholder="Input nama" name="nama_tamu"
-                            value="{{ old('nama_tamu') }}" autofocus>
-                        @error('nama_tamu')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
+        {{-- STEP 1 --}}
+        <div id="step1">
+            <div class="d-flex justify-content-center flex-wrap gap-4">
+                @foreach($dataKamar as $row)
+                <div class="card kamar-card shadow border-0 rounded-4 px-3 py-2" style="width: 18rem;"
+                    data-id="{{ $row->id }}" data-harga="{{ $row->harga }}" data-tipe="{{ $row->tipe_kamar }}">
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold text-uppercase text-primary-emphasis">{{ $row->tipe_kamar }}</h5>
+                        <p class="card-text">Rp {{ number_format($row->harga, 0, ',', '.') }} / malam</p>
+                        <p class="card-text">{{ $row->jumlah_kamar }} kamar tersedia</p>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input class="form-control" type="email" required placeholder="Input email" name="email"
-                            value="{{ old('email') }}">
-                        @error('email')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="no_hp">No. HP</label>
-                        <input class="form-control" type="text" required placeholder="Input No.HP" name="no_hp"
-                            value="{{ old('no_hp') }}">
-                        @error('no_hp')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="jumlah_kamar">Jumlah Kamar</label>
-                        <input class="form-control" type="number" required placeholder="Input jumlah kamar"
-                            name="jumlah_kamar" value="{{ old('jumlah_kamar') }}">
-                        @error('jumlah_kamar')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="nik">NIK/PASPOR</label>
-                        <input class="form-control" type="text" required placeholder="Input NIK/PASPOR" name="nik"
-                            value="{{ old('nik') }}">
-                        @error('nik')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="tipe_kamar">Tipe Kamar</label>
-                        <select class="form-control" name="tipe_kamar" id="tipe_kamar" required>
-                            <option value="" disabled selected>Pilih Tipe Kamar</option>
-                            @foreach($dataKamar as $row)
-                                <option value="{{ $row->id }}" data-harga="{{ $row->harga }}">
-                                    {{ $row->tipe_kamar }}
-                                </option>
-                            @endforeach
-                        </select>
-                        <small id="ketersediaan_kamar" class="form-text text-muted"></small>
-                        @error('tipe_kamar')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="tgl_check_in">Check In</label>
-                        <input class="form-control" type="date" required name="tgl_check_in"
-                            value="{{ old('tgl_check_in') }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="tgl_check_out">Check Out</label>
-                        <input class="form-control" type="date" required name="tgl_check_out"
-                            value="{{ old('tgl_check_out') }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="metode_pembayaran">Metode Pembayaran</label>
-                        <select class="form-control" id="metode_pembayaran" name="metode_pembayaran">
-                            <option value="online">Bayar Online</option>
-                            <option value="offline">Bayar Offline</option>
-                        </select>
-                    </div>
-                    <div class="form-btn">
-                        <button class="btn btn-primary">PEMBAYARAN</button>
-                    </div>
-                </form>
-            </div>
-            <!-- Kamar Container -->
-            <div class="col-md-6 kamar-container">
-                <div class="section-title">
-                    <h2>Daftar Kamar</h2>
                 </div>
-                <div class="row">
-                    @php $counter = 0; @endphp
-                    @foreach($dataKamar as $row)
-                            <div class="col-md-6">
-                                <div class="card mb-3">
-                                    <div class="card-body">
-                                        <div class="icon-box">
-                                            <i class="bi bi-house-door-fill"></i>
-                                        </div>
-                                        <h4 class="card-title">{{ $row->tipe_kamar }}</h4>
-                                        <p class="card-text">Harga: Rp. {{ number_format($row->harga, 0, ',', '.') }}</p>
-                                        <p class="card-text">Tersedia: {{ $row->jumlah_kamar }} kamar</p>
-                                    </div>
-                                </div>
-                            </div>
-                            @php    $counter++; @endphp
-                            @if($counter % 2 == 0)
-                                </div>
-                                <div class="row">
-                            @endif
+                @endforeach
+            </div>
+
+            <div class="text-center mt-4">
+                <button id="nextToStep2" class="btn btn-next-step">Lanjutkan ke Pengisian Data</button>
+                </button>
+            </div>
+        </div>
+
+        {{-- STEP 2 --}}
+        <div id="step2" style="display: none;">
+            @if ($errors->any())
+            <div class="alert alert-danger mt-3">
+                <strong>Ups! Ada masalah:</strong>
+                <ul class="mb-0">
+                    @foreach ($errors->all() as $err)
+                    <li>{{ $err }}</li>
                     @endforeach
-                </div>
+                </ul>
             </div>
-</body>
+            @endif
 
-</html>
+            <div class="mb-3">
+                <button type="button" id="backToStep1" class="btn btn-outline-secondary">← Kembali ke Pilih Kamar</button>
+            </div>
+
+            <form method="POST" action="{{ route('pesanReservasi.store') }}">
+                @csrf
+                <input type="hidden" name="tipe_kamar" id="inputTipeKamar">
+                <input type="hidden" name="harga_per_malam" id="inputHargaKamar">
+
+                <div class="row g-4">
+                    <div class="col-md-7">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label class="form-label">Nama Tamu</label>
+                                <input type="text" class="form-control" name="nama_tamu" required>
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" name="email" required>
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label">No. HP</label>
+                                <input type="text" class="form-control" name="no_hp" required>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">NIK / Paspor</label>
+                                <input type="text" class="form-control" name="nik" required>
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label">Jumlah Kamar</label>
+                                <input type="number" class="form-control" name="jumlah_kamar" id="jumlahKamar" value="1" min="1" required>
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label">Tanggal Check-In</label>
+                                <input type="date" class="form-control" name="tgl_check_in" id="tglCheckIn" min="{{ date('Y-m-d') }}" required>
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label">Tanggal Check-Out</label>
+                                <input type="date" class="form-control" name="tgl_check_out" id="tglCheckOut" min="{{ date('Y-m-d') }}" required>
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label">Metode Pembayaran</label>
+                                <select name="metode_pembayaran" class="form-select">
+                                    <option value="online">Bayar Online</option>
+                                    <option value="offline">Bayar di Tempat</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-pesan mt-4 px-4 py-2">Pesan Sekarang</button>
+                    </div>
+
+                    <div class="col-md-5">
+                        <div class="card bg-light border-0 shadow rounded-4">
+                            <div class="card-body">
+                                <h5 class="mb-3 fw-bold text-center">Ringkasan Pemesanan</h5>
+                                <p><strong>Tipe Kamar:</strong> <span id="summaryTipe">-</span></p>
+                                <p><strong>Harga / Malam:</strong> Rp <span id="summaryHarga">0</span></p>
+                                <p><strong>Durasi:</strong> <span id="summaryDurasi">0</span> malam</p>
+                                <p><strong>Jumlah Kamar:</strong> <span id="summaryJumlah">1</span></p>
+                                <hr>
+                                <h5 class="text-primary fw-bold">Total: Rp <span id="summaryTotal">0</span></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<style>
+    .btn-next-step {
+        background: linear-gradient(135deg, #7AA2E3, #5e8bd1);
+        border: none;
+        color: #fff;
+        padding: 0.75rem 2.5rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-radius: 25px;
+        box-shadow: 0 4px 12px rgba(122, 162, 227, 0.3);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .btn-next-step:hover {
+        background: linear-gradient(135deg, #5e8bd1, #3f6fb5);
+        box-shadow: 0 6px 18px rgba(90, 135, 210, 0.4);
+        transform: translateY(-2px);
+    }
+
+    .btn-next-step:focus {
+        outline: none;
+        box-shadow: 0 0 0 4px rgba(122, 162, 227, 0.3);
+    }
+    
+    .kamar-card {
+        border: 2px solid #dee2e6;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        background-color: #ffffff;
+    }
+
+    .kamar-card:hover {
+        border-color: #7AA2E3;
+        background-color: #eef4fc;
+        box-shadow: 0 0 20px rgba(122, 162, 227, 0.3);
+    }
+
+    .kamar-card.selected {
+        border-color: #7AA2E3 !important;
+        background-color: #e0ecfc;
+    }
+
+    .step-btn {
+        border-radius: 25px;
+        padding: 0.6rem 1.4rem;
+        font-weight: 600;
+        border: none;
+        background-color: #ced4da;
+        color: #212529;
+        transition: background 0.3s ease;
+    }
+
+    .step-btn.active {
+        background: linear-gradient(135deg, #7AA2E3, #5e8bd1);
+        color: white;
+    }
+
+    #nextToStep2 {
+        transition: all 0.3s ease-in-out;
+        background: linear-gradient(135deg, #7AA2E3, #5e8bd1);
+        color: white;
+        border: none;
+    }
+
+    #nextToStep2:hover {
+        background: linear-gradient(135deg, #5e8bd1, #3f6fb5);
+        box-shadow: 0 0 10px rgba(122, 162, 227, 0.4);
+    }
+
+    .btn-pesan {
+        background: linear-gradient(135deg, #7AA2E3, #5e8bd1);
+        border: none;
+        color: #fff;
+        padding: 0.75rem 2.5rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-radius: 25px;
+        box-shadow: 0 4px 12px rgba(122, 162, 227, 0.3);
+        transition: all 0.3s ease-in-out;
+    }
+
+     .btn-pesan:hover {
+        background: linear-gradient(135deg, #5e8bd1, #3f6fb5);
+        box-shadow: 0 6px 18px rgba(90, 135, 210, 0.4);
+        transform: translateY(-2px);
+    }
+
+     .btn-pesan:focus {
+        outline: none;
+        box-shadow: 0 0 0 4px rgba(122, 162, 227, 0.3);
+    }
+
+</style>
+
+<script>
+    let selectedCard = null;
+
+    document.querySelectorAll('.kamar-card').forEach(card => {
+        card.addEventListener('click', function () {
+            if (selectedCard) selectedCard.classList.remove('selected');
+            this.classList.add('selected');
+            selectedCard = this;
+
+            const tipe = this.dataset.tipe;
+            const harga = parseInt(this.dataset.harga);
+            const id = this.dataset.id;
+
+            document.getElementById('inputTipeKamar').value = id;
+            document.getElementById('inputHargaKamar').value = harga;
+            document.getElementById('summaryTipe').innerText = tipe;
+            document.getElementById('summaryHarga').innerText = harga.toLocaleString();
+            hitungTotal();
+        });
+    });
+
+    document.getElementById('nextToStep2').addEventListener('click', function () {
+        if (!selectedCard) {
+            alert('Silakan pilih tipe kamar terlebih dahulu.');
+            return;
+        }
+
+        document.getElementById('step1').style.display = 'none';
+        document.getElementById('step2').style.display = 'block';
+
+        document.getElementById('step2Btn').classList.add('active');
+        document.getElementById('step1Indicator').innerText = '✔ Pilih Kamar';
+    });
+
+    document.getElementById('backToStep1').addEventListener('click', function () {
+        document.getElementById('step2').style.display = 'none';
+        document.getElementById('step1').style.display = 'block';
+
+        document.getElementById('step2Btn').classList.remove('active');
+        document.getElementById('step1Indicator').innerText = '1. Pilih Kamar';
+    });
+
+    function hitungTotal() {
+        const harga = parseInt(document.getElementById('inputHargaKamar').value || 0);
+        const jumlah = parseInt(document.getElementById('jumlahKamar').value || 1);
+        const inDate = new Date(document.getElementById('tglCheckIn').value);
+        const outDate = new Date(document.getElementById('tglCheckOut').value);
+        let durasi = (outDate - inDate) / (1000 * 60 * 60 * 24);
+        if (durasi < 1 || isNaN(durasi)) durasi = 0;
+
+        const total = harga * jumlah * durasi;
+        document.getElementById('summaryJumlah').innerText = jumlah;
+        document.getElementById('summaryDurasi').innerText = durasi;
+        document.getElementById('summaryTotal').innerText = total.toLocaleString();
+    }
+
+    ['jumlahKamar', 'tglCheckIn', 'tglCheckOut'].forEach(id => {
+        document.getElementById(id).addEventListener('input', hitungTotal);
+    });
+</script>
+@endsection
