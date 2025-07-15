@@ -287,6 +287,8 @@
           <li><a class="nav-link scrollto" href="#fasilitas">Fasilitas</a></li>
           <li><a class="nav-link scrollto" href="#rekomendasi-kesehatan">Kesehatan</a></li>
           <li><a class="nav-link scrollto" href="#rekomendasi-destinasi">Wisata</a></li>
+          <li><a class="nav-link scrollto" href="#existing-ratings">Penilaian</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Kontak</a></li>
 
           @auth
             @if(auth()->user()->role === 'admin')
