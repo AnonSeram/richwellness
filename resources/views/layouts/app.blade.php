@@ -288,8 +288,6 @@
           <li><a class="nav-link scrollto" href="#fasilitas">{{ __("messages.facilities") }}</a></li>
           <li><a class="nav-link scrollto" href="#rekomendasi-kesehatan">{{ __("messages.health") }}</a></li>
           <li><a class="nav-link scrollto" href="#rekomendasi-destinasi">{{ __("messages.tourism") }}</a></li>
-          <li><a class="nav-link scrollto" href="#existing-ratings">{{ __("messages.ratings") }}</a></li>
-          <li><a class="nav-link scrollto" href="#contact">{{ __("messages.contact") }}</a></li>
 
           <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
