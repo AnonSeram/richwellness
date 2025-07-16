@@ -93,9 +93,9 @@ return [
     'hero_description' => 'Welcome to Rich Wellness, an oasis of health and well-being in the heart of Jogja. We offer modern facilities and special programs to refresh your body, calm your mind, and balance your soul. With us, realize a healthier and more meaningful life.',
 
     // Featured Packages
-    'serenity_retreat_title' => 'Serenity Retreat',
+    'serenity_retreat_title' => 'Kocak',
     'serenity_retreat_description' => 'Experience true peace with calming yoga sessions and spa therapies.',
-    'renewal_journey_title' => 'Renewal Journey',
+    'renewal_journey_title' => 'Blablabla',
     'renewal_journey_description' => 'A journey of body rejuvenation through yoga, massage therapy, and healthy food.',
     'harmony_experience_title' => 'Harmony Experience',
     'harmony_experience_description' => 'Find life balance through health activities and relaxing spa.',
