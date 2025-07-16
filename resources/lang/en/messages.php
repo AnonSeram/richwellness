@@ -20,7 +20,7 @@ return [
     'health' => 'Health',
     'tourism' => 'Tourism',
     'ratings' => 'Ratings',
-    'book_now' => 'Book Now',
+    'book_now' => 'Pesan Sekarang',
     'book' => 'Book',
 
     // Common
