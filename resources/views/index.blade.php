@@ -290,6 +290,24 @@
           <li><a class="nav-link scrollto" href="#existing-ratings">{{ __("messages.ratings") }}</a></li>
           <li><a class="nav-link scrollto" href="#contact">{{ __("messages.contact") }}</a></li>
 
+             <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ config("app.available_locales")[App::getLocale()]["native"] }} {{ config("app.available_locales")[App::getLocale()]["flag"] }}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        @foreach (config("app.available_locales") as $locale => $data)
+                            <li>
+                                <a class="dropdown-item" href="{{ route("language.switch", $locale) }}">
+                                    {{ $data["native"] }} {{ $data["flag"] }}
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
           @auth
             @if(auth()->user()->role === 'admin')
               <li><a class="getstarted scrollto" style="padding: 10px 20px;" href="{{ route('admin.home') }}">{{ __("messages.dashboard") }}</a></li>
