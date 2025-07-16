@@ -62,7 +62,7 @@
                             <i class="bi bi-star-fill" style="font-size: 3rem; color: #FFC107;"></i>
                         </div>
                         <h4 class="card-title" style="color: #7AA2E3; font-weight: bold;">{{ __("messages.serenity_retreat_title") }}</h4>
-                        <p class="card-text flex-grow-1 mt-3">"bangsat"</p>
+                        <p class="card-text flex-grow-1 mt-3">{{ __("messages.serenity_retreat_description") }}</p>
                         <a href="/pesanReservasi" class="btn btn-primary mt-3" style="border-radius: 30px;">{{ __("messages.book_now") }}</a>
                     </div>
                 </div>

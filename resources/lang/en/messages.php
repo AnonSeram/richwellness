@@ -94,9 +94,9 @@ return [
 
     // Featured Packages
     'serenity_retreat_title' => 'Kocak',
-    'serenity_retreat_description' => 'Experience true peace with calming yoga sessions and spa therapies.',
+    'serenity_retreat_description' => 'wah gila',
     'renewal_journey_title' => 'Blablabla',
-    'renewal_journey_description' => 'A journey of body rejuvenation through yoga, massage therapy, and healthy food.',
+    'renewal_journey_description' => 'anjing.',
     'harmony_experience_title' => 'Harmony Experience',
     'harmony_experience_description' => 'Find life balance through health activities and relaxing spa.',
     'ultimate_wellness_title' => 'Ultimate Wellness',
