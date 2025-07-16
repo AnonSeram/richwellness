@@ -1,358 +1,18 @@
-<!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
-<head>
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Rich Wellness</title>
+@extends('layouts.app')
 
-  <!-- Favicon -->
-  <link href="assets/homepage/img/favicon.png" rel="icon" />
-  <link href="assets/homepage/img/apple-touch-icon.png" rel="apple-touch-icon" />
-
-  <!-- Fonts & Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Raleway:300,400,500,600,700|Poppins:300,400,500,600,700"
-    rel="stylesheet" />
-
-  <!-- Vendor CSS -->
-  <link href="assets/homepage/vendor/aos/aos.css" rel="stylesheet" />
-  <link href="assets/homepage/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="assets/homepage/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
-  <link href="assets/homepage/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
-  <link href="assets/homepage/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
-  <link href="assets/homepage/vendor/remixicon/remixicon.css" rel="stylesheet" />
-  <link href="https://unpkg.com/swiper/swiper-bundle.min.css" rel="stylesheet" />
-
-  <!-- Main CSS -->
-  <link href="assets/homepage/css/style.css" rel="stylesheet" />
-  <link href="tokopedia_carousel.css" rel="stylesheet" />
-
-  <!-- Custom CSS -->
-  <style>
-    
-    .image-swipper {
-      border-radius: 20px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      width: 90%;
-      height: auto;
-      object-fit: cover;
-    }
-
-    .image-swipper:hover {
-      transform: scale(1.02);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
-    }
-
-    .swiper {
-      background: transparent;
-      padding: 20px 0;
-    }
-
-    .swiper-slide {
-      background: transparent;
-      display: flex;
-      justify-content: center;
-    }
-
-    .swiper-container {
-      width: 100%;
-      height: 600px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .swiper-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    .carousel-container {
-      margin-top: 30px; /* FIXED: Tambahkan ini agar tidak tertutup header */
-    }
-
-    .map-container {
-      display: flex;
-      justify-content: center;
-    }
-
-    .map-container iframe {
-      margin-top: auto;
-      margin-bottom: auto;
-    }
-
-    .my-3 {
-      margin-top: 10px;
-      margin-bottom: 10px;
-    }
-
-    .justify-content-between>.col-lg-2 {
-      margin-bottom: 20px;
-      border: 1px solid transparent;
-      transition: border-color 0.01s;
-    }
-
-    .justify-content-between>.col-lg-2:hover {
-      border-color: blue;
-    }
-
-    #penilaian,
-    #paket-unggulan,
-    #rekomendasi-kesehatan {
-      background-color: #FFBFA3;
-    }
-
-    #header {
-      background-color: #FEFDED;
-    }
-
-    #footer {
-      background-color: #5E96AE;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      padding-right: 30px;
-    }
-
-    .logo img {
-      width: auto;
-      margin-left: 30px;
-    }
-
-    .btn-primary {
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      padding: 8px 15px;
-      border-radius: 5px;
-      font-size: 14px;
-      display: block;
-      margin: auto;
-      text-align: center;
-    }
-
-    .btn-primary:hover {
-      background-color: #0056b3;
-    }
-
-    .btn-daftar {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      padding: 10px 20px;
-      border: 2px solid #99a3e3;
-      border-radius: 50px;
-      color: #99a3e3;
-      font-size: 16px;
-      transition: all 0.3s ease;
-      width: 100px;
-      margin-left: 10px;
-      text-decoration: none;
-    }
-
-    .btn-daftar:hover {
-      background-color: #99a3e3;
-      color: white;
-    }
-
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-
-    .dropdown-menu {
-      display: none;
-      position: absolute;
-      background-color: white;
-      border-radius: 50px;
-      min-width: 160px;
-      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-      z-index: 1;
-      list-style-type: none;
-      padding: 10px 0;
-      margin: 0;
-    }
-
-    .dropdown-menu li {
-      padding: 8px 16px;
-    }
-
-    .dropdown-menu li a,
-    .dropdown-menu li button {
-      color: #333;
-      text-decoration: none;
-      display: block;
-      width: 100%;
-      text-align: left;
-    }
-
-    .dropdown:hover .dropdown-menu {
-      display: block;
-      margin-top: 10px;
-      border-radius: 20px;
-    }
-
-    .swiper-button-prev::after,
-    .swiper-button-next::after {
-      display: none;
-    }
-
-    .custom-swiper-btn {
-      width: 40px;
-      height: 40px;
-      background-color: #ffffff;
-      border-radius: 50%;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      cursor: pointer;
-      z-index: 10;
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-    }
-
-    .custom-swiper-btn:hover {
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-      transform: translateY(-50%) scale(1.05);
-    }
-
-    .swiper-button-prev {
-      left: 10px;
-    }
-
-    .swiper-button-next {
-      right: 10px;
-    }
-
-    .arrow {
-      border: solid #6c757d;
-      border-width: 0 2px 2px 0;
-      display: inline-block;
-      padding: 5px;
-    }
-
-    .arrow.right {
-      transform: rotate(-45deg);
-    }
-
-    .arrow.left {
-      transform: rotate(135deg);
-    }
-
-        .booking-btn {
-        position: absolute;
-        bottom: 120px;
-        right: 80px;
-        background-color: #99a3e3;
-        color: white;
-        padding: 12px 24px;
-        border-radius: 26px;
-        font-size: 20px;
-        text-decoration: none;
-        font-weight: bold;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-        transition: all 0.3s ease;
-        font-family: 'Montserrat';
-    }
-
-    .booking-btn:hover {
-        background-color:rgb(242, 243, 245);
-        transform: scale(1.05);
-    }
-
-  </style>
-</head>
-<body>
-
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center">
-    <div class="container d-flex align-items-center justify-content-between">
-      <div class="logo d-flex align-items-center">
-        <img src="assets/homepage/img/logo.png" alt="Rich Wellness Logo" />
-        <h1><a href="/">Rich Wellness</a></h1>
-      </div>
-      <nav id="navbar" class="navbar">
-        <ul class="d-flex align-items-center">
-          <li><a class="nav-link scrollto" href="#hero">{{ __("messages.home") }}</a></li>
-          <li><a class="nav-link scrollto" href="#paket-unggulan">{{ __("messages.featured_packages") }}</a></li>
-          <li><a class="nav-link scrollto" href="#kamar">{{ __("messages.rooms") }}</a></li>
-          <li><a class="nav-link scrollto" href="#fasilitas">{{ __("messages.facilities") }}</a></li>
-          <li><a class="nav-link scrollto" href="#rekomendasi-kesehatan">{{ __("messages.health") }}</a></li>
-          <li><a class="nav-link scrollto" href="#rekomendasi-destinasi">{{ __("messages.tourism") }}</a></li>
-          <li><a class="nav-link scrollto" href="#existing-ratings">{{ __("messages.ratings") }}</a></li>
-          <li><a class="nav-link scrollto" href="#contact">{{ __("messages.contact") }}</a></li>
-
-             <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        {{ config("app.available_locales")[App::getLocale()]["native"] }} {{ config("app.available_locales")[App::getLocale()]["flag"] }}
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        @foreach (config("app.available_locales") as $locale => $data)
-                            <li>
-                                <a class="dropdown-item" href="{{ route("language.switch", $locale) }}">
-                                    {{ $data["native"] }} {{ $data["flag"] }}
-                                </a>
-                            </li>
-                        @endforeach
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-          @auth
-            @if(auth()->user()->role === 'admin')
-              <li><a class="getstarted scrollto" style="padding: 10px 20px;" href="{{ route('admin.home') }}">{{ __("messages.dashboard") }}</a></li>
-            @elseif(auth()->user()->role === 'resepsionis')
-              <li><a class="getstarted scrollto" style="padding: 10px 20px;" href="{{ route('resepsionis') }}">{{ __("messages.dashboard") }}</a></li>
-            @else
-              <li class="dropdown">
-                <a class="getstarted scrollto" href="#">{{ auth()->user()->name }}</a>
-                <ul class="dropdown-menu">
-                  <li><a href="{{ route('user.profile') }}"><i class="fas fa-id-badge me-2"></i> {{ __("messages.profile") }}</a></li>
-                  <li><a href="{{ route('dashboard') }}"><i class="fas fa-receipt me-2"></i> {{ __("messages.transactions") }}</a></li>
-                  <li><a href="{{ route('keranjang') }}"><i class="fas fa-bucket me-2"></i> {{ __("messages.cart") }}</a></li>
-                  <li>
-                    <form method="POST" action="{{ route('logout') }}">
-                      @csrf
-                      <button type="submit" style="background: none; border: none; padding: 0; color: #333; cursor: pointer;">
-                        <i class="fas fa-sign-out-alt me-2"></i> {{ __("messages.logout") }}
-                      </button>
-                    </form>
-                  </li>
-                </ul>
-              </li>
-            @endif
-          @else
-            <li><a class="getstarted scrollto" style="padding: 10px 20px;" href="{{ route('login') }}">{{ __("messages.login") }}</a></li>
-            <li><a class="btn-daftar scrollto" href="{{ route('register') }}">{{ __("messages.register") }}</a></li>
-          @endauth
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav>
-    </div>
-  </header>
-  <!-- End Header -->
+@section('content')
 
   <!-- Swiper Carousel -->
   <div class="carousel-container">
     <div class="swiper-container main-carousel">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="/nyoba/images/carousel/1.png" alt="swipper-image-1" />
+        <div class="swiper-slide"><img src="{{ asset('nyoba/images/carousel/1.png') }}" alt="swipper-image-1" />
         <a href="/pesanReservasi" class="booking-btn">{{ __("messages.book_now") }}</a></div>
-        <div class="swiper-slide"><img src="/nyoba/images/carousel/2.png" alt="swipper-image-2" /></div>
-        <div class="swiper-slide"><img src="/nyoba/images/carousel/3.png" alt="swipper-image-3" /></div>
-        <div class="swiper-slide"><img src="/nyoba/images/carousel/4.png" alt="swipper-image-4" /></div>
-        <div class="swiper-slide"><img src="/nyoba/images/carousel/5.png" alt="swipper-image-5" /></div>
-        <div class="swiper-slide"><img src="/nyoba/images/carousel/6.png" alt="swipper-image-6" /></div>
+        <div class="swiper-slide"><img src="{{ asset('nyoba/images/carousel/2.png') }}" alt="swipper-image-2" /></div>
+        <div class="swiper-slide"><img src="{{ asset('nyoba/images/carousel/3.png') }}" alt="swipper-image-3" /></div>
+        <div class="swiper-slide"><img src="{{ asset('nyoba/images/carousel/4.png') }}" alt="swipper-image-4" /></div>
+        <div class="swiper-slide"><img src="{{ asset('nyoba/images/carousel/5.png') }}" alt="swipper-image-5" /></div>
+        <div class="swiper-slide"><img src="{{ asset('nyoba/images/carousel/6.png') }}" alt="swipper-image-6" /></div>
       </div>
 
       <!-- Pagination & Arrows -->
@@ -378,7 +38,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left" data-aos-delay="200">
-                    <img src="assets/homepage/img/hero-img1.png" class="img-fluid animated" alt="">
+                    <img src="{{ asset('assets/homepage/img/hero-img1.png') }}" class="img-fluid animated" alt="">
                 </div>
             </div>
         </div>
@@ -502,7 +162,7 @@
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="service-item text-center">
                     <div class="service-img mb-3">
-                        <img src="nyoba/images/fasilitas/1.jpg" alt="Swimming Pool">
+                        <img src="{{ asset('nyoba/images/fasilitas/1.jpg') }}" alt="Swimming Pool">
                     </div>
                     <h5>{{ __("messages.swimming_pool") }}</h5>
                 </div>
@@ -510,7 +170,7 @@
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="service-item text-center">
                     <div class="service-img mb-3">
-                        <img src="nyoba/images/fasilitas/6.jpg" alt="SPA">
+                        <img src="{{ asset('nyoba/images/fasilitas/6.jpg') }}" alt="SPA">
                     </div>
                     <h5>{{ __("messages.spa") }}</h5>
                 </div>
@@ -518,7 +178,7 @@
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="service-item text-center">
                     <div class="service-img mb-3">
-                        <img src="nyoba/images/fasilitas/7.jpg" alt="Fitness Center">
+                        <img src="{{ asset('nyoba/images/fasilitas/7.jpg') }}" alt="Fitness Center">
                     </div>
                     <h5>{{ __("messages.fitness_center") }}</h5>
                 </div>
@@ -526,7 +186,7 @@
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="service-item text-center">
                     <div class="service-img mb-3">
-                        <img src="nyoba/images/fasilitas/8.jpg" alt="Sauna">
+                        <img src="{{ asset('nyoba/images/fasilitas/8.jpg') }}" alt="Sauna">
                     </div>
                     <h5>{{ __("messages.sauna") }}</h5>
                 </div>
@@ -537,7 +197,7 @@
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="service-item text-center">
                     <div class="service-img mb-3">
-                        <img src="nyoba/images/fasilitas/3.jpg" alt="Breakfast">
+                        <img src="{{ asset('nyoba/images/fasilitas/3.jpg') }}" alt="Breakfast">
                     </div>
                     <h5>{{ __("messages.breakfast") }}</h5>
                 </div>
@@ -545,7 +205,7 @@
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="service-item text-center">
                     <div class="service-img mb-3">
-                        <img src="nyoba/images/fasilitas/4.jpg" alt="Parking Lot">
+                        <img src="{{ asset('nyoba/images/fasilitas/4.jpg') }}" alt="Parking Lot">
                     </div>
                     <h5>{{ __("messages.parking_lot") }}</h5>
                 </div>
@@ -553,7 +213,7 @@
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="service-item text-center">
                     <div class="service-img mb-3">
-                        <img src="nyoba/images/fasilitas/5.jpg" alt="Lunch">
+                        <img src="{{ asset('nyoba/images/fasilitas/5.jpg') }}" alt="Lunch">
                     </div>
                     <h5>{{ __("messages.lunch") }}</h5>
                 </div>
@@ -561,7 +221,7 @@
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="service-item text-center">
                     <div class="service-img mb-3">
-                        <img src="nyoba/images/fasilitas/2.jpg" alt="Wifi">
+                        <img src="{{ asset('nyoba/images/fasilitas/2.jpg') }}" alt="Wifi">
                     </div>
                     <h5>{{ __("messages.wifi") }}</h5>
                 </div>
@@ -622,7 +282,7 @@
       <!-- CARD 1 -->
       <div class="custom-card">
         <div class="img-container">
-          <img src="/assets/homepage/img/kesehatan/4.png" class="custom-img" alt="Poliklinik Mata">
+          <img src="{{ asset('assets/homepage/img/kesehatan/4.png') }}" class="custom-img" alt="Poliklinik Mata">
         </div>
         <h4 class="custom-title">{{ __("messages.eye_clinic_sardjito_title") }}</h4>
         <p class="custom-text">{{ __("messages.eye_clinic_sardjito_description") }}</p>
@@ -632,7 +292,7 @@
       <!-- CARD 2 -->
       <div class="custom-card">
         <div class="img-container">
-          <img src="/assets/homepage/img/kesehatan/2.png" class="custom-img" alt="Klinik Kulit">
+          <img src="{{ asset('assets/homepage/img/kesehatan/2.png') }}" class="custom-img" alt="Klinik Kulit">
         </div>
         <h4 class="custom-title">{{ __("messages.skin_clinic_panti_rapih_title") }}</h4>
         <p class="custom-text">{{ __("messages.skin_clinic_panti_rapih_description") }}</p>
@@ -642,7 +302,7 @@
       <!-- CARD 3 -->
       <div class="custom-card">
         <div class="img-container">
-          <img src="/assets/homepage/img/kesehatan/3.png" class="custom-img" alt="Klinik Ginjal">
+          <img src="{{ asset('assets/homepage/img/kesehatan/3.png') }}" class="custom-img" alt="Klinik Ginjal">
         </div>
         <h4 class="custom-title">{{ __("messages.kidney_clinic_pku_title") }}</h4>
         <p class="custom-text">{{ __("messages.kidney_clinic_pku_description") }}</p>
@@ -652,7 +312,7 @@
       <!-- CARD 4 -->
       <div class="custom-card">
         <div class="img-container">
-          <img src="/assets/homepage/img/kesehatan/1.png" class="custom-img" alt="Klinik Jantung">
+          <img src="{{ asset('assets/homepage/img/kesehatan/1.png') }}" class="custom-img" alt="Klinik Jantung">
         </div>
         <h4 class="custom-title">{{ __("messages.heart_clinic_sardjito_title") }}</h4>
         <p class="custom-text">{{ __("messages.heart_clinic_sardjito_description") }}</p>
@@ -748,7 +408,7 @@
     <div class="card-wrapper">
       
       <div class="card-custom">
-        <img src="/assets/homepage/img/destinasi/4.png" alt="Heha Sky View" class="card-img">
+        <img src="{{ asset('assets/homepage/img/destinasi/4.png') }}" class="card-img">
         <div class="card-body-custom">
           <h4>{{ __("messages.heha_sky_view_title") }}</h4>
           <p>{{ __("messages.heha_sky_view_description") }}</p>
@@ -759,7 +419,7 @@
       </div>
 
       <div class="card-custom">
-        <img src="/assets/homepage/img/destinasi/3.png" alt="Waduk Sermo" class="card-img">
+        <img src="{{ asset('assets/homepage/img/destinasi/3.png') }}" class="card-img">
         <div class="card-body-custom">
           <h4>{{ __("messages.sermo_reservoir_title") }}</h4>
           <p>{{ __("messages.sermo_reservoir_description") }}</p>
@@ -770,7 +430,7 @@
       </div>
 
       <div class="card-custom">
-        <img src="/assets/homepage/img/destinasi/2.png" alt="Pantai Parangritis" class="card-img">
+        <img src="{{ asset('assets/homepage/img/destinasi/2.png') }}" class="card-img">
         <div class="card-body-custom">
           <h4>{{ __("messages.parangtritis_beach_title") }}</h4>
           <p>{{ __("messages.parangtritis_beach_description") }}</p>
@@ -781,7 +441,7 @@
       </div>
 
       <div class="card-custom">
-        <img src="/assets/homepage/img/destinasi/5.png" alt="Mangunan Yogyakarta" class="card-img">
+        <img src="{{ asset('assets/homepage/img/destinasi/5.png') }}" class="card-img">
         <div class="card-body-custom">
           <h4>{{ __("messages.mangunan_yogyakarta_title") }}</h4>
           <p>{{ __("messages.mangunan_yogyakarta_description") }}</p>
@@ -792,18 +452,18 @@
       </div>
 
       <div class="card-custom">
-        <img src="/assets/homepage/img/destinasi/1.png" alt="Bukit Bintang" class="card-img">
+        <img src="{{ asset('assets/homepage/img/destinasi/1.png') }}" class="card-img">
         <div class="card-body-custom">
           <h4>{{ __("messages.bukit_bintang_title") }}</h4>
           <p>{{ __("messages.bukit_bintang_description") }}</p>
           <div class="btn-wrapper">
-            <a href="https://maps.app.goo.gl/FgnNE6dUi71mULE27" class="btn-custom" target="_blank">{{ __("messages.view_maps") }}</a>
+            <a href="https://www.google.com/maps/search/heha+sky+view/@-7.9774678,110.3051026,11z/data=!3m1!4b1?entry=ttu" class="btn-custom" target="_blank">{{ __("messages.view_maps") }}</a>
           </div>
         </div>
       </div>
 
       <div class="card-custom">
-        <img src="/assets/homepage/img/destinasi/6.png" alt="Merapi Park" class="card-img">
+        <img src="{{ asset('assets/homepage/img/destinasi/6.png') }}" class="card-img">
         <div class="card-body-custom">
           <h4>{{ __("messages.merapi_park_title") }}</h4>
           <p>{{ __("messages.merapi_park_description") }}</p>
@@ -814,7 +474,7 @@
       </div>
 
       <div class="card-custom">
-        <img src="/assets/homepage/img/destinasi/7.png" alt="Sungai Mudal" class="card-img">
+        <img src="{{ asset('assets/homepage/img/destinasi/7.png') }}" class="card-img">
         <div class="card-body-custom">
           <h4>{{ __("messages.mudal_river_title") }}</h4>
           <p>{{ __("messages.mudal_river_description") }}</p>
@@ -825,7 +485,7 @@
       </div>
 
       <div class="card-custom">
-        <img src="/assets/homepage/img/destinasi/9.png" alt="Candi Prambanan" class="card-img">
+        <img src="{{ asset('assets/homepage/img/destinasi/9.png') }}" class="card-img">
         <div class="card-body-custom">
           <h4>{{ __("messages.prambanan_temple_title") }}</h4>
           <p>{{ __("messages.prambanan_temple_description") }}</p>
@@ -836,7 +496,7 @@
       </div>
 
       <div class="card-custom">
-        <img src="/assets/homepage/img/destinasi/8.png" alt="Benteng Vredeburg" class="card-img">
+        <img src="{{ asset('assets/homepage/img/destinasi/8.png') }}" class="card-img">
         <div class="card-body-custom">
           <h4>{{ __("messages.vredeburg_fortress_title") }}</h4>
           <p>{{ __("messages.vredeburg_fortress_description") }}</p>
@@ -847,7 +507,7 @@
       </div>
 
       <div class="card-custom">
-        <img src="/assets/homepage/img/destinasi/10.png" alt="Malioboro" class="card-img">
+        <img src="{{ asset('assets/homepage/img/destinasi/10.png') }}" class="card-img">
         <div class="card-body-custom">
           <h4>{{ __("messages.malioboro_title") }}</h4>
           <p>{{ __("messages.malioboro_description") }}</p>
@@ -965,7 +625,7 @@
         <!-- End Rekomendasi Destinasi -->
 
         <!-- Testimoni -->
-<<section id="existing-ratings" data-aos="fade-up"  class="existing-ratings mt-5 px-3 px-md-5">
+<section id="existing-ratings" data-aos="fade-up"  class="existing-ratings mt-5 px-3 px-md-5">
   <h3 class="text-center mb-5 fw-bold" style="font-size: 2.5rem;">{{ __("messages.what_visitors_say") }}</h3>
   <div class="row g-4">
     @foreach($ratings as $rating)
@@ -986,9 +646,6 @@
           </div>
           <div class="mb-2" style="color: #f5b301; font-size: 1.1rem;">
             {{ str_repeat('★', $rating->rating) }}{{ str_repeat('☆', 5 - $rating->rating) }}
-          </div>
-          <p class="mb-0 text-secondary" style="font-size: 0.95rem; line-height: 1.6;">
-            {{ $rating->description }}
           </p>
         </div>
       </div>
@@ -1048,43 +705,18 @@
     </main>
     <!-- End #main -->
 
-    <!-- ======= Footer ======= -->
-    <footer id="footer">
-        <div class="container">
-            <div class="row d-flex align-items-center">
-                <div class="col-lg-6 text-lg-left text-center">
-                    <div class="copyright">
-                        &copy; {{ __("messages.copyright") }} <strong>Rich Wellness</strong>. {{ __("messages.all_rights_reserved") }}
-                    </div>
-                    <div class="credits">
-                        {{ __("messages.designed_by") }} <a href="{{ route('team.index') }}">{{ __("messages.group_9") }}</a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
-                        <a href="/" class="scrollto">{{ __("messages.home") }}</a>
-                        <a href="#about" class="scrollto">{{ __("messages.about") }}</a>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- End Footer -->
-
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
-
     <!-- Vendor JS Files -->
-    <script src="assets/homepage/vendor/purecounter/purecounter.js"></script>
-    <script src="assets/homepage/vendor/aos/aos.js"></script>
-    <script src="assets/homepage/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/homepage/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="assets/homepage/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="assets/homepage/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="assets/homepage/vendor/php-email-form/validate.js"></script>
+    <script src="{{ asset('assets/homepage/vendor/purecounter/purecounter.js') }}"></script>
+    <script src="{{ asset('assets/homepage/vendor/aos/aos.js') }}"></script>
+    <!-- Updated to Bootstrap 5 JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="{{ asset('assets/homepage/vendor/glightbox/js/glightbox.min.js') }}"></script>
+    <script src="{{ asset('assets/homepage/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ asset('assets/homepage/vendor/swiper/swiper-bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/homepage/vendor/php-email-form/validate.js') }}"></script>
 
     <!-- Template Main JS File -->
-    <script src="assets/homepage/js/main.js"></script>
+    <script src="{{ asset('assets/homepage/js/main.js') }}"></script>
     <script>
         // Inisialisasi Swiper untuk Rekomendasi Layanan Kesehatan
 var rekomendasiSwiper = new Swiper('.rekomendasi-swiper', {
@@ -1145,8 +777,6 @@ var mainCarouselSwiper = new Swiper('.main-carousel', {
     </script>
 
 
-</body>
-
-</html>
+@endsection
 
 
