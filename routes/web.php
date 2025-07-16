@@ -33,28 +33,28 @@ use Illuminate\Support\Facades\Auth;
 // Halaman Publik (Tanpa Login)
 // ==========================
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/team', [TeamController::class, 'index'])->name('team.index');
+Route::get("/",[HomeController::class, "index"])->name("home");
+Route::get("/team", [TeamController::class, "index"])->name("team.index");
 
 // Halaman Register & Login
-Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
-Route::post('/register', [RegisterController::class, 'register']);
+Route::get("/register", [RegisterController::class, "showRegistrationForm"])->name("register");
+Route::post("/register", [RegisterController::class, "register"]);
 
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [LoginController::class, 'login']);
-Route::post('/logout', function () {
+Route::get("/login", [LoginController::class, "showLoginForm"])->name("login");
+Route::post("/login", [LoginController::class, "login"]);
+Route::post("/logout", function () {
     Auth::logout();
-    return redirect('/');
-})->name('logout');
+    return redirect("/");
+})->name("logout");
 
 // Bukti & Pembayaran (Tidak Perlu Login)
-Route::get('/bukti-online', [PemesananController::class, 'showBuktiOnline'])->name('bukti.online');
-Route::get('/cetak-bukti/{kode_booking}', [PemesananController::class, 'cetakBukti'])->name('cetak.bukti');
-Route::get('/check-payment/{kode_booking}', [PemesananController::class, 'checkPayment']);
-Route::get('/cetak', [PemesananController::class, 'cetakBukti']);
+Route::get("/bukti-online", [PemesananController::class, "showBuktiOnline"])->name("bukti.online");
+Route::get("/cetak-bukti/{kode_booking}", [PemesananController::class, "cetakBukti"])->name("cetak.bukti");
+Route::get("/check-payment/{kode_booking}", [PemesananController::class, "checkPayment"]);
+Route::get("/cetak", [PemesananController::class, "cetakBukti"]);
 
-Route::post('/ratings', [RatingController::class, 'store'])->name('ratings.store');
-Route::put('/ratings/{rating}', [RatingController::class, 'update'])->name('ratings.update');
+Route::post("/ratings", [RatingController::class, "store"])->name("ratings.store");
+Route::put("/ratings/{rating}", [RatingController::class, "update"])->name("ratings.update");
 
 
 // ==========================
@@ -62,47 +62,47 @@ Route::put('/ratings/{rating}', [RatingController::class, 'update'])->name('rati
 // ==========================
 
 // Rute untuk menampilkan halaman view chatbot
-Route::get('/chat', [ChatController::class, 'index'])->name('chat.index');
+Route::get("/chat", [ChatController::class, "index"])->name("chat.index");
 
 // Grup rute API untuk interaksi AJAX dari frontend
-Route::prefix('api')->name('api.')->group(function () {
-    Route::prefix('chat')->name('chat.')->group(function () {
-        Route::post('/send', [ChatController::class, 'send'])->name('send');
-        Route::get('/history', [ChatController::class, 'history'])->name('history');
-        Route::post('/change-language', [ChatController::class, 'changeLanguage'])->name('changeLanguage');
+Route::prefix("api")->name("api.")->group(function () {
+    Route::prefix("chat")->name("chat.")->group(function () {
+        Route::post("/send", [ChatController::class, "send"])->name("send");
+        Route::get("/history", [ChatController::class, "history"])->name("history");
+        Route::post("/change-language", [ChatController::class, "changeLanguage"])->name("changeLanguage");
     });
 });
 
 // Webhook untuk Dialogflow (jika masih digunakan)
-Route::post('/webhook', [WebhookController::class, 'handleWebhook']);
-Route::post('/webhook/dialogflow', [WebhookController::class, 'handleDialogflow']);
+Route::post("/webhook", [WebhookController::class, "handleWebhook"]);
+Route::post("/webhook/dialogflow", [WebhookController::class, "handleDialogflow"]);
 
 
 // ==========================
 // Route yang Membutuhkan Login
 // ==========================
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(["auth"])->group(function () {
     
     // User Dashboard
-    Route::get('/dashboard', [HomeController::class, 'user'])->name('dashboard');
+    Route::get("/dashboard", [HomeController::class, "user"])->name("dashboard");
 
     // Pemesanan
-    Route::get('/pesanReservasi', [PemesananController::class, 'index'])->name('pesanReservasi.index');
-    Route::post('/pesanReservasi/store', [PemesananController::class, 'store'])->name('pesanReservasi.store');
+    Route::get("/pesanReservasi", [PemesananController::class, "index"])->name("pesanReservasi.index");
+    Route::post("/pesanReservasi/store", [PemesananController::class, "store"])->name("pesanReservasi.store");
 
     // Keranjang dan Lanjut Bayar
-    Route::get('/user/keranjang', [PemesananController::class, 'keranjang'])->name('keranjang');
-    Route::get('/lanjutkan-pembayaran/{kode_booking}', [PemesananController::class, 'lanjutkanPembayaran'])->name('lanjutkan.pembayaran');
+    Route::get("/user/keranjang", [PemesananController::class, "keranjang"])->name("keranjang");
+    Route::get("/lanjutkan-pembayaran/{kode_booking}", [PemesananController::class, "lanjutkanPembayaran"])->name("lanjutkan.pembayaran");
 
     // Ubah Password
-    Route::get('/change-password', [ChangePasswordController::class, 'showChangePasswordForm'])->name('password.change');
-    Route::post('/change-password', [ChangePasswordController::class, 'changePassword'])->name('password.update');
+    Route::get("/change-password", [ChangePasswordController::class, "showChangePasswordForm"])->name("password.change");
+    Route::post("/change-password", [ChangePasswordController::class, "changePassword"])->name("password.update");
 
     // Profile User
-    Route::get('/user/profile', [UserController::class, 'profile'])->name('user.profile');
-    Route::get('/user/profile/edit', [UserController::class, 'editProfile'])->name('user.profile.edit');
-    Route::post('/user/profile/update', [UserController::class, 'updateProfile'])->name('user.profile.update');
+    Route::get("/user/profile", [UserController::class, "profile"])->name("user.profile");
+    Route::get("/user/profile/edit", [UserController::class, "editProfile"])->name("user.profile.edit");
+    Route::post("/user/profile/update", [UserController::class, "updateProfile"])->name("user.profile.update");
 });
 
 
@@ -110,20 +110,20 @@ Route::middleware(['auth'])->group(function () {
 // Admin Routes (Hanya Admin)
 // ==========================
 
-Route::middleware(['auth', 'is_admin'])->group(function () {
-    Route::get('/admin/dashboard', [HomeController::class, 'admin'])->name('admin.home');
+Route::middleware(["auth", "is_admin"])->group(function () {
+    Route::get("/admin/dashboard", [HomeController::class, "admin"])->name("admin.home");
     
-    Route::resource('/dataKamar', DataKamarController::class);
-    Route::resource('/fasilitasKamar', FasilitasKamarController::class);
+    Route::resource("/dataKamar", DataKamarController::class);
+    Route::resource("/fasilitasKamar", FasilitasKamarController::class);
 
-    Route::get('/dataReservasi', [DataReservasiController::class, 'index'])->name('dataReservasi.index');
-    Route::get('/dataReservasi/search', [DataReservasiController::class, 'cari'])->name('dataReservasi.cari');
-    Route::get('/dataReservasi/filter', [DataReservasiController::class, 'tanggal'])->name('dataReservasi.filter');
-    Route::get('/dataReservasi/edit/{id}', [DataReservasiController::class, 'edit'])->name('dataReservasi.edit');
-    Route::put('/dataReservasi/update/{id}', [DataReservasiController::class, 'update'])->name('dataReservasi.update');
-    Route::delete('/dataReservasi/delete/{id}', [DataReservasiController::class, 'destroy'])->name('dataReservasi.destroy');
+    Route::get("/dataReservasi", [DataReservasiController::class, "index"])->name("dataReservasi.index");
+    Route::get("/dataReservasi/search", [DataReservasiController::class, "cari"])->name("dataReservasi.cari");
+    Route::get("/dataReservasi/filter", [DataReservasiController::class, "tanggal"])->name("dataReservasi.filter");
+    Route::get("/dataReservasi/edit/{id}", [DataReservasiController::class, "edit"])->name("dataReservasi.edit");
+    Route::put("/dataReservasi/update/{id}", [DataReservasiController::class, "update"])->name("dataReservasi.update");
+    Route::delete("/dataReservasi/delete/{id}", [DataReservasiController::class, "destroy"])->name("dataReservasi.destroy");
     
-    Route::put('/update-status/{id}', [PemesananController::class, 'updateStatus'])->name('status.update');
+    Route::put("/update-status/{id}", [PemesananController::class, "updateStatus"])->name("status.update");
 });
 
 
@@ -131,14 +131,31 @@ Route::middleware(['auth', 'is_admin'])->group(function () {
 // Resepsionis Routes (Jika masih pakai role resepsionis)
 // ==========================
 
-Route::middleware(['auth', 'role_resepsionis'])->group(function () {
-    Route::get('/resepsionis', [DataReservasiResepsionis::class, 'index'])->name('resepsionis');
+Route::middleware(["auth", "role_resepsionis"])->group(function () {
+    Route::get("/resepsionis", [DataReservasiResepsionis::class, "index"])->name("resepsionis");
 
-    Route::get('/dataReservasiResep', [DataReservasiResepsionis::class, 'index'])->name('dataReservasiResep.index');
-    Route::get('/dataReservasiResep/search', [DataReservasiResepsionis::class, 'cari'])->name('dataReservasiResep.cari');
-    Route::get('/dataReservasiResep/filter', [DataReservasiResepsionis::class, 'tanggal'])->name('dataReservasiResep.filter');
-    Route::get('/dataReservasiResep/edit/{id}', [DataReservasiResepsionis::class, 'edit'])->name('dataReservasiResep.edit');
-    Route::put('/dataReservasiResep/update/{id}', [DataReservasiResepsionis::class, 'update'])->name('dataReservasiResep.update');
-    Route::delete('/dataReservasiResep/delete/{id}', [DataReservasiResepsionis::class, 'destroy'])->name('dataReservasiResep.destroy');
+    Route::get("/dataReservasiResep", [DataReservasiResepsionis::class, "index"])->name("dataReservasiResep.index");
+    Route::get("/dataReservasiResep/search", [DataReservasiResepsionis::class, "cari"])->name("dataReservasiResep.cari");
+    Route::get("/dataReservasiResep/filter", [DataReservasiResepsionis::class, "tanggal"])->name("dataReservasiResep.filter");
+    Route::get("/dataReservasiResep/edit/{id}", [DataReservasiResepsionis::class, "edit"])->name("dataReservasiResep.edit");
+    Route::put("/dataReservasiResep/update/{id}", [DataReservasiResepsionis::class, "update"])->name("dataReservasiResep.update");
+    Route::delete("/dataReservasiResep/delete/{id}", [DataReservasiResepsionis::class, "destroy"])->name("dataReservasiResep.destroy");
 });
+
+// Language switching route
+Route::get("/language/{locale}", [LanguageController::class, "switchLanguage"])->name("language.switch");
+
+// Basic routes without localization
+Route::get("/about", function () {
+    return view("about");
+})->name("about");
+
+Route::get("/services", function () {
+    return view("services");
+})->name("services");
+
+Route::get("/contact", function () {
+    return view("contact");
+})->name("contact");
+
 

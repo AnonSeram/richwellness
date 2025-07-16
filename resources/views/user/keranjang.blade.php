@@ -1,19 +1,21 @@
-@extends('layouts.app')
+@extends("layouts.app")
 
-@section('content')
+@section("content")
 <div class="container">
-    <h2 style="font-weight:600;">Keranjang Pembayaran</h2>
+    <h2 style="font-weight:600;">{{ __("messages.payment_cart") }}</h2>
     @forelse ($keranjang as $item)
         <div class="card mb-3 p-3">
-            <h4>Kode Booking: {{ $item->kode_booking }}</h4>
-            <p>Nama Tamu: {{ $item->nama_tamu }}</p>
-            <p>Total: Rp {{ number_format($item->harga, 0, ',', '.') }}</p>
-            <a href="{{ route('lanjutkan.pembayaran', ['kode_booking' => $item->kode_booking]) }}" class="btn btn-success">
-                Lanjutkan Pembayaran
+            <h4>{{ __("messages.booking_code") }}: {{ $item->kode_booking }}</h4>
+            <p>{{ __("messages.guest_name") }}: {{ $item->nama_tamu }}</p>
+            <p>{{ __("messages.total") }}: Rp {{ number_format($item->harga, 0, ",", ".") }}</p>
+            <a href="{{ route("lanjutkan.pembayaran", ["kode_booking" => $item->kode_booking]) }}" class="btn btn-success">
+                {{ __("messages.continue_payment") }}
             </a>
         </div>
     @empty
-        <p>Tidak ada reservasi yang belum dibayar.</p>
+        <p>{{ __("messages.no_unpaid_reservations") }}</p>
     @endforelse
 </div>
 @endsection
+
+

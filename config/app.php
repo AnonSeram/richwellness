@@ -119,6 +119,22 @@ return [
     |
     */
 
+     'available_locales' => [
+        'en' => [
+            'name' => 'English',
+            'script' => 'Latn',
+            'native' => 'English',
+            'flag' => '🇺🇸',
+        ],
+        'id' => [
+            'name' => 'Indonesian',
+            'script' => 'Latn', 
+            'native' => 'Bahasa Indonesia',
+            'flag' => '🇮🇩',
+        ],
+        // Tambahkan bahasa lain di sini jika diperlukan
+    ],
+
     'key' => env('APP_KEY'),
 
     'cipher' => 'AES-256-CBC',
