@@ -17,6 +17,7 @@ use App\Http\Controllers\ChatController;
 use App\Http\Controllers\PemesananController;
 use App\Http\Controllers\WebhookController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\LanguageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -141,6 +142,7 @@ Route::middleware(["auth", "role_resepsionis"])->group(function () {
     Route::put("/dataReservasiResep/update/{id}", [DataReservasiResepsionis::class, "update"])->name("dataReservasiResep.update");
     Route::delete("/dataReservasiResep/delete/{id}", [DataReservasiResepsionis::class, "destroy"])->name("dataReservasiResep.destroy");
 });
+
 
 // Language switching route
 Route::get("/language/{locale}", [LanguageController::class, "switchLanguage"])->name("language.switch");

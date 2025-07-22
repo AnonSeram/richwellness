@@ -170,30 +170,48 @@
         </div>
         <nav id="navbar" class="navbar">
             <ul class="d-flex align-items-center">
-                <li><a class="nav-link scrollto" href="/">Beranda</a></li>
-                <li><a class="nav-link scrollto" href="/#paket-unggulan">Paket Unggulan</a></li>
-                <li><a class="nav-link scrollto" href="/#kamar">Kamar</a></li>
-                <li><a class="nav-link scrollto" href="/#fasilitas">Fasilitas</a></li>
-                <li><a class="nav-link scrollto" href="/#rekomendasi-kesehatan">Kesehatan</a></li>
-                <li><a class="nav-link scrollto" href="/#rekomendasi-destinasi">Wisata</a></li>
-                <li><a class="nav-link scrollto" href="/#penilaian">Penilaian</a></li>
-                <li><a class="nav-link scrollto" href="/#contact">Kontak</a></li>
+                <li><a class="nav-link scrollto" href="/">{{ __('messages.home') }}</a></li>
+                <li><a class="nav-link scrollto" href="/#paket-unggulan">{{ __('messages.featured_packages') }}</a></li>
+                <li><a class="nav-link scrollto" href="/#kamar">{{ __('messages.rooms') }}</a></li>
+                <li><a class="nav-link scrollto" href="/#fasilitas">{{ __('messages.facilities') }}</a></li>
+                <li><a class="nav-link scrollto" href="/#rekomendasi-kesehatan">{{ __('messages.health') }}</a></li>
+                <li><a class="nav-link scrollto" href="/#rekomendasi-destinasi">{{ __('messages.tourism') }}</a></li>
+                <li><a class="nav-link scrollto" href="/#penilaian">{{ __('messages.ratings') }}</a></li>
+                <li><a class="nav-link scrollto" href="/#contact">{{ __('messages.contact') }}</a></li>
+                
+                <!-- Language Switcher -->
+                <li class="dropdown">
+                    <a class="nav-link scrollto" href="#" style="display: flex; align-items: center;">
+                        <i class="fas fa-globe me-1"></i>
+                        {{ app()->getLocale() == 'id' ? 'ID' : 'EN' }}
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ route('language.switch', 'id') }}">
+                            <img src="https://flagcdn.com/w20/id.png" alt="ID" style="width: 20px; margin-right: 8px;">
+                            Bahasa Indonesia
+                        </a></li>
+                        <li><a href="{{ route('language.switch', 'en') }}">
+                            <img src="https://flagcdn.com/w20/us.png" alt="EN" style="width: 20px; margin-right: 8px;">
+                            English
+                        </a></li>
+                    </ul>
+                </li>
 
                 @auth
                     @if(auth()->user()->role === 'admin')
-                        <li><a class="getstarted scrollto" href="{{ route('admin.home') }}">Dashboard</a></li>
+                        <li><a class="getstarted scrollto" href="{{ route('admin.home') }}">{{ __('messages.dashboard') }}</a></li>
                     @else
                         <li class="dropdown">
                             <a class="getstarted scrollto" href="#">{{ auth()->user()->name }}</a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ route('user.profile') }}"><i class="fas fa-id-badge me-2"></i> Profile</a></li>
-                                <li><a href="{{ route('dashboard') }}"><i class="fas fa-receipt me-2"></i> Transaksi</a></li>
-                                <li><a href="{{ route('keranjang') }}"><i class="fas fa-bucket me-2"></i> Keranjang</a></li>
+                                <li><a href="{{ route('user.profile') }}"><i class="fas fa-id-badge me-2"></i> {{ __('messages.profile') }}</a></li>
+                                <li><a href="{{ route('dashboard') }}"><i class="fas fa-receipt me-2"></i> {{ __('messages.transactions') }}</a></li>
+                                <li><a href="{{ route('keranjang') }}"><i class="fas fa-bucket me-2"></i> {{ __('messages.cart') }}</a></li>
                                 <li>
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
                                         <button type="submit" style="background: none; border: none; color: #333; cursor: pointer;">
-                                            <i class="fas fa-sign-out-alt me-2"></i> Logout
+                                            <i class="fas fa-sign-out-alt me-2"></i> {{ __('messages.logout') }}
                                         </button>
                                     </form>
                                 </li>
@@ -201,8 +219,8 @@
                         </li>
                     @endif
                 @else
-                    <li><a class="getstarted scrollto" href="{{ route('login') }}">Log In</a></li>
-                    <li><a class="btn-daftar scrollto" href="{{ route('register') }}">Daftar</a></li>
+                    <li><a class="getstarted scrollto" href="{{ route('login') }}">{{ __('messages.login') }}</a></li>
+                    <li><a class="btn-daftar scrollto" href="{{ route('register') }}">{{ __('messages.register') }}</a></li>
                 @endauth
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>

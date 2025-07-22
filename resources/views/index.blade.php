@@ -281,31 +281,49 @@
       </div>
       <nav id="navbar" class="navbar">
         <ul class="d-flex align-items-center">
-          <li><a class="nav-link scrollto" href="#hero">Beranda</a></li>
-          <li><a class="nav-link scrollto" href="#paket-unggulan">Paket Unggulan</a></li>
-          <li><a class="nav-link scrollto" href="#kamar">Kamar</a></li>
-          <li><a class="nav-link scrollto" href="#fasilitas">Fasilitas</a></li>
-          <li><a class="nav-link scrollto" href="#rekomendasi-kesehatan">Kesehatan</a></li>
-          <li><a class="nav-link scrollto" href="#rekomendasi-destinasi">Wisata</a></li>
-          <li><a class="nav-link scrollto" href="#existing-ratings">Penilaian</a></li>
+          <li><a class="nav-link scrollto" href="#hero">{{ __('messages.home') }}</a></li>
+          <li><a class="nav-link scrollto" href="#paket-unggulan">{{ __('messages.featured_packages') }}</a></li>
+          <li><a class="nav-link scrollto" href="#kamar">{{ __('messages.rooms') }}</a></li>
+          <li><a class="nav-link scrollto" href="#fasilitas">{{ __('messages.facilities') }}</a></li>
+          <li><a class="nav-link scrollto" href="#rekomendasi-kesehatan">{{ __('messages.health') }}</a></li>
+          <li><a class="nav-link scrollto" href="#rekomendasi-destinasi">{{ __('messages.tourism') }}</a></li>
+          <li><a class="nav-link scrollto" href="#existing-ratings">{{ __('messages.ratings') }}</a></li>
+          
+          <!-- Language Switcher -->
+          <li class="dropdown">
+            <a class="nav-link scrollto" href="#" style="display: flex; align-items: center;">
+              <i class="fas fa-globe me-1"></i>
+              {{ app()->getLocale() == 'id' ? 'ID' : 'EN' }}
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="{{ route('language.switch', 'id') }}">
+                <img src="https://flagcdn.com/w20/id.png" alt="ID" style="width: 20px; margin-right: 8px;">
+                Bahasa Indonesia
+              </a></li>
+              <li><a href="{{ route('language.switch', 'en') }}">
+                <img src="https://flagcdn.com/w20/us.png" alt="EN" style="width: 20px; margin-right: 8px;">
+                English
+              </a></li>
+            </ul>
+          </li>
 
           @auth
             @if(auth()->user()->role === 'admin')
-              <li><a class="getstarted scrollto" style="padding: 10px 20px;" href="{{ route('admin.home') }}">Dashboard</a></li>
+              <li><a class="getstarted scrollto" style="padding: 10px 20px;" href="{{ route('admin.home') }}">{{ __('messages.dashboard') }}</a></li>
             @elseif(auth()->user()->role === 'resepsionis')
-              <li><a class="getstarted scrollto" style="padding: 10px 20px;" href="{{ route('resepsionis') }}">Dashboard</a></li>
+              <li><a class="getstarted scrollto" style="padding: 10px 20px;" href="{{ route('resepsionis') }}">{{ __('messages.dashboard') }}</a></li>
             @else
               <li class="dropdown">
                 <a class="getstarted scrollto" href="#">{{ auth()->user()->name }}</a>
                 <ul class="dropdown-menu">
-                  <li><a href="{{ route('user.profile') }}"><i class="fas fa-id-badge me-2"></i> Profile</a></li>
-                  <li><a href="{{ route('dashboard') }}"><i class="fas fa-receipt me-2"></i> Transaksi</a></li>
-                  <li><a href="{{ route('keranjang') }}"><i class="fas fa-bucket me-2"></i> Keranjang</a></li>
+                  <li><a href="{{ route('user.profile') }}"><i class="fas fa-id-badge me-2"></i> {{ __('messages.profile') }}</a></li>
+                  <li><a href="{{ route('dashboard') }}"><i class="fas fa-receipt me-2"></i> {{ __('messages.transactions') }}</a></li>
+                  <li><a href="{{ route('keranjang') }}"><i class="fas fa-bucket me-2"></i> {{ __('messages.cart') }}</a></li>
                   <li>
                     <form method="POST" action="{{ route('logout') }}">
                       @csrf
                       <button type="submit" style="background: none; border: none; padding: 0; color: #333; cursor: pointer;">
-                        <i class="fas fa-sign-out-alt me-2"></i> Logout
+                        <i class="fas fa-sign-out-alt me-2"></i> {{ __('messages.logout') }}
                       </button>
                     </form>
                   </li>
@@ -313,8 +331,8 @@
               </li>
             @endif
           @else
-            <li><a class="getstarted scrollto" style="padding: 10px 20px;" href="{{ route('login') }}">Log In</a></li>
-            <li><a class="btn-daftar scrollto" href="{{ route('register') }}">Daftar</a></li>
+            <li><a class="getstarted scrollto" style="padding: 10px 20px;" href="{{ route('login') }}">{{ __('messages.login') }}</a></li>
+            <li><a class="btn-daftar scrollto" href="{{ route('register') }}">{{ __('messages.register') }}</a></li>
           @endauth
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -349,14 +367,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-                    <h1 data-aos="fade-up">Rich Wellness</h1>
+                    <h1 data-aos="fade-up">{{ __('messages.hero_title') }}</h1>
                     <h2 data-aos="fade-up" data-aos-delay="400">
-                        Selamat datang di Rich Wellness, oase kesehatan dan kebugaran di jantung kota Jogja. 
-                        Kami menghadirkan fasilitas modern dan program khusus untuk menyegarkan tubuh, menenangkan pikiran, dan menyeimbangkan jiwa. 
-                        Bersama kami, wujudkan hidup sehat yang lebih holistik dan bermakna.
+                        {{ __('messages.hero_description') }}
                     </h2>
                     <div data-aos="fade-up" data-aos-delay="800">
-                        <a href="/pesanReservasi" class="btn-get-started scrollto">Pesan <i
+                        <a href="/pesanReservasi" class="btn-get-started scrollto">{{ __('messages.book_now') }} <i
                                 class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
@@ -374,7 +390,7 @@
         <section id="paket-unggulan" class="paket-unggulan aos" data-aos="fade-up" style="padding: 60px 0;">
     <div class="container">
         <div class="section-title text-center mb-5">
-            <h2 style="font-weight: bold; color:rgb(255, 255, 255); font-size:44px; margin-bottom: 12px;">Paket Unggulan</h2>
+            <h2 style="font-weight: bold; color:rgb(255, 255, 255); font-size:44px; margin-bottom: 12px;">{{ __('messages.featured_packages') }}</h2>
         </div>
         <div class="row justify-content-center">
             <!-- Card 1 -->
