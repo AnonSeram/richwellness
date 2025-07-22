@@ -288,6 +288,7 @@
           <li><a class="nav-link scrollto" href="#rekomendasi-kesehatan">{{ __('messages.health') }}</a></li>
           <li><a class="nav-link scrollto" href="#rekomendasi-destinasi">{{ __('messages.tourism') }}</a></li>
           <li><a class="nav-link scrollto" href="#existing-ratings">{{ __('messages.ratings') }}</a></li>
+          <li><a class="nav-link scrollto" href="#contact">{{ __('messages.contact') }}</a></li>
           
           <!-- Language Switcher -->
           <li class="dropdown">
