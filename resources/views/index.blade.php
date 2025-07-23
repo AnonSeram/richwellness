@@ -498,7 +498,7 @@
             <h2>Fasilitas Hotel</h2>
             <p>Terdiri dari beberapa jenis fasilitas yang tersedia :</p>
         </div>
-        <div class="row g-4 justify-content-center">
+        <div class="row g-4 justify-content-center" data-aos="fade-up">
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="service-item text-center">
                     <div class="service-img mb-3">
@@ -515,7 +515,7 @@
                     <h5>SPA</h5>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up">
                 <div class="service-item text-center">
                     <div class="service-img mb-3">
                         <img src="nyoba/images/fasilitas/7.jpg" alt="Fitness Center">
@@ -523,7 +523,7 @@
                     <h5>Fitness Center</h5>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up">
                 <div class="service-item text-center">
                     <div class="service-img mb-3">
                         <img src="nyoba/images/fasilitas/8.jpg" alt="Sauna">
@@ -533,7 +533,7 @@
             </div>
         </div>
 
-        <div class="row g-4 justify-content-center mt-4">
+        <div class="row g-4 justify-content-center mt-4" data-aos="fade-up">
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="service-item text-center">
                     <div class="service-img mb-3">
@@ -542,7 +542,7 @@
                     <h5>Breakfast</h5>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up">
                 <div class="service-item text-center">
                     <div class="service-img mb-3">
                         <img src="nyoba/images/fasilitas/4.jpg" alt="Parking Lot">
@@ -550,7 +550,7 @@
                     <h5>Parking Lot</h5>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up">
                 <div class="service-item text-center">
                     <div class="service-img mb-3">
                         <img src="nyoba/images/fasilitas/5.jpg" alt="Lunch">
@@ -558,7 +558,7 @@
                     <h5>Lunch</h5>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up">
                 <div class="service-item text-center">
                     <div class="service-img mb-3">
                         <img src="nyoba/images/fasilitas/2.jpg" alt="Wifi">
@@ -616,7 +616,7 @@
         <!-- Rekomendasi Layanan kesehatan Section -->
        <section id="rekomendasi-kesehatan" style="padding: 40px 0; background-color: #FFBFA3;">
   <div class="container" style="max-width: 1200px; margin: auto;">
-    <h2 style="text-align: center; margin-bottom: 40px; font-size: 28px; color: #333;">Rekomendasi Layanan Kesehatan Spesialis Organ Tubuh</h2>
+    <h2 style="text-align: center; margin-bottom: 40px; font-size: 28px; color: #ffff; font-weight:600;">Rekomendasi Layanan Kesehatan Spesialis Organ Tubuh</h2>
 
     <div class="grid-container">
       <!-- CARD 1 -->
