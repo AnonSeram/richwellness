@@ -9,8 +9,8 @@ class Pemesanan extends Model
 {
     use HasFactory;
 
-    protected $table = 'pemesanan'; // Sesuaikan dengan nama tabel Anda
-    
+    protected $table = 'pemesanan';
+
     protected $fillable = [
         'nama_tamu',
         'email',
@@ -20,38 +20,73 @@ class Pemesanan extends Model
         'jumlah_kamar',
         'harga',
         'tgl_check_in',
-        'tgl_check_out'
+        'tgl_check_out',
+        'kode_booking',
+        'status_pembayaran',
+        'metode_pembayaran'
     ];
 
-    // Jika Anda ingin mengakses tgl_check_in dan tgl_check_out sebagai Carbon instance
     protected $dates = [
         'tgl_check_in',
         'tgl_check_out'
     ];
 
-    // Relasi ke user (jika diperlukan)
-    public function user()
+    /**
+     * Relasi ke model DataKamar
+     * tipe_kamar di tabel pemesanan merujuk ke id di tabel data_kamar
+     */
+    public function dataKamar()
     {
-        return $this->belongsTo(User::class, 'email', 'email');
+        return $this->belongsTo(DataKamar::class, 'tipe_kamar', 'id');
     }
 
-    // Hitung jumlah malam menginap
-    public function getDurasiAttribute()
+    /**
+     * Accessor untuk mendapatkan nama tipe kamar
+     * Digunakan dengan $pemesanan->nama_tipe_kamar
+     */
+    public function getNamaTipeKamarAttribute()
     {
-        $check_in = \Carbon\Carbon::parse($this->tgl_check_in);
-        $check_out = \Carbon\Carbon::parse($this->tgl_check_out);
-        return $check_in->diffInDays($check_out);
+        return $this->dataKamar ? $this->dataKamar->tipe_kamar : 'Tidak Diketahui';
     }
 
-    // Format harga
-    public function getHargaFormattedAttribute()
+    /**
+     * Accessor untuk mendapatkan harga per malam
+     */
+    public function getHargaPerMalamAttribute()
     {
-        return 'Rp ' . number_format($this->harga, 0, ',', '.');
+        return $this->dataKamar ? $this->dataKamar->harga : 0;
     }
 
-    public function rating()   
+    /**
+     * Accessor untuk menghitung jumlah malam
+     */
+    public function getJumlahMalamAttribute()
     {
-        return $this->hasOne(Rating::class);
+        if ($this->tgl_check_in && $this->tgl_check_out) {
+            return $this->tgl_check_in->diffInDays($this->tgl_check_out);
+        }
+        return 0;
     }
 
+    /**
+     * Scope untuk filter berdasarkan status pembayaran
+     */
+    public function scopeBelumBayar($query)
+    {
+        return $query->where('status_pembayaran', 'Belum Bayar');
+    }
+
+    public function scopeSudahBayar($query)
+    {
+        return $query->where('status_pembayaran', 'Sudah Bayar');
+    }
+
+    /**
+     * Scope untuk filter berdasarkan email user
+     */
+    public function scopeByEmail($query, $email)
+    {
+        return $query->where('email', $email);
+    }
 }
+

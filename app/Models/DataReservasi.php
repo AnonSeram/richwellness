@@ -16,5 +16,16 @@ class DataReservasi extends Model
     return $this->hasOne(Rating::class, 'pemesanan_id');
 }
 
+    public function dataKamar()
+    {
+        return $this->belongsTo(DataKamar::class, 'tipe_kamar', 'id');
+    }
+
+    // Accessor untuk mendapatkan nama tipe kamar
+    public function getNamaTipeKamarAttribute()
+    {
+        return $this->dataKamar ? $this->dataKamar->tipe_kamar : 'Tidak Diketahui';
+    }
+
 }
 
