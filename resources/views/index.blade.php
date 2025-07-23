@@ -313,464 +313,120 @@
 </head>
 <body>
 
-<!-- ======= Header ======= -->
-<header id="header" class="fixed-top d-flex align-items-center">
+  <!-- ======= Enhanced Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center" style="z-index: 1050;">
     <div class="container d-flex align-items-center justify-content-between">
-        <div class="logo d-flex align-items-center">
-            <img src="{{ asset('assets/homepage/img/logo.png') }}" alt="Rich Wellness Logo">
-            <h1><a href="/">Rich Wellness</a></h1>
+      <div class="logo d-flex align-items-center enhanced-logo">
+        <div class="logo-container">
+          <img src="assets/homepage/img/logo.png" alt="Rich Wellness Logo" class="logo-img" />
+          <div class="logo-glow"></div>
         </div>
-        <nav id="navbar" class="navbar">
-            <ul class="d-flex align-items-center">
-                <li><a class="nav-link scrollto" href="/">{{ __('messages.home') }}</a></li>
-                <li><a class="nav-link scrollto" href="/#paket-unggulan">{{ __('messages.featured_packages') }}</a></li>
-                <li><a class="nav-link scrollto" href="/#kamar">{{ __('messages.rooms') }}</a></li>
-                <li><a class="nav-link scrollto" href="/#fasilitas">{{ __('messages.facilities') }}</a></li>
-                <li><a class="nav-link scrollto" href="/#rekomendasi-kesehatan">{{ __('messages.health') }}</a></li>
-                <li><a class="nav-link scrollto" href="/#rekomendasi-destinasi">{{ __('messages.tourism') }}</a></li>
-                <li><a class="nav-link scrollto" href="/#penilaian">{{ __('messages.ratings') }}</a></li>
-                <li><a class="nav-link scrollto" href="/#contact">{{ __('messages.contact') }}</a></li>
-                
-                <!-- Language Switcher -->
-                <li class="dropdown">
-                    <a class="nav-link scrollto" href="#" style="display: flex; align-items: center;">
-                        <i class="fas fa-globe me-1"></i>
-                        {{ app()->getLocale() == 'id' ? 'ID' : 'EN' }}
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{ route('language.switch', 'id') }}">
-                            <img src="https://flagcdn.com/w20/id.png" alt="ID" style="width: 20px; margin-right: 8px;">
-                            Bahasa Indonesia
-                        </a></li>
-                        <li><a href="{{ route('language.switch', 'en') }}">
-                            <img src="https://flagcdn.com/w20/us.png" alt="EN" style="width: 20px; margin-right: 8px;">
-                            English
-                        </a></li>
-                    </ul>
-                </li>
-
-                @auth
-                    @if(auth()->user()->role === 'admin')
-                        <li><a class="getstarted scrollto" href="{{ route('admin.home') }}">{{ __('messages.dashboard') }}</a></li>
-                    @else
-                        <li class="dropdown">
-                            <a class="getstarted scrollto" href="#">{{ auth()->user()->name }}</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="{{ route('user.profile') }}"><i class="fas fa-id-badge me-2"></i> {{ __('messages.profile') }}</a></li>
-                                <li><a href="{{ route('dashboard') }}"><i class="fas fa-receipt me-2"></i> {{ __('messages.transactions') }}</a></li>
-                                <li><a href="{{ route('keranjang') }}"><i class="fas fa-bucket me-2"></i> {{ __('messages.cart') }}</a></li>
-                                <li>
-                                    <form method="POST" action="{{ route('logout') }}">
-                                        @csrf
-                                        <button type="submit" style="background: none; border: none; color: #333; cursor: pointer;">
-                                            <i class="fas fa-sign-out-alt me-2"></i> {{ __('messages.logout') }}
-                                        </button>
-                                    </form>
-                                </li>
-                            </ul>
-                        </li>
-                    @endif
-                @else
-                    <li><a class="getstarted scrollto" href="{{ route('login') }}">{{ __('messages.login') }}</a></li>
-                    <li><a class="btn-daftar scrollto" href="{{ route('register') }}">{{ __('messages.register') }}</a></li>
-                @endauth
+        <div class="brand-text">
+          <h1><a href="/">Rich Wellness</a></h1>
+          <span class="tagline">Transform Your Health Journey</span>
+        </div>
+      </div>
+      
+      <nav id="navbar" class="navbar enhanced-navbar">
+        <ul class="d-flex align-items-center">
+          <li><a class="nav-link scrollto active" href="#hero">{{ __("messages.home") }}</a></li>
+          <li><a class="nav-link scrollto" href="#paket-unggulan">{{ __("messages.featured_packages") }}</a></li>
+          <li><a class="nav-link scrollto" href="#kamar">{{ __("messages.rooms") }}</a></li>
+          <li><a class="nav-link scrollto" href="#fasilitas">{{ __("messages.facilities") }}</a></li>
+          <li><a class="nav-link scrollto" href="#rekomendasi-kesehatan">{{ __("messages.health") }}</a></li>
+          <li><a class="nav-link scrollto" href="#rekomendasi-destinasi">{{ __("messages.tourism") }}</a></li>
+          <li><a class="nav-link scrollto" href="#existing-ratings">{{ __("messages.ratings") }}</a></li>
+          <li><a class="nav-link scrollto" href="#contact">{{ __("messages.contact") }}</a></li>
+          
+          <!-- Enhanced Language Switcher -->
+          <li class="dropdown enhanced-dropdown" style="z-index: 1060;">
+            <a class="nav-link scrollto language-switcher" href="#" style="display: flex; align-items: center;">
+              <div class="language-icon">
+                <i class="fas fa-globe"></i>
+              </div>
+              <span class="language-text">{{ app()->getLocale() == 'id' ? 'ID' : 'EN' }}</span>
+              <i class="fas fa-chevron-down dropdown-arrow"></i>
+            </a>
+            <ul class="dropdown-menu enhanced-dropdown-menu" style="z-index: 1060;">
+              <li><a href="{{ route('language.switch', 'id') }}" class="dropdown-item">
+                <img src="https://flagcdn.com/w20/id.png" alt="ID" class="flag-icon">
+                <span>Bahasa Indonesia</span>
+              </a></li>
+              <li><a href="{{ route('language.switch', 'en') }}" class="dropdown-item">
+                <img src="https://flagcdn.com/w20/us.png" alt="EN" class="flag-icon">
+                <span>English</span>
+              </a></li>
             </ul>
-            <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav>
+          </li>
+
+          @auth
+            @if(auth()->user()->role === 'admin')
+              <li><a class="getstarted enhanced-btn" href="{{ route('admin.home') }}">
+                <i class="fas fa-tachometer-alt me-2"></i>
+                {{ __("messages.dashboard") }}
+              </a></li>
+            @elseif(auth()->user()->role === 'resepsionis')
+              <li><a class="getstarted enhanced-btn" href="{{ route('resepsionis') }}">
+                <i class="fas fa-tachometer-alt me-2"></i>
+                {{ __("messages.dashboard") }}
+              </a></li>
+            @else
+              <li class="dropdown enhanced-dropdown user-dropdown" style="z-index: 1060;">
+                <a class="getstarted enhanced-btn user-btn" href="#">
+                  <div class="user-avatar">
+                    <span>{{ strtoupper(substr(auth()->user()->name, 0, 1)) }}</span>
+                  </div>
+                  <span class="user-name">{{ auth()->user()->name }}</span>
+                  <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-menu enhanced-dropdown-menu user-menu" style="z-index: 1060;">
+                  <li><a href="{{ route('user.profile') }}" class="dropdown-item">
+                    <i class="fas fa-id-badge"></i>
+                    <span>{{ __("messages.profile") }}</span>
+                  </a></li>
+                  <li><a href="{{ route('dashboard') }}" class="dropdown-item">
+                    <i class="fas fa-receipt"></i>
+                    <span>{{ __("messages.transactions") }}</span>
+                  </a></li>
+                  <li><a href="{{ route('keranjang') }}" class="dropdown-item">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>{{ __("messages.cart") }}</span>
+                  </a></li>
+                  <li class="dropdown-divider"></li>
+                  <li>
+                    <form method="POST" action="{{ route('logout') }}">
+                      @csrf
+                      <button type="submit" class="dropdown-item logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>{{ __("messages.logout") }}</span>
+                      </button>
+                    </form>
+                  </li>
+                </ul>
+              </li>
+            @endif
+          @else
+            <li><a class="getstarted enhanced-btn login-btn" href="{{ route('login') }}">
+              <i class="fas fa-sign-in-alt me-2"></i>
+              {{ __("messages.login") }}
+            </a></li>
+            <li><a class="btn-daftar enhanced-register-btn" href="{{ route('register') }}">
+              <i class="fas fa-user-plus me-2"></i>
+              {{ __("messages.register") }}
+            </a></li>
+          @endauth
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle enhanced-mobile-toggle"></i>
+      </nav>
     </div>
-</header>
-<!-- Enhanced Header Styles -->
-<style>
-.enhanced-header {
-  background: linear-gradient(135deg, rgba(254, 253, 237, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(153, 163, 227, 0.1);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.enhanced-header.scrolled {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 249, 250, 0.98) 100%);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.12);
-}
-
-.header-decoration {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.decoration-circle {
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.1;
-}
-
-.circle-1 {
-  width: 100px;
-  height: 100px;
-  background: linear-gradient(135deg, #99a3e3, #74e9d5);
-  top: -50px;
-  right: 10%;
-  animation: float 6s ease-in-out infinite;
-}
-
-.circle-2 {
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg, #FFBFA3, #99a3e3);
-  bottom: -30px;
-  left: 15%;
-  animation: float 8s ease-in-out infinite reverse;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
-
-.enhanced-logo {
-  position: relative;
-  z-index: 2;
-}
-
-.logo-container {
-  position: relative;
-  margin-right: 15px;
-}
-
-.logo-img {
-  width: auto;
-  height: 45px;
-  transition: all 0.3s ease;
-  position: relative;
-  z-index: 2;
-}
-
-.logo-glow {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 60px;
-  height: 60px;
-  background: radial-gradient(circle, rgba(153, 163, 227, 0.2) 0%, transparent 70%);
-  border-radius: 50%;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.enhanced-logo:hover .logo-glow {
-  opacity: 1;
-}
-
-.enhanced-logo:hover .logo-img {
-  transform: scale(1.05);
-}
-
-.brand-text h1 {
-  margin: 0;
-  font-size: 1.8rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, #99a3e3, #74e9d5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  transition: all 0.3s ease;
-}
-
-.brand-text h1 a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.tagline {
-  display: block;
-  font-size: 0.75rem;
-  color: #6c757d;
-  font-weight: 500;
-  margin-top: -2px;
-  opacity: 0.8;
-}
-
-.enhanced-navbar {
-  position: relative;
-  z-index: 2;
-}
-
-.enhanced-navbar .nav-link {
-  color: #2c3e50;
-  font-weight: 500;
-  font-size: 0.95rem;
-  padding: 8px 16px;
-  margin: 0 2px;
-  border-radius: 25px;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.enhanced-navbar .nav-link::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(153, 163, 227, 0.1), rgba(116, 233, 213, 0.1));
-  transition: left 0.3s ease;
-  z-index: -1;
-}
-
-.enhanced-navbar .nav-link:hover::before,
-.enhanced-navbar .nav-link.active::before {
-  left: 0;
-}
-
-.enhanced-navbar .nav-link:hover,
-.enhanced-navbar .nav-link.active {
-  color: #99a3e3;
-  transform: translateY(-1px);
-}
-
-.enhanced-dropdown {
-  position: relative;
-}
-
-.language-switcher {
-  background: rgba(153, 163, 227, 0.1);
-  border-radius: 20px;
-  padding: 8px 12px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.language-icon {
-  width: 20px;
-  height: 20px;
-  background: linear-gradient(135deg, #99a3e3, #74e9d5);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 0.8rem;
-}
-
-.language-text {
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-.dropdown-arrow {
-  font-size: 0.7rem;
-  transition: transform 0.3s ease;
-}
-
-.enhanced-dropdown:hover .dropdown-arrow {
-  transform: rotate(180deg);
-}
-
-.enhanced-dropdown-menu {
-  background: white;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  padding: 10px 0;
-  margin-top: 10px;
-  min-width: 200px;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-10px);
-  transition: all 0.3s ease;
-}
-
-.enhanced-dropdown:hover .enhanced-dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.dropdown-item {
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: #2c3e50;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  border: none;
-  background: none;
-  width: 100%;
-  text-align: left;
-  cursor: pointer;
-}
-
-.dropdown-item:hover {
-  background: linear-gradient(135deg, rgba(153, 163, 227, 0.1), rgba(116, 233, 213, 0.1));
-  color: #99a3e3;
-  transform: translateX(5px);
-}
-
-.flag-icon {
-  width: 20px;
-  height: auto;
-  border-radius: 3px;
-}
-
-.enhanced-btn {
-  background: linear-gradient(135deg, #99a3e3, #74e9d5);
-  color: white;
-  padding: 10px 20px;
-  border-radius: 25px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9rem;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: all 0.3s ease;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(153, 163, 227, 0.3);
-}
-
-.enhanced-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(153, 163, 227, 0.4);
-  color: white;
-}
-
-.user-btn {
-  background: rgba(153, 163, 227, 0.1);
-  color: #2c3e50;
-  border: 2px solid rgba(153, 163, 227, 0.2);
-}
-
-.user-avatar {
-  width: 30px;
-  height: 30px;
-  background: linear-gradient(135deg, #99a3e3, #74e9d5);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: 600;
-  font-size: 0.8rem;
-}
-
-.user-name {
-  max-width: 100px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.enhanced-register-btn {
-  background: transparent;
-  color: #99a3e3;
-  border: 2px solid #99a3e3;
-  padding: 8px 16px;
-  border-radius: 25px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9rem;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: all 0.3s ease;
-  margin-left: 10px;
-}
-
-.enhanced-register-btn:hover {
-  background: #99a3e3;
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(153, 163, 227, 0.3);
-}
-
-.dropdown-divider {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(153, 163, 227, 0.2), transparent);
-  margin: 8px 0;
-}
-
-.logout-btn {
-  color: #dc3545;
-}
-
-.logout-btn:hover {
-  background: rgba(220, 53, 69, 0.1);
-  color: #dc3545;
-}
-
-.enhanced-mobile-toggle {
-  font-size: 1.5rem;
-  color: #99a3e3;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.enhanced-mobile-toggle:hover {
-  color: #74e9d5;
-  transform: scale(1.1);
-}
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-  .brand-text h1 {
-    font-size: 1.4rem;
-  }
-  
-  .tagline {
-    font-size: 0.7rem;
-  }
-  
-  .logo-img {
-    height: 35px;
-  }
-  
-  .enhanced-navbar ul {
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .enhanced-btn {
-    padding: 8px 16px;
-    font-size: 0.8rem;
-  }
-  
-  .user-name {
-    display: none;
-  }
-}
-
-@media (max-width: 480px) {
-  .enhanced-header {
-    padding: 10px 0;
-  }
-  
-  .brand-text h1 {
-    font-size: 1.2rem;
-  }
-  
-  .tagline {
-    display: none;
-  }
-  
-  .logo-img {
-    height: 30px;
-  }
-}
-</style>
+    
+    <!-- Header background decoration -->
+    <div class="header-decoration">
+      <div class="decoration-circle circle-1"></div>
+      <div class="decoration-circle circle-2"></div>
+    </div>
+  </header>
+  <!-- End Enhanced Header -->
 
   <!-- Swiper Carousel -->
   <div class="carousel-container">
@@ -830,7 +486,7 @@
             </div>
             <h2 class="enhanced-title">{{ __('messages.featured_packages') }}</h2>
             <div class="title-underline"></div>
-            <p class="section-subtitle text-center">Pilih paket wellness terbaik untuk perjalanan kesehatan Anda</p>
+            <p class="section-subtitle">Pilih paket wellness terbaik untuk perjalanan kesehatan Anda</p>
         </div>
         
         <div class="row justify-content-center">
@@ -1384,9 +1040,9 @@
         <!-- ======= More Services Section ======= -->
         <section id="more-services" class="more-services py-5" style="background-color: #f4f4f4;">
     <div class="container">
-        <div class="section-title text-center" data-aos="fade-up">
-            <h2 style="font-weight: 700; font-size: 2.5rem; color: #2c3e50; margin-bottom: 20px;">Fasilitas Hotel</h2>
-            <p style="color: #6c757d; font-size: 1.1rem; margin-bottom: 40px;">Terdiri dari beberapa jenis fasilitas yang tersedia</p>
+    <div class="section-title" data-aos="fade-up">
+            <h2>Fasilitas Hotel</h2>
+            <p>Terdiri dari beberapa jenis fasilitas yang tersedia :</p>
         </div>
         <div class="row g-4 justify-content-center">
             <div class="col-lg-3 col-md-4 col-sm-6">
@@ -1394,7 +1050,7 @@
                     <div class="service-img mb-3">
                         <img src="nyoba/images/fasilitas/1.jpg" alt="Swimming Pool">
                     </div>
-                    <h5 style="font-weight: 600; color: #2c3e50; font-size: 1.2rem;">Swimming Pool</h5>
+                    <h5>Swimming Pool</h5>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
@@ -1402,7 +1058,7 @@
                     <div class="service-img mb-3">
                         <img src="nyoba/images/fasilitas/6.jpg" alt="SPA">
                     </div>
-                    <h5 style="font-weight: 600; color: #2c3e50; font-size: 1.2rem;">SPA</h5>
+                    <h5>SPA</h5>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
@@ -1410,7 +1066,7 @@
                     <div class="service-img mb-3">
                         <img src="nyoba/images/fasilitas/7.jpg" alt="Fitness Center">
                     </div>
-                    <h5 style="font-weight: 600; color: #2c3e50; font-size: 1.2rem;">Fitness Center</h5>
+                    <h5>Fitness Center</h5>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
@@ -1418,7 +1074,7 @@
                     <div class="service-img mb-3">
                         <img src="nyoba/images/fasilitas/8.jpg" alt="Sauna">
                     </div>
-                    <h5 style="font-weight: 600; color: #2c3e50; font-size: 1.2rem;">Sauna</h5>
+                    <h5>Sauna</h5>
                 </div>
             </div>
         </div>
@@ -1429,7 +1085,7 @@
                     <div class="service-img mb-3">
                         <img src="nyoba/images/fasilitas/3.jpg" alt="Breakfast">
                     </div>
-                    <h5 style="font-weight: 600; color: #2c3e50; font-size: 1.2rem;">Breakfast</h5>
+                    <h5>Breakfast</h5>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
@@ -1437,7 +1093,7 @@
                     <div class="service-img mb-3">
                         <img src="nyoba/images/fasilitas/4.jpg" alt="Parking Lot">
                     </div>
-                    <h5 style="font-weight: 600; color: #2c3e50; font-size: 1.2rem;">Parking Lot</h5>
+                    <h5>Parking Lot</h5>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
@@ -1445,7 +1101,7 @@
                     <div class="service-img mb-3">
                         <img src="nyoba/images/fasilitas/5.jpg" alt="Lunch">
                     </div>
-                    <h5 style="font-weight: 600; color: #2c3e50; font-size: 1.2rem;">Lunch</h5>
+                    <h5>Lunch</h5>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
@@ -1453,7 +1109,7 @@
                     <div class="service-img mb-3">
                         <img src="nyoba/images/fasilitas/2.jpg" alt="Wifi">
                     </div>
-                    <h5 style="font-weight: 600; color: #2c3e50; font-size: 1.2rem;">Wi-Fi</h5>
+                    <h5>Wifi</h5>
                 </div>
             </div>
         </div>
@@ -1774,188 +1430,178 @@
         <p class="section-subtitle">Jelajahi keindahan Yogyakarta dengan rekomendasi destinasi terbaik kami</p>
     </div>
 
-    <!-- Swiper Container for Tourism Destinations -->
-    <div class="swiper tourism-swiper" data-aos="fade-up" data-aos-delay="200">
-      <div class="swiper-wrapper">
-        
-        <div class="swiper-slide">
-          <div class="enhanced-destination-card">
-            <div class="destination-img-container">
-              <img src="/assets/homepage/img/destinasi/4.png" alt="Heha Sky View" class="destination-img">
-              <div class="img-overlay"></div>
-            </div>
-            <div class="destination-content">
-              <h4 class="destination-title">Heha Sky View</h4>
-              <p class="destination-text">HeHa Sky View di Gunungkidul, Yogyakarta, menawarkan pemandangan indah dari ketinggian, lengkap dengan restoran dan spot foto Instagramable.</p>
-              <a href="https://www.google.com/maps/search/heha+sky+view/@-7.9774678,110.3051026,11z/data=!3m1!4b1?entry=ttu" class="enhanced-destination-btn" target="_blank">
-                  <span>Lihat Maps</span>
-                  <i class="fas fa-map-marker-alt"></i>
-              </a>
-            </div>
+    <div class="row justify-content-center">
+      
+      <div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+        <div class="enhanced-destination-card">
+          <div class="destination-img-container">
+            <img src="/assets/homepage/img/destinasi/4.png" alt="Heha Sky View" class="destination-img">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="destination-content">
+            <h4 class="destination-title">Heha Sky View</h4>
+            <p class="destination-text">HeHa Sky View di Gunungkidul, Yogyakarta, menawarkan pemandangan indah dari ketinggian, lengkap dengan restoran dan spot foto Instagramable.</p>
+            <a href="https://www.google.com/maps/search/heha+sky+view/@-7.9774678,110.3051026,11z/data=!3m1!4b1?entry=ttu" class="enhanced-destination-btn" target="_blank">
+                <span>Lihat Maps</span>
+                <i class="fas fa-map-marker-alt"></i>
+            </a>
           </div>
         </div>
-
-        <div class="swiper-slide">
-          <div class="enhanced-destination-card">
-            <div class="destination-img-container">
-              <img src="/assets/homepage/img/destinasi/3.png" alt="Waduk Sermo" class="destination-img">
-              <div class="img-overlay"></div>
-            </div>
-            <div class="destination-content">
-              <h4 class="destination-title">Waduk Sermo</h4>
-              <p class="destination-text">Waduk Sermo merupakan waduk di Kulon Progo, Yogyakarta, berfungsi sebagai sumber air dan tempat rekreasi. Pengunjung bisa menikmati pemandangan dan aktivitas seperti naik perahu serta memancing.</p>
-              <a href="https://maps.app.goo.gl/ASE7cBjm6QmCmuTU7" class="enhanced-destination-btn" target="_blank">
-                  <span>Lihat Maps</span>
-                  <i class="fas fa-map-marker-alt"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="swiper-slide">
-          <div class="enhanced-destination-card">
-            <div class="destination-img-container">
-              <img src="/assets/homepage/img/destinasi/2.png" alt="Pantai Parangtritis" class="destination-img">
-              <div class="img-overlay"></div>
-            </div>
-            <div class="destination-content">
-              <h4 class="destination-title">Pantai Parangtritis</h4>
-              <p class="destination-text">Pantai Parangtritis di Bantul, Yogyakarta, terkenal dengan ombak besar dan panorama senja yang menakjubkan, menjadi tujuan favorit untuk menikmati laut dan sunset.</p>
-              <a href="https://maps.app.goo.gl/n6XTkuQifzwpuynh7" class="enhanced-destination-btn" target="_blank">
-                  <span>Lihat Maps</span>
-                  <i class="fas fa-map-marker-alt"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="swiper-slide">
-          <div class="enhanced-destination-card">
-            <div class="destination-img-container">
-              <img src="/assets/homepage/img/destinasi/5.png" alt="Mangunan Yogyakarta" class="destination-img">
-              <div class="img-overlay"></div>
-            </div>
-            <div class="destination-content">
-              <h4 class="destination-title">Mangunan Yogyakarta</h4>
-              <p class="destination-text">Mangunan adalah daerah perbukitan yang terkenal dengan pesona sawah terasering dan spot foto yang menarik, cocok untuk menikmati keindahan alam Yogyakarta.</p>
-              <a href="https://maps.app.goo.gl/VPARov2kFjncvpS5A" class="enhanced-destination-btn" target="_blank">
-                  <span>Lihat Maps</span>
-                  <i class="fas fa-map-marker-alt"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="swiper-slide">
-          <div class="enhanced-destination-card">
-            <div class="destination-img-container">
-              <img src="/assets/homepage/img/destinasi/1.png" alt="Bukit Bintang" class="destination-img">
-              <div class="img-overlay"></div>
-            </div>
-            <div class="destination-content">
-              <h4 class="destination-title">Bukit Bintang</h4>
-              <p class="destination-text">Bukit Bintang menawarkan pemandangan spektakuler Kota Yogyakarta dari ketinggian, tempat favorit untuk menikmati panorama dan gemerlap malam.</p>
-              <a href="https://maps.app.goo.gl/FgnNE6dUi71mULE27" class="enhanced-destination-btn" target="_blank">
-                  <span>Lihat Maps</span>
-                  <i class="fas fa-map-marker-alt"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="swiper-slide">
-          <div class="enhanced-destination-card">
-            <div class="destination-img-container">
-              <img src="/assets/homepage/img/destinasi/6.png" alt="Merapi Park" class="destination-img">
-              <div class="img-overlay"></div>
-            </div>
-            <div class="destination-content">
-              <h4 class="destination-title">Merapi Park</h4>
-              <p class="destination-text">Merapi Park di Sleman menawarkan berbagai miniatur landmark dunia, tempat wisata unik yang cocok untuk keluarga dan pecinta fotografi.</p>
-              <a href="https://maps.app.goo.gl/s791foTg1ttBx6um7" class="enhanced-destination-btn" target="_blank">
-                  <span>Lihat Maps</span>
-                  <i class="fas fa-map-marker-alt"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="swiper-slide">
-          <div class="enhanced-destination-card">
-            <div class="destination-img-container">
-              <img src="/assets/homepage/img/destinasi/7.png" alt="Sungai Mudal" class="destination-img">
-              <div class="img-overlay"></div>
-            </div>
-            <div class="destination-content">
-              <h4 class="destination-title">Sungai Mudal</h4>
-              <p class="destination-text">Sungai Mudal di Kulon Progo adalah tempat wisata alam dengan air jernih dan suasana alami, cocok untuk relaksasi dan menikmati keindahan alam.</p>
-              <a href="https://maps.app.goo.gl/onBqxuNzR4kXVqEf8" class="enhanced-destination-btn" target="_blank">
-                  <span>Lihat Maps</span>
-                  <i class="fas fa-map-marker-alt"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="swiper-slide">
-          <div class="enhanced-destination-card">
-            <div class="destination-img-container">
-              <img src="/assets/homepage/img/destinasi/9.png" class="destination-img" alt="Candi Prambanan">
-              <div class="img-overlay"></div>
-            </div>
-            <div class="destination-content">
-              <h4 class="destination-title">Candi Prambanan</h4>
-              <p class="destination-text">Candi Prambanan adalah kompleks candi Hindu terbesar dan tercantik di Indonesia, serta situs warisan dunia UNESCO yang terkenal di Yogyakarta.</p>
-              <a href="https://maps.app.goo.gl/BNNDnb4SqQDZ2NmSA" class="enhanced-destination-btn" target="_blank">
-                  <span>Lihat Maps</span>
-                  <i class="fas fa-map-marker-alt"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="swiper-slide">
-          <div class="enhanced-destination-card">
-            <div class="destination-img-container">
-              <img src="/assets/homepage/img/destinasi/8.png" class="destination-img" alt="Benteng Vredeburg">
-              <div class="img-overlay"></div>
-            </div>
-            <div class="destination-content">
-              <h4 class="destination-title">Benteng Vredeburg</h4>
-              <p class="destination-text">Benteng Vredeburg adalah benteng bersejarah di pusat Kota Yogyakarta yang kini menjadi museum perjuangan nasional Indonesia.</p>
-              <a href="https://maps.app.goo.gl/EPz2nv6MZuivYQ6G8" class="enhanced-destination-btn" target="_blank">
-                  <span>Lihat Maps</span>
-                  <i class="fas fa-map-marker-alt"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="swiper-slide">
-          <div class="enhanced-destination-card">
-            <div class="destination-img-container">
-              <img src="/assets/homepage/img/destinasi/10.png" class="destination-img" alt="Malioboro">
-              <div class="img-overlay"></div>
-            </div>
-            <div class="destination-content">
-              <h4 class="destination-title">Malioboro</h4>
-              <p class="destination-text">Jalan Malioboro adalah ikon wisata belanja dan kuliner Yogyakarta, penuh dengan pertokoan, pedagang kaki lima, dan suasana kota yang ramai.</p>
-              <a href="https://maps.app.goo.gl/4mP3RCB5nQLi4NpE7" class="enhanced-destination-btn" target="_blank">
-                  <span>Lihat Maps</span>
-                  <i class="fas fa-map-marker-alt"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
       </div>
-      
-      <!-- Swiper Navigation -->
-      <div class="swiper-button-next tourism-next"></div>
-      <div class="swiper-button-prev tourism-prev"></div>
-      
-      <!-- Swiper Pagination -->
-      <div class="swiper-pagination tourism-pagination"></div>
+
+      <div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+        <div class="enhanced-destination-card">
+          <div class="destination-img-container">
+            <img src="/assets/homepage/img/destinasi/3.png" alt="Waduk Sermo" class="destination-img">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="destination-content">
+            <h4 class="destination-title">Waduk Sermo</h4>
+            <p class="destination-text">Waduk Sermo merupakan waduk di Kulon Progo, Yogyakarta, berfungsi sebagai sumber air dan tempat rekreasi. Pengunjung bisa menikmati pemandangan dan aktivitas seperti naik perahu serta memancing.</p>
+            <a href="https://maps.app.goo.gl/ASE7cBjm6QmCmuTU7" class="enhanced-destination-btn" target="_blank">
+                <span>Lihat Maps</span>
+                <i class="fas fa-map-marker-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+        <div class="enhanced-destination-card">
+          <div class="destination-img-container">
+            <img src="/assets/homepage/img/destinasi/2.png" alt="Pantai Parangritis" class="destination-img">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="destination-content">
+            <h4 class="destination-title">Pantai Parangritis</h4>
+            <p class="destination-text">Pantai Parangtritis di Bantul, Yogyakarta, terkenal dengan ombak besar dan panorama senja yang menakjubkan, menjadi tujuan favorit untuk menikmati laut dan sunset.</p>
+            <a href="https://maps.app.goo.gl/n6XTkuQifzwpuynh7" class="enhanced-destination-btn" target="_blank">
+                <span>Lihat Maps</span>
+                <i class="fas fa-map-marker-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
+        <div class="enhanced-destination-card">
+          <div class="destination-img-container">
+            <img src="/assets/homepage/img/destinasi/5.png" alt="Mangunan Yogyakarta" class="destination-img">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="destination-content">
+            <h4 class="destination-title">Mangunan Yogyakarta</h4>
+            <p class="destination-text">Mangunan adalah daerah perbukitan yang terkenal dengan pesona sawah terasering dan spot foto yang menarik, cocok untuk menikmati keindahan alam Yogyakarta.</p>
+            <a href="https://maps.app.goo.gl/VPARov2kFjncvpS5A" class="enhanced-destination-btn" target="_blank">
+                <span>Lihat Maps</span>
+                <i class="fas fa-map-marker-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="500">
+        <div class="enhanced-destination-card">
+          <div class="destination-img-container">
+            <img src="/assets/homepage/img/destinasi/1.png" alt="Bukit Bintang" class="destination-img">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="destination-content">
+            <h4 class="destination-title">Bukit Bintang</h4>
+            <p class="destination-text">Bukit Bintang menawarkan pemandangan spektakuler Kota Yogyakarta dari ketinggian, tempat favorit untuk menikmati panorama dan gemerlap malam.</p>
+            <a href="https://maps.app.goo.gl/FgnNE6dUi71mULE27" class="enhanced-destination-btn" target="_blank">
+                <span>Lihat Maps</span>
+                <i class="fas fa-map-marker-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="600">
+        <div class="enhanced-destination-card">
+          <div class="destination-img-container">
+            <img src="/assets/homepage/img/destinasi/6.png" alt="Merapi Park" class="destination-img">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="destination-content">
+            <h4 class="destination-title">Merapi Park</h4>
+            <p class="destination-text">Merapi Park di Sleman menawarkan berbagai miniatur landmark dunia, tempat wisata unik yang cocok untuk keluarga dan pecinta fotografi.</p>
+            <a href="https://maps.app.goo.gl/s791foTg1ttBx6um7" class="enhanced-destination-btn" target="_blank">
+                <span>Lihat Maps</span>
+                <i class="fas fa-map-marker-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="700">
+        <div class="enhanced-destination-card">
+          <div class="destination-img-container">
+            <img src="/assets/homepage/img/destinasi/7.png" alt="Sungai Mudal" class="destination-img">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="destination-content">
+            <h4 class="destination-title">Sungai Mudal</h4>
+            <p class="destination-text">Sungai Mudal di Kulon Progo adalah tempat wisata alam dengan air jernih dan suasana alami, cocok untuk relaksasi dan menikmati keindahan alam.</p>
+            <a href="https://maps.app.goo.gl/onBqxuNzR4kXVqEf8" class="enhanced-destination-btn" target="_blank">
+                <span>Lihat Maps</span>
+                <i class="fas fa-map-marker-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="800">
+        <div class="enhanced-destination-card">
+          <div class="destination-img-container">
+            <img src="/assets/homepage/img/destinasi/9.png" class="destination-img" alt="Candi Prambanan">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="destination-content">
+            <h4 class="destination-title">Candi Prambanan</h4>
+            <p class="destination-text">Candi Prambanan adalah kompleks candi Hindu terbesar dan tercantik di Indonesia, serta situs warisan dunia UNESCO yang terkenal di Yogyakarta.</p>
+            <a href="https://maps.app.goo.gl/BNNDnb4SqQDZ2NmSA" class="enhanced-destination-btn" target="_blank">
+                <span>Lihat Maps</span>
+                <i class="fas fa-map-marker-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="900">
+        <div class="enhanced-destination-card">
+          <div class="destination-img-container">
+            <img src="/assets/homepage/img/destinasi/8.png" class="destination-img" alt="Benteng Vredeburg">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="destination-content">
+            <h4 class="destination-title">Benteng Vredeburg</h4>
+            <p class="destination-text">Benteng Vredeburg adalah benteng bersejarah di pusat Kota Yogyakarta yang kini menjadi museum perjuangan nasional Indonesia.</p>
+            <a href="https://maps.app.goo.gl/EPz2nv6MZuivYQ6G8" class="enhanced-destination-btn" target="_blank">
+                <span>Lihat Maps</span>
+                <i class="fas fa-map-marker-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="1000">
+        <div class="enhanced-destination-card">
+          <div class="destination-img-container">
+            <img src="/assets/homepage/img/destinasi/10.png" class="destination-img" alt="Malioboro">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="destination-content">
+            <h4 class="destination-title">Malioboro</h4>
+            <p class="destination-text">Jalan Malioboro adalah ikon wisata belanja dan kuliner Yogyakarta, penuh dengan pertokoan, pedagang kaki lima, dan suasana kota yang ramai.</p>
+            <a href="https://maps.app.goo.gl/4mP3RCB5nQLi4NpE7" class="enhanced-destination-btn" target="_blank">
+                <span>Lihat Maps</span>
+                <i class="fas fa-map-marker-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -1968,13 +1614,13 @@
     }
 
     .enhanced-tourism-destinations::before {
-        content: "";
+        content: ";
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><pattern id='dots' width='10' height='10' patternUnits='userSpaceOnUse'><circle cx='2' cy='2' r='1' fill='rgba(116,233,213,0.1)'/></pattern></defs><rect width='100' height='100' fill='url(%23dots)'/></svg>");
+        background: url("data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><defs><pattern id=\'dots\' width=\'10\' height=\'10\' patternUnits=\'userSpaceOnUse\'><circle cx=\'2\' cy=\'2\' r=\'1\' fill=\'rgba(116,233,213,0.1)\'/></pattern></defs><rect width=\'100\' height=\'100\' fill=\'url(%23dots)\'/></svg>");
         opacity: 0.5;
         pointer-events: none;
     }
@@ -1988,16 +1634,6 @@
         background: radial-gradient(circle, rgba(255, 191, 163, 0.3) 0%, transparent 70%);
     }
 
-    .tourism-swiper {
-        padding: 20px 0 60px 0;
-    }
-
-    .tourism-swiper .swiper-slide {
-        height: auto;
-        display: flex;
-        align-items: stretch;
-    }
-
     .enhanced-destination-card {
         background: white;
         border-radius: 20px;
@@ -2007,7 +1643,6 @@
         height: 100%;
         display: flex;
         flex-direction: column;
-        width: 100%;
     }
 
     .enhanced-destination-card:hover {
@@ -2088,49 +1723,6 @@
         transform: translateX(5px);
     }
 
-    /* Swiper Navigation Styles */
-    .tourism-next,
-    .tourism-prev {
-        width: 50px;
-        height: 50px;
-        background: white;
-        border-radius: 50%;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        color: #FFBFA3;
-        font-size: 1.2rem;
-        transition: all 0.3s ease;
-    }
-
-    .tourism-next:hover,
-    .tourism-prev:hover {
-        background: linear-gradient(135deg, #FFBFA3, #99a3e3);
-        color: white;
-        transform: scale(1.1);
-    }
-
-    .tourism-next::after,
-    .tourism-prev::after {
-        font-size: 1.2rem;
-        font-weight: 700;
-    }
-
-    .tourism-pagination {
-        bottom: 20px;
-    }
-
-    .tourism-pagination .swiper-pagination-bullet {
-        width: 12px;
-        height: 12px;
-        background: rgba(255, 191, 163, 0.3);
-        opacity: 1;
-        transition: all 0.3s ease;
-    }
-
-    .tourism-pagination .swiper-pagination-bullet-active {
-        background: linear-gradient(135deg, #FFBFA3, #99a3e3);
-        transform: scale(1.2);
-    }
-
     /* Mobile Responsive */
     @media (max-width: 768px) {
         .destination-title {
@@ -2142,12 +1734,6 @@
         .enhanced-destination-btn {
             padding: 8px 15px;
             font-size: 0.8rem;
-        }
-        .tourism-next,
-        .tourism-prev {
-            width: 40px;
-            height: 40px;
-            font-size: 1rem;
         }
     }
 
@@ -2163,7 +1749,86 @@
         }
     }
   </style>
-</section>
+.card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body-custom {
+  padding: 20px;
+  text-align: justify;
+  display: flex;
+  flex-direction: column;
+  height: 280px;
+}
+
+/* Mobile responsive card body */
+@media (max-width: 768px) {
+  .card-body-custom {
+    height: auto !important;
+    padding: 15px !important;
+  }
+  
+  .card-body-custom h4 {
+    font-size: 18px !important;
+  }
+  
+  .card-body-custom p {
+    font-size: 14px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-body-custom h4 {
+    font-size: 16px !important;
+  }
+  
+  .card-body-custom p {
+    font-size: 13px !important;
+  }
+}
+
+.card-body-custom h4 {
+  font-size: 20px;
+  color: #7AA2E3;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.card-body-custom p {
+  font-size: 14px;
+  color: #555;
+  flex-grow: 1;
+}
+
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.btn-custom {
+  background-color: #7AA2E3;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.btn-custom:hover {
+  background-color: #557cd2;
+}
+
+.rating-zoom:hover{
+    transform: scale(1.05);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+</style>
+        <!-- End Rekomendasi Destinasi -->
 
         <!-- Testimoni -->
 <section id="existing-ratings" data-aos="fade-up" class="existing-ratings py-5" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); position: relative; overflow: hidden;">
@@ -2264,7 +1929,7 @@
           <h5 class="mb-1 fw-bold" style="color: #2c3e50;">Bagikan Pengalaman Anda</h5>
           <p class="mb-0 text-muted" style="font-size: 0.9rem;">Ceritakan pengalaman wellness Anda bersama kami</p>
         </div>
-        <a href="#" class="btn btn-lg" style="background: linear-gradient(135deg, #99a3e3, #74e9d5); color: white; border: none; border-radius: 15px; padding: 12px 30px; font-weight: 600; text-decoration: none; box-shadow: 0 8px 20px rgba(153, 163, 227, 0.3); transition: all 0.3s ease;">
+        <a href="" class="btn btn-lg" style="background: linear-gradient(135deg, #99a3e3, #74e9d5); color: white; border: none; border-radius: 15px; padding: 12px 30px; font-weight: 600; text-decoration: none; box-shadow: 0 8px 20px rgba(153, 163, 227, 0.3); transition: all 0.3s ease;">
           <i class="fas fa-pen-alt me-2"></i>
           Tulis Review
         </a>
@@ -2435,44 +2100,6 @@ var rekomendasiSwiper = new Swiper('.rekomendasi-swiper', {
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
-    },
-});
-
-// Inisialisasi Swiper untuk Tourism Destinations
-var tourismSwiper = new Swiper('.tourism-swiper', {
-    direction: 'horizontal',
-    loop: true,
-    slidesPerView: 4,
-    spaceBetween: 30,
-    pagination: {
-        el: '.tourism-pagination',
-        clickable: true,
-    },
-    navigation: {
-        nextEl: '.tourism-next',
-        prevEl: '.tourism-prev',
-    },
-    autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-    },
-    breakpoints: {
-        320: {
-            slidesPerView: 1,
-            spaceBetween: 20,
-        },
-        768: {
-            slidesPerView: 2,
-            spaceBetween: 25,
-        },
-        1024: {
-            slidesPerView: 3,
-            spaceBetween: 30,
-        },
-        1200: {
-            slidesPerView: 4,
-            spaceBetween: 30,
-        },
     },
 });
 
