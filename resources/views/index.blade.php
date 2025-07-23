@@ -28,6 +28,9 @@
   <!-- Main CSS -->
   <link href="assets/homepage/css/style.css" rel="stylesheet" />
   <link href="tokopedia_carousel.css" rel="stylesheet" />
+  
+  <!-- Mobile Responsive CSS -->
+  <link href="css/mobile-responsive.css" rel="stylesheet" />
 
   <!-- Custom CSS -->
   <style>
@@ -62,6 +65,19 @@
       height: 600px;
       position: relative;
       overflow: hidden;
+    }
+    
+    /* Mobile responsive adjustments */
+    @media (max-width: 768px) {
+      .swiper-container {
+        height: 300px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .swiper-container {
+        height: 250px;
+      }
     }
 
     .swiper-slide img {
@@ -266,6 +282,31 @@
     .booking-btn:hover {
         background-color:rgb(242, 243, 245);
         transform: scale(1.05);
+    }
+    
+    /* Mobile responsive booking button */
+    @media (max-width: 768px) {
+      .booking-btn {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        right: auto;
+        padding: 8px 16px;
+        font-size: 14px;
+        border-radius: 20px;
+        min-width: 120px;
+        text-align: center;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .booking-btn {
+        bottom: 15px;
+        padding: 6px 12px;
+        font-size: 12px;
+        min-width: 100px;
+      }
     }
 
   </style>
@@ -515,7 +556,7 @@
                     <h5>SPA</h5>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up">
+            <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="service-item text-center">
                     <div class="service-img mb-3">
                         <img src="nyoba/images/fasilitas/7.jpg" alt="Fitness Center">
@@ -523,7 +564,7 @@
                     <h5>Fitness Center</h5>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up">
+            <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="service-item text-center">
                     <div class="service-img mb-3">
                         <img src="nyoba/images/fasilitas/8.jpg" alt="Sauna">
@@ -542,7 +583,7 @@
                     <h5>Breakfast</h5>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up">
+            <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="service-item text-center">
                     <div class="service-img mb-3">
                         <img src="nyoba/images/fasilitas/4.jpg" alt="Parking Lot">
@@ -550,7 +591,7 @@
                     <h5>Parking Lot</h5>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up">
+            <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="service-item text-center">
                     <div class="service-img mb-3">
                         <img src="nyoba/images/fasilitas/5.jpg" alt="Lunch">
@@ -558,7 +599,7 @@
                     <h5>Lunch</h5>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up">
+            <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="service-item text-center">
                     <div class="service-img mb-3">
                         <img src="nyoba/images/fasilitas/2.jpg" alt="Wifi">
@@ -616,7 +657,7 @@
         <!-- Rekomendasi Layanan kesehatan Section -->
        <section id="rekomendasi-kesehatan" style="padding: 40px 0; background-color: #FFBFA3;">
   <div class="container" style="max-width: 1200px; margin: auto;">
-    <h2 style="text-align: center; margin-bottom: 40px; font-size: 28px; color: #ffff; font-weight:600;">Rekomendasi Layanan Kesehatan Spesialis Organ Tubuh</h2>
+    <h2 style="text-align: center; margin-bottom: 40px; font-size: 28px; color: #333;">Rekomendasi Layanan Kesehatan Spesialis Organ Tubuh</h2>
 
     <div class="grid-container">
       <!-- CARD 1 -->
@@ -883,6 +924,17 @@
   scroll-behavior: smooth;
 }
 
+/* Mobile responsive: Change to grid layout */
+@media (max-width: 768px) {
+  .card-wrapper {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    overflow-x: visible !important;
+    padding: 0 15px !important;
+  }
+}
+
 .card-wrapper::-webkit-scrollbar {
   height: 8px;
 }
@@ -909,6 +961,14 @@
   flex-direction: column;
 }
 
+/* Mobile responsive cards */
+@media (max-width: 768px) {
+  .card-custom {
+    min-width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
 .card-img {
   width: 100%;
   height: 200px;
@@ -921,6 +981,32 @@
   display: flex;
   flex-direction: column;
   height: 280px;
+}
+
+/* Mobile responsive card body */
+@media (max-width: 768px) {
+  .card-body-custom {
+    height: auto !important;
+    padding: 15px !important;
+  }
+  
+  .card-body-custom h4 {
+    font-size: 18px !important;
+  }
+  
+  .card-body-custom p {
+    font-size: 14px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-body-custom h4 {
+    font-size: 16px !important;
+  }
+  
+  .card-body-custom p {
+    font-size: 13px !important;
+  }
 }
 
 .card-body-custom h4 {

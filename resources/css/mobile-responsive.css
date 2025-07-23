@@ -1,0 +1,600 @@
+/* ========================================
+   RICH WELLNESS - MOBILE RESPONSIVE CSS
+   ======================================== */
+
+/* ========================================
+   1. GENERAL MOBILE OPTIMIZATIONS
+   ======================================== */
+
+/* Improved base responsive behavior */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* ========================================
+   2. HEADER & NAVIGATION FIXES
+   ======================================== */
+
+/* Logo responsiveness */
+@media (max-width: 768px) {
+    .logo {
+        padding-right: 15px !important;
+    }
+    
+    .logo img {
+        width: auto !important;
+        max-height: 35px !important;
+        margin-left: 15px !important;
+    }
+    
+    .logo h1 {
+        font-size: 20px !important;
+        margin-left: 10px;
+    }
+    
+    .logo h1 a {
+        font-size: 18px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        padding-right: 10px !important;
+    }
+    
+    .logo img {
+        max-height: 30px !important;
+        margin-left: 10px !important;
+    }
+    
+    .logo h1 {
+        font-size: 16px !important;
+        margin-left: 8px;
+    }
+    
+    .logo h1 a {
+        font-size: 14px !important;
+    }
+}
+
+/* Mobile navigation improvements */
+@media (max-width: 991px) {
+    .navbar-mobile ul {
+        max-height: calc(100vh - 120px);
+        overflow-y: auto;
+    }
+    
+    .navbar-mobile .dropdown ul {
+        margin: 5px 15px;
+        padding: 5px 0;
+    }
+    
+    .navbar-mobile .getstarted {
+        margin: 10px 15px;
+        text-align: center;
+    }
+    
+    .btn-daftar {
+        width: auto !important;
+        margin: 10px 15px !important;
+        text-align: center;
+        display: block !important;
+    }
+}
+
+/* ========================================
+   3. CAROUSEL & SWIPER FIXES
+   ======================================== */
+
+/* Responsive carousel container */
+@media (max-width: 768px) {
+    .carousel-container {
+        margin-top: 20px !important;
+    }
+    
+    .swiper-container {
+        height: 300px !important;
+        width: 100%;
+    }
+    
+    .swiper-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    /* Responsive booking button */
+    .booking-btn {
+        position: absolute !important;
+        bottom: 20px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        right: auto !important;
+        padding: 8px 16px !important;
+        font-size: 14px !important;
+        border-radius: 20px !important;
+        width: auto !important;
+        min-width: 120px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .swiper-container {
+        height: 250px !important;
+    }
+    
+    .booking-btn {
+        bottom: 15px !important;
+        padding: 6px 12px !important;
+        font-size: 12px !important;
+        min-width: 100px;
+    }
+}
+
+/* Swiper navigation buttons for mobile */
+@media (max-width: 768px) {
+    .custom-swiper-btn {
+        width: 35px !important;
+        height: 35px !important;
+    }
+    
+    .swiper-button-prev {
+        left: 5px !important;
+    }
+    
+    .swiper-button-next {
+        right: 5px !important;
+    }
+    
+    .arrow {
+        padding: 4px !important;
+        border-width: 0 1.5px 1.5px 0 !important;
+    }
+}
+
+/* ========================================
+   4. HERO SECTION FIXES
+   ======================================== */
+
+@media (max-width: 768px) {
+    #hero {
+        margin-top: 15px !important;
+        padding: 40px 0 !important;
+    }
+    
+    #hero h1 {
+        font-size: 24px !important;
+        line-height: 30px !important;
+        margin-bottom: 15px !important;
+    }
+    
+    #hero h2 {
+        font-size: 16px !important;
+        line-height: 22px !important;
+        margin-bottom: 25px !important;
+    }
+    
+    #hero .btn-get-started {
+        padding: 8px 20px !important;
+        font-size: 14px !important;
+    }
+    
+    #hero .hero-img img {
+        width: 85% !important;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    #hero {
+        padding: 30px 0 !important;
+    }
+    
+    #hero h1 {
+        font-size: 20px !important;
+        line-height: 26px !important;
+    }
+    
+    #hero h2 {
+        font-size: 14px !important;
+        line-height: 20px !important;
+        margin-bottom: 20px !important;
+    }
+    
+    #hero .hero-img img {
+        width: 90% !important;
+        max-width: 250px;
+    }
+}
+
+/* ========================================
+   5. SECTIONS LAYOUT FIXES
+   ======================================== */
+
+/* Paket Unggulan Section */
+@media (max-width: 768px) {
+    #paket-unggulan {
+        padding: 40px 0 !important;
+    }
+    
+    #paket-unggulan .section-title h2 {
+        font-size: 28px !important;
+        margin-bottom: 20px !important;
+    }
+    
+    #paket-unggulan .card {
+        margin-bottom: 20px !important;
+        max-width: 100% !important;
+    }
+    
+    #paket-unggulan .col-lg-3 {
+        margin-bottom: 20px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    #paket-unggulan .section-title h2 {
+        font-size: 24px !important;
+    }
+    
+    #paket-unggulan .card-body {
+        padding: 20px 15px !important;
+    }
+    
+    #paket-unggulan .card-title {
+        font-size: 18px !important;
+    }
+    
+    #paket-unggulan .card-text {
+        font-size: 14px !important;
+    }
+}
+
+/* Fasilitas Kamar Section */
+@media (max-width: 768px) {
+    #kamar .icon-box {
+        min-height: 220px !important;
+        padding: 20px !important;
+        margin-bottom: 20px !important;
+    }
+    
+    #kamar .icon i {
+        font-size: 36px !important;
+    }
+    
+    #kamar .title {
+        font-size: 18px !important;
+    }
+    
+    #kamar .description {
+        font-size: 14px !important;
+    }
+}
+
+/* Fasilitas Hotel Section */
+@media (max-width: 768px) {
+    #more-services .service-item {
+        margin-bottom: 20px !important;
+        padding: 20px 10px !important;
+    }
+    
+    #more-services .service-img img {
+        height: 120px !important;
+    }
+    
+    #more-services .service-item h5 {
+        font-size: 16px !important;
+        margin-top: 10px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    #more-services .service-img img {
+        height: 100px !important;
+    }
+    
+    #more-services .service-item h5 {
+        font-size: 14px !important;
+    }
+}
+
+/* ========================================
+   6. REKOMENDASI SECTIONS FIXES
+   ======================================== */
+
+/* Rekomendasi Kesehatan */
+@media (max-width: 768px) {
+    #rekomendasi-kesehatan {
+        padding: 30px 0 !important;
+    }
+    
+    #rekomendasi-kesehatan h2 {
+        font-size: 22px !important;
+        margin-bottom: 30px !important;
+        padding: 0 15px;
+    }
+    
+    .grid-container {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        padding: 0 15px;
+    }
+    
+    .custom-card {
+        max-width: 100% !important;
+    }
+    
+    .custom-img {
+        height: 150px !important;
+    }
+    
+    .custom-title {
+        font-size: 16px !important;
+    }
+    
+    .custom-text {
+        font-size: 13px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    #rekomendasi-kesehatan h2 {
+        font-size: 18px !important;
+    }
+    
+    .custom-img {
+        height: 130px !important;
+    }
+    
+    .custom-title {
+        font-size: 15px !important;
+    }
+    
+    .custom-text {
+        font-size: 12px !important;
+    }
+}
+
+/* Rekomendasi Destinasi - Replace horizontal scroll with responsive grid */
+@media (max-width: 768px) {
+    #rekomendasi-destinasi {
+        padding: 40px 0 !important;
+    }
+    
+    #rekomendasi-destinasi .section-title h2 {
+        font-size: 22px !important;
+        margin-bottom: 30px !important;
+    }
+    
+    .card-wrapper {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        overflow-x: visible !important;
+        padding: 0 15px !important;
+    }
+    
+    .card-custom {
+        min-width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    .card-img {
+        height: 180px !important;
+    }
+    
+    .card-body-custom {
+        height: auto !important;
+        padding: 15px !important;
+    }
+    
+    .card-body-custom h4 {
+        font-size: 18px !important;
+    }
+    
+    .card-body-custom p {
+        font-size: 14px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-img {
+        height: 150px !important;
+    }
+    
+    .card-body-custom h4 {
+        font-size: 16px !important;
+    }
+    
+    .card-body-custom p {
+        font-size: 13px !important;
+    }
+}
+
+/* ========================================
+   7. TESTIMONIALS/RATINGS SECTION
+   ======================================== */
+
+@media (max-width: 768px) {
+    #existing-ratings {
+        padding: 40px 15px !important;
+    }
+    
+    #existing-ratings h3 {
+        font-size: 24px !important;
+        margin-bottom: 30px !important;
+    }
+    
+    #existing-ratings .card {
+        margin-bottom: 20px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    #existing-ratings h3 {
+        font-size: 20px !important;
+    }
+}
+
+/* ========================================
+   8. CONTACT SECTION FIXES
+   ======================================== */
+
+@media (max-width: 768px) {
+    #contact {
+        padding: 40px 0 !important;
+    }
+    
+    #contact .section-title h2 {
+        font-size: 24px !important;
+    }
+    
+    #contact .contact-about {
+        margin-bottom: 30px !important;
+    }
+    
+    #contact .contact-about h3 {
+        font-size: 20px !important;
+    }
+    
+    #contact .contact-about p {
+        font-size: 14px !important;
+        line-height: 1.6 !important;
+    }
+    
+    .map-container iframe {
+        height: 250px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    #contact .section-title h2 {
+        font-size: 20px !important;
+    }
+    
+    #contact .contact-about h3 {
+        font-size: 18px !important;
+    }
+    
+    .map-container iframe {
+        height: 200px !important;
+    }
+}
+
+/* ========================================
+   9. FOOTER FIXES
+   ======================================== */
+
+@media (max-width: 768px) {
+    #footer {
+        padding: 30px 0 !important;
+    }
+    
+    #footer .copyright {
+        font-size: 14px !important;
+        margin-bottom: 10px !important;
+    }
+    
+    #footer .credits {
+        font-size: 12px !important;
+    }
+    
+    #footer .footer-links {
+        margin-top: 15px !important;
+    }
+    
+    #footer .footer-links a {
+        font-size: 14px !important;
+        margin: 0 10px !important;
+    }
+}
+
+/* ========================================
+   10. UTILITY CLASSES FOR MOBILE
+   ======================================== */
+
+/* Hide elements on mobile if needed */
+@media (max-width: 768px) {
+    .hide-mobile {
+        display: none !important;
+    }
+    
+    .show-mobile {
+        display: block !important;
+    }
+}
+
+/* Improved touch targets */
+@media (max-width: 768px) {
+    .btn, .btn-primary, .btn-custom, .custom-btn {
+        min-height: 44px !important;
+        min-width: 44px !important;
+        padding: 10px 15px !important;
+        font-size: 14px !important;
+    }
+    
+    .btn-get-started {
+        min-height: 44px !important;
+        padding: 12px 24px !important;
+    }
+}
+
+/* Improved spacing for mobile */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+    
+    section {
+        padding: 40px 0 !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+    
+    section {
+        padding: 30px 0 !important;
+    }
+}
+
+/* ========================================
+   11. PERFORMANCE OPTIMIZATIONS
+   ======================================== */
+
+/* Reduce animations on mobile for better performance */
+@media (max-width: 768px) {
+    .animated {
+        animation: none !important;
+    }
+    
+    .hover-zoom:hover {
+        transform: none !important;
+    }
+    
+    .rating-zoom:hover {
+        transform: none !important;
+    }
+}
+
+/* Optimize images for mobile */
+@media (max-width: 768px) {
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+}
+
