@@ -1526,14 +1526,26 @@
     justify-content: center;
 }
 
-    .service-item {
-        background: #fff;
-        border-radius: 15px;
-        box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
-        padding: 25px 15px;
-        transition: all 0.4s ease;
-        height: 100%;
-    }
+   .service-item {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+    padding: 15px;
+    transition: all 0.4s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.service-img img {
+    height: 150px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+}
+
     .service-item:hover {
         transform: translateY(-8px);
         box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
