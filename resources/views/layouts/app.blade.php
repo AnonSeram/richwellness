@@ -93,19 +93,6 @@
         .btn-primary:hover {
             background-color: #0056b3;
         }
-        .btn-daftar {
-            display: inline-flex;
-            padding: 10px 20px;
-            border: 2px solid #99a3e3;
-            border-radius: 50px;
-            color: #99a3e3;
-            text-decoration: none;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            align-items: center;
-            width: 100px;
-            margin-left: 10px;
-        }
         .btn-daftar:hover {
             background-color: #99a3e3;
             color: white;
