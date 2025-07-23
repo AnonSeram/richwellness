@@ -161,3 +161,4 @@ Route::get("/contact", function () {
 })->name("contact");
 
 
+Route::post('/midtrans-callback-test', [PemesananController::class, 'handleNotification']);
