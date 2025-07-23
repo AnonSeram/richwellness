@@ -707,7 +707,6 @@
   align-items: center;
   gap: 8px;
   transition: all 0.3s ease;
-  margin-left: 10px;
   min-width: auto;  /* atau bisa auto */
   overflow: visible; /* penting agar teks tidak terpotong */
   white-space: nowrap; /* mencegah patah baris */
