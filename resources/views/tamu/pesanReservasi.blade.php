@@ -246,16 +246,6 @@
         document.getElementById("step1Indicator").innerText = "✔ {{ __("messages.select_room") }}";
     });
 
-    document.getElementById("tglCheckOut").addEventListener("change", () => {
-    const inDate = new Date(document.getElementById("tglCheckIn").value);
-    const outDate = new Date(document.getElementById("tglCheckOut").value);
-
-    if (outDate <= inDate) {
-        alert("{{ __('messages.invalid_checkout_date') }}");
-        document.getElementById("tglCheckOut").value = "";
-    }
-    });
-
     document.getElementById("backToStep1").addEventListener("click", function () {
         document.getElementById("step2").style.display = "none";
         document.getElementById("step1").style.display = "block";
