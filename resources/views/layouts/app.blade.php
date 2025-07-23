@@ -33,7 +33,7 @@
     <style>
         #header {
             background-color: #FEFDED;
-            z-index: 1050; /* Added z-index */
+            z-index: 9999; /* Increased z-index */
         }
         #footer {
             background-color: #5E96AE;
@@ -120,7 +120,7 @@
             background-color: white;
             min-width: 160px;
             box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-            z-index: 1060; /* Increased z-index */
+            z-index: 10000; /* Increased z-index */
             list-style-type: none;
             padding: 10px 0;
             margin: 0;
