@@ -727,7 +727,11 @@
   align-items: center;
   gap: 8px;
   transition: all 0.3s ease;
-   margin-left: 4px; /* atau 0 */
+  margin-left: 10px;
+  min-width: 100px; /* atau 120px */
+  white-space: nowrap; /* supaya tulisan tidak terpotong atau turun */
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .enhanced-register-btn:hover {
