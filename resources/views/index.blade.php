@@ -411,7 +411,7 @@
               {{ __("messages.login") }}
             </a></li>
             <li><a class="btn-daftar enhanced-register-btn" href="{{ route('register') }}">
-              <i class="fas  me-2"></i>
+              <i class="fas fa-user-plus me-2"></i>
               {{ __("messages.register") }}
             </a></li>
           @endauth
@@ -728,10 +728,9 @@
   gap: 8px;
   transition: all 0.3s ease;
   margin-left: 10px;
-  min-width: 100px; /* atau 120px */
-  white-space: nowrap; /* supaya tulisan tidak terpotong atau turun */
-  overflow: hidden;
-  text-overflow: ellipsis;
+  min-width: 100px;  /* atau bisa auto */
+  overflow: visible; /* penting agar teks tidak terpotong */
+  white-space: nowrap; /* mencegah patah baris */
 }
 
 .enhanced-register-btn:hover {
