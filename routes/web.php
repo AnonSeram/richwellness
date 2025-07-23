@@ -18,6 +18,8 @@ use App\Http\Controllers\PemesananController;
 use App\Http\Controllers\WebhookController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\LanguageController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 /*
 |--------------------------------------------------------------------------
@@ -161,4 +163,7 @@ Route::get("/contact", function () {
 })->name("contact");
 
 
-Route::post('/midtrans-callback-test', [PemesananController::class, 'handleNotification']);
+Route::post('/midtrans-callback-test', function (Request $request) {
+    Log::info('Callback Midtrans berhasil masuk.', ['payload' => $request->all()]);
+    return response()->json(['message' => 'Callback OK'], 200);
+});
