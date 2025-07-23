@@ -20,7 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/midtrans/notification', [PemesananController::class, 'handleNotification']);
 
 // Midtrans Status
 Route::post('/midtrans/callback', [PemesananController::class, 'handleNotification']);
