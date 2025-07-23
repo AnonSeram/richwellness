@@ -314,7 +314,7 @@
 <body>
 
   <!-- ======= Enhanced Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center enhanced-header">
+  <header id="header" class="fixed-top d-flex align-items-center enhanced-header" style="z-index: 1050;">
     <div class="container d-flex align-items-center justify-content-between">
       <div class="logo d-flex align-items-center enhanced-logo">
         <div class="logo-container">
@@ -329,17 +329,17 @@
       
       <nav id="navbar" class="navbar enhanced-navbar">
         <ul class="d-flex align-items-center">
-          <li><a class="nav-link scrollto active" href="#hero">{{ __('messages.home') }}</a></li>
-          <li><a class="nav-link scrollto" href="#paket-unggulan">{{ __('messages.featured_packages') }}</a></li>
-          <li><a class="nav-link scrollto" href="#kamar">{{ __('messages.rooms') }}</a></li>
-          <li><a class="nav-link scrollto" href="#fasilitas">{{ __('messages.facilities') }}</a></li>
-          <li><a class="nav-link scrollto" href="#rekomendasi-kesehatan">{{ __('messages.health') }}</a></li>
-          <li><a class="nav-link scrollto" href="#rekomendasi-destinasi">{{ __('messages.tourism') }}</a></li>
-          <li><a class="nav-link scrollto" href="#existing-ratings">{{ __('messages.ratings') }}</a></li>
-          <li><a class="nav-link scrollto" href="#contact">{{ __('messages.contact') }}</a></li>
+          <li><a class="nav-link scrollto active" href="#hero">{{ __("messages.home") }}</a></li>
+          <li><a class="nav-link scrollto" href="#paket-unggulan">{{ __("messages.featured_packages") }}</a></li>
+          <li><a class="nav-link scrollto" href="#kamar">{{ __("messages.rooms") }}</a></li>
+          <li><a class="nav-link scrollto" href="#fasilitas">{{ __("messages.facilities") }}</a></li>
+          <li><a class="nav-link scrollto" href="#rekomendasi-kesehatan">{{ __("messages.health") }}</a></li>
+          <li><a class="nav-link scrollto" href="#rekomendasi-destinasi">{{ __("messages.tourism") }}</a></li>
+          <li><a class="nav-link scrollto" href="#existing-ratings">{{ __("messages.ratings") }}</a></li>
+          <li><a class="nav-link scrollto" href="#contact">{{ __("messages.contact") }}</a></li>
           
           <!-- Enhanced Language Switcher -->
-          <li class="dropdown enhanced-dropdown">
+          <li class="dropdown enhanced-dropdown" style="z-index: 1060;">
             <a class="nav-link scrollto language-switcher" href="#" style="display: flex; align-items: center;">
               <div class="language-icon">
                 <i class="fas fa-globe"></i>
@@ -347,7 +347,7 @@
               <span class="language-text">{{ app()->getLocale() == 'id' ? 'ID' : 'EN' }}</span>
               <i class="fas fa-chevron-down dropdown-arrow"></i>
             </a>
-            <ul class="dropdown-menu enhanced-dropdown-menu">
+            <ul class="dropdown-menu enhanced-dropdown-menu" style="z-index: 1060;">
               <li><a href="{{ route('language.switch', 'id') }}" class="dropdown-item">
                 <img src="https://flagcdn.com/w20/id.png" alt="ID" class="flag-icon">
                 <span>Bahasa Indonesia</span>
@@ -363,15 +363,15 @@
             @if(auth()->user()->role === 'admin')
               <li><a class="getstarted enhanced-btn" href="{{ route('admin.home') }}">
                 <i class="fas fa-tachometer-alt me-2"></i>
-                {{ __('messages.dashboard') }}
+                {{ __("messages.dashboard") }}
               </a></li>
             @elseif(auth()->user()->role === 'resepsionis')
               <li><a class="getstarted enhanced-btn" href="{{ route('resepsionis') }}">
                 <i class="fas fa-tachometer-alt me-2"></i>
-                {{ __('messages.dashboard') }}
+                {{ __("messages.dashboard") }}
               </a></li>
             @else
-              <li class="dropdown enhanced-dropdown user-dropdown">
+              <li class="dropdown enhanced-dropdown user-dropdown" style="z-index: 1060;">
                 <a class="getstarted enhanced-btn user-btn" href="#">
                   <div class="user-avatar">
                     <span>{{ strtoupper(substr(auth()->user()->name, 0, 1)) }}</span>
@@ -379,18 +379,18 @@
                   <span class="user-name">{{ auth()->user()->name }}</span>
                   <i class="fas fa-chevron-down dropdown-arrow"></i>
                 </a>
-                <ul class="dropdown-menu enhanced-dropdown-menu user-menu">
+                <ul class="dropdown-menu enhanced-dropdown-menu user-menu" style="z-index: 1060;">
                   <li><a href="{{ route('user.profile') }}" class="dropdown-item">
                     <i class="fas fa-id-badge"></i>
-                    <span>{{ __('messages.profile') }}</span>
+                    <span>{{ __("messages.profile") }}</span>
                   </a></li>
                   <li><a href="{{ route('dashboard') }}" class="dropdown-item">
                     <i class="fas fa-receipt"></i>
-                    <span>{{ __('messages.transactions') }}</span>
+                    <span>{{ __("messages.transactions") }}</span>
                   </a></li>
                   <li><a href="{{ route('keranjang') }}" class="dropdown-item">
                     <i class="fas fa-shopping-cart"></i>
-                    <span>{{ __('messages.cart') }}</span>
+                    <span>{{ __("messages.cart") }}</span>
                   </a></li>
                   <li class="dropdown-divider"></li>
                   <li>
@@ -398,7 +398,7 @@
                       @csrf
                       <button type="submit" class="dropdown-item logout-btn">
                         <i class="fas fa-sign-out-alt"></i>
-                        <span>{{ __('messages.logout') }}</span>
+                        <span>{{ __("messages.logout") }}</span>
                       </button>
                     </form>
                   </li>
@@ -408,11 +408,11 @@
           @else
             <li><a class="getstarted enhanced-btn login-btn" href="{{ route('login') }}">
               <i class="fas fa-sign-in-alt me-2"></i>
-              {{ __('messages.login') }}
+              {{ __("messages.login") }}
             </a></li>
             <li><a class="btn-daftar enhanced-register-btn" href="{{ route('register') }}">
               <i class="fas fa-user-plus me-2"></i>
-              {{ __('messages.register') }}
+              {{ __("messages.register") }}
             </a></li>
           @endauth
         </ul>
@@ -1553,320 +1553,595 @@
         <!-- End More Services Section -->
 
         <!-- Rekomendasi Layanan kesehatan Section -->
-       <section id="rekomendasi-kesehatan" style="padding: 40px 0; background-color: #FFBFA3;">
-  <div class="container" style="max-width: 1200px; margin: auto;">
-    <h2 style="text-align: center; margin-bottom: 40px; font-size: 28px; color: #333;">Rekomendasi Layanan Kesehatan Spesialis Organ Tubuh</h2>
-
-    <div class="grid-container">
-      <!-- CARD 1 -->
-      <div class="custom-card">
-        <div class="img-container">
-          <img src="/assets/homepage/img/kesehatan/4.png" class="custom-img" alt="Poliklinik Mata">
+       <!-- Enhanced Rekomendasi Layanan kesehatan Section -->
+       <section id="rekomendasi-kesehatan" class="enhanced-health-services" style="padding: 80px 0;">
+  <div class="container">
+    <!-- Enhanced Section Header -->
+    <div class="section-title text-center mb-5" data-aos="fade-up">
+        <div class="section-icon mb-4">
+            <div class="icon-container health-icon">
+                <i class="fas fa-heartbeat"></i>
+                <div class="icon-glow"></div>
+            </div>
         </div>
-        <h4 class="custom-title">Poliklinik Mata RSUP Dr. Sardjito</h4>
-        <p class="custom-text">Jika Anda atau orang terdekat membutuhkan perawatan mata berkualitas, RSUP Dr. Sardjito dengan dokter berpengalaman dan fasilitas canggih adalah pilihan tepat.</p>
-        <a href="https://sardjito.co.id/" class="custom-btn" target="_blank">Kunjungi Situs</a>
+        <h2 class="enhanced-title">Rekomendasi Layanan Kesehatan Spesialis</h2>
+        <div class="title-underline"></div>
+        <p class="section-subtitle">Temukan layanan kesehatan terbaik untuk kebutuhan spesifik Anda</p>
+    </div>
+
+    <div class="row justify-content-center">
+      <!-- CARD 1 -->
+      <div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+        <div class="enhanced-service-card">
+          <div class="service-img-container">
+            <img src="/assets/homepage/img/kesehatan/4.png" class="service-img" alt="Poliklinik Mata">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="service-content">
+            <h4 class="service-title">Poliklinik Mata RSUP Dr. Sardjito</h4>
+            <p class="service-text">Jika Anda atau orang terdekat membutuhkan perawatan mata berkualitas, RSUP Dr. Sardjito dengan dokter berpengalaman dan fasilitas canggih adalah pilihan tepat.</p>
+            <a href="https://sardjito.co.id/" class="enhanced-service-btn" target="_blank">
+                <span>Kunjungi Situs</span>
+                <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+        </div>
       </div>
 
       <!-- CARD 2 -->
-      <div class="custom-card">
-        <div class="img-container">
-          <img src="/assets/homepage/img/kesehatan/2.png" class="custom-img" alt="Klinik Kulit">
+      <div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+        <div class="enhanced-service-card">
+          <div class="service-img-container">
+            <img src="/assets/homepage/img/kesehatan/2.png" class="service-img" alt="Klinik Kulit">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="service-content">
+            <h4 class="service-title">Klinik Kulit RS. Panti Rapih</h4>
+            <p class="service-text">Klinik kulit Panti Rapih menyediakan diagnosis, perawatan, hingga konsultasi kecantikan dengan pendekatan holistik dan berbasis bukti.</p>
+            <a href="https://pantirapih.or.id/rspr/" class="enhanced-service-btn" target="_blank">
+                <span>Kunjungi Situs</span>
+                <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
         </div>
-        <h4 class="custom-title">Klinik Kulit RS. Panti Rapih</h4>
-        <p class="custom-text">Klinik kulit Panti Rapih menyediakan diagnosis, perawatan, hingga konsultasi kecantikan dengan pendekatan holistik dan berbasis bukti.</p>
-        <a href="https://pantirapih.or.id/rspr/" class="custom-btn" target="_blank">Kunjungi Situs</a>
       </div>
 
       <!-- CARD 3 -->
-      <div class="custom-card">
-        <div class="img-container">
-          <img src="/assets/homepage/img/kesehatan/3.png" class="custom-img" alt="Klinik Ginjal">
+      <div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+        <div class="enhanced-service-card">
+          <div class="service-img-container">
+            <img src="/assets/homepage/img/kesehatan/3.png" class="service-img" alt="Klinik Ginjal">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="service-content">
+            <h4 class="service-title">Klinik Ginjal RS. PKU Jogja</h4>
+            <p class="service-text">RS PKU Jogja siap memberikan layanan ginjal terbaik dengan tim spesialis terpercaya dan peralatan modern untuk penanganan menyeluruh.</p>
+            <a href="https://rspkujogja.com/" class="enhanced-service-btn" target="_blank">
+                <span>Kunjungi Situs</span>
+                <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
         </div>
-        <h4 class="custom-title">Klinik Ginjal RS. PKU Jogja</h4>
-        <p class="custom-text">RS PKU Jogja siap memberikan layanan ginjal terbaik dengan tim spesialis terpercaya dan peralatan modern untuk penanganan menyeluruh.</p>
-        <a href="https://rspkujogja.com/" class="custom-btn" target="_blank">Kunjungi Situs</a>
       </div>
 
       <!-- CARD 4 -->
-      <div class="custom-card">
-        <div class="img-container">
-          <img src="/assets/homepage/img/kesehatan/1.png" class="custom-img" alt="Klinik Jantung">
+      <div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
+        <div class="enhanced-service-card">
+          <div class="service-img-container">
+            <img src="/assets/homepage/img/kesehatan/1.png" class="service-img" alt="Klinik Jantung">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="service-content">
+            <h4 class="service-title">Klinik Jantung RSUP Dr. Sardjito</h4>
+            <p class="service-text">Dapatkan perawatan jantung terbaik di RSUP Dr. Sardjito dengan tim spesialis jantung berpengalaman dan fasilitas lengkap.</p>
+            <a href="https://sardjito.co.id/" class="enhanced-service-btn" target="_blank">
+                <span>Kunjungi Situs</span>
+                <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
         </div>
-        <h4 class="custom-title">Klinik Jantung RSUP Dr. Sardjito</h4>
-        <p class="custom-text">Dapatkan perawatan jantung terbaik di RSUP Dr. Sardjito dengan tim spesialis jantung berpengalaman dan fasilitas lengkap.</p>
-        <a href="https://sardjito.co.id/" class="custom-btn" target="_blank">Kunjungi Situs</a>
       </div>
     </div>
   </div>
 
-  <!-- CUSTOM STYLE + ANIMASI -->
+  <!-- ENHANCED HEALTH SERVICES STYLES -->
   <style>
-    .grid-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 24px;
+    .enhanced-health-services {
+        background: linear-gradient(135deg, #FEFDED 0%, #F8F9FA 100%);
+        position: relative;
+        overflow: hidden;
     }
 
-    .custom-card {
-      background-color: #ffffff;
-      border-radius: 15px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-      padding: 20px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    .enhanced-health-services::before {
+        content: ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><pattern id='dots' width='10' height='10' patternUnits='userSpaceOnUse'><circle cx='2' cy='2' r='1' fill='rgba(153,163,227,0.1)'/></pattern></defs><rect width='100' height='100' fill='url(%23dots)'/></svg>");
+        opacity: 0.5;
+        pointer-events: none;
     }
 
-    .custom-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    .health-icon .icon-container {
+        background: linear-gradient(135deg, #74e9d5, #99a3e3);
+        box-shadow: 0 10px 30px rgba(116, 233, 213, 0.3);
     }
 
-    .img-container {
-      overflow: hidden;
-      border-radius: 10px;
-      margin-bottom: 15px;
+    .health-icon .icon-glow {
+        background: radial-gradient(circle, rgba(116, 233, 213, 0.3) 0%, transparent 70%);
     }
 
-    .custom-img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 10px;
-      transition: transform 0.4s ease;
+    .enhanced-service-card {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        overflow: hidden;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
     }
 
-    .custom-card:hover .custom-img {
-      transform: scale(1.05);
+    .enhanced-service-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     }
 
-    .custom-title {
-      font-size: 18px;
-      font-weight: bold;
-      color: #7AA2E3;
-      margin-bottom: 10px;
+    .service-img-container {
+        position: relative;
+        height: 180px;
+        overflow: hidden;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
     }
 
-    .custom-text {
-      font-size: 14px;
-      color: #333;
-      flex-grow: 1;
-      margin-bottom: 20px;
+    .service-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
     }
 
-    .custom-btn {
-      background-color: #7AA2E3;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: background-color 0.3s ease, transform 0.2s ease;
+    .enhanced-service-card:hover .service-img {
+        transform: scale(1.1);
     }
 
-    .custom-btn:hover {
-      background-color: #5c85d6;
-      transform: scale(1.05);
+    .img-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.4) 0%, transparent 50%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .enhanced-service-card:hover .img-overlay {
+        opacity: 1;
+    }
+
+    .service-content {
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+
+    .service-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .service-text {
+        font-size: 0.95rem;
+        color: #6c757d;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        flex-grow: 1;
+        text-align: center;
+    }
+
+    .enhanced-service-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        background: linear-gradient(135deg, #99a3e3, #74e9d5);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(153, 163, 227, 0.3);
+    }
+
+    .enhanced-service-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(153, 163, 227, 0.4);
+        color: white;
+    }
+
+    .enhanced-service-btn i {
+        transition: transform 0.3s ease;
+    }
+
+    .enhanced-service-btn:hover i {
+        transform: translateX(5px);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .service-title {
+            font-size: 1.2rem;
+        }
+        .service-text {
+            font-size: 0.85rem;
+        }
+        .enhanced-service-btn {
+            padding: 8px 15px;
+            font-size: 0.8rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .service-content {
+            padding: 20px;
+        }
+        .service-title {
+            font-size: 1.1rem;
+        }
+        .service-text {
+            font-size: 0.8rem;
+        }
     }
   </style>
 </section>
 
         <!-- End Rekomendasi Layanan kesehatan -->
 
-        <!-- Rekomendasi Destinasi Section -->
-        <!-- Rekomendasi Destinasi Section -->
-        <section id="rekomendasi-destinasi" class="rekomendasi-destinasi" data-aos="fade-up">
+        <!-- Enhanced Rekomendasi Destinasi Section -->
+        <section id="rekomendasi-destinasi" class="enhanced-tourism-destinations" style="padding: 80px 0;">
   <div class="container">
-    <div class="section-title">
-      <h2>Rekomendasi Destinasi Wisata Yogyakarta</h2>
+    <!-- Enhanced Section Header -->
+    <div class="section-title text-center mb-5" data-aos="fade-up">
+        <div class="section-icon mb-4">
+            <div class="icon-container tourism-icon">
+                <i class="fas fa-map-marked-alt"></i>
+                <div class="icon-glow"></div>
+            </div>
+        </div>
+        <h2 class="enhanced-title">Rekomendasi Destinasi Wisata Yogyakarta</h2>
+        <div class="title-underline"></div>
+        <p class="section-subtitle">Jelajahi keindahan Yogyakarta dengan rekomendasi destinasi terbaik kami</p>
     </div>
 
-    <div class="card-wrapper">
+    <div class="row justify-content-center">
       
-      <div class="card-custom">
-        <img src="/assets/homepage/img/destinasi/4.png" alt="Heha Sky View" class="card-img">
-        <div class="card-body-custom">
-          <h4>Heha Sky View</h4>
-          <p>HeHa Sky View di Gunungkidul, Yogyakarta, menawarkan pemandangan indah dari ketinggian, lengkap dengan restoran dan spot foto Instagramable. Tempat ini cocok untuk menikmati sunset dan panorama kota.</p>
-          <div class="btn-wrapper">
-            <a href="https://www.google.com/maps/search/heha+sky+view/@-7.9774678,110.3051026,11z/data=!3m1!4b1?entry=ttu" class="btn-custom" target="_blank">Lihat Maps</a>
+      <div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+        <div class="enhanced-destination-card">
+          <div class="destination-img-container">
+            <img src="/assets/homepage/img/destinasi/4.png" alt="Heha Sky View" class="destination-img">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="destination-content">
+            <h4 class="destination-title">Heha Sky View</h4>
+            <p class="destination-text">HeHa Sky View di Gunungkidul, Yogyakarta, menawarkan pemandangan indah dari ketinggian, lengkap dengan restoran dan spot foto Instagramable.</p>
+            <a href="https://www.google.com/maps/search/heha+sky+view/@-7.9774678,110.3051026,11z/data=!3m1!4b1?entry=ttu" class="enhanced-destination-btn" target="_blank">
+                <span>Lihat Maps</span>
+                <i class="fas fa-map-marker-alt"></i>
+            </a>
           </div>
         </div>
       </div>
 
-      <div class="card-custom">
-        <img src="/assets/homepage/img/destinasi/3.png" alt="Waduk Sermo" class="card-img">
-        <div class="card-body-custom">
-          <h4>Waduk Sermo</h4>
-          <p>Waduk Sermo merupakan waduk di Kulon Progo, Yogyakarta, berfungsi sebagai sumber air dan tempat rekreasi. Pengunjung bisa menikmati pemandangan dan aktivitas seperti naik perahu serta memancing.</p>
-          <div class="btn-wrapper">
-            <a href="https://maps.app.goo.gl/ASE7cBjm6QmCmuTU7" class="btn-custom" target="_blank">Lihat Maps</a>
+      <div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+        <div class="enhanced-destination-card">
+          <div class="destination-img-container">
+            <img src="/assets/homepage/img/destinasi/3.png" alt="Waduk Sermo" class="destination-img">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="destination-content">
+            <h4 class="destination-title">Waduk Sermo</h4>
+            <p class="destination-text">Waduk Sermo merupakan waduk di Kulon Progo, Yogyakarta, berfungsi sebagai sumber air dan tempat rekreasi. Pengunjung bisa menikmati pemandangan dan aktivitas seperti naik perahu serta memancing.</p>
+            <a href="https://maps.app.goo.gl/ASE7cBjm6QmCmuTU7" class="enhanced-destination-btn" target="_blank">
+                <span>Lihat Maps</span>
+                <i class="fas fa-map-marker-alt"></i>
+            </a>
           </div>
         </div>
       </div>
 
-      <div class="card-custom">
-        <img src="/assets/homepage/img/destinasi/2.png" alt="Pantai Parangritis" class="card-img">
-        <div class="card-body-custom">
-          <h4>Pantai Parangritis</h4>
-          <p>Pantai Parangtritis di Bantul, Yogyakarta, terkenal dengan ombak besar dan panorama senja yang menakjubkan, menjadi tujuan favorit untuk menikmati laut dan sunset.</p>
-          <div class="btn-wrapper">
-            <a href="https://maps.app.goo.gl/n6XTkuQifzwpuynh7" class="btn-custom" target="_blank">Lihat Maps</a>
+      <div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+        <div class="enhanced-destination-card">
+          <div class="destination-img-container">
+            <img src="/assets/homepage/img/destinasi/2.png" alt="Pantai Parangritis" class="destination-img">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="destination-content">
+            <h4 class="destination-title">Pantai Parangritis</h4>
+            <p class="destination-text">Pantai Parangtritis di Bantul, Yogyakarta, terkenal dengan ombak besar dan panorama senja yang menakjubkan, menjadi tujuan favorit untuk menikmati laut dan sunset.</p>
+            <a href="https://maps.app.goo.gl/n6XTkuQifzwpuynh7" class="enhanced-destination-btn" target="_blank">
+                <span>Lihat Maps</span>
+                <i class="fas fa-map-marker-alt"></i>
+            </a>
           </div>
         </div>
       </div>
 
-      <div class="card-custom">
-        <img src="/assets/homepage/img/destinasi/5.png" alt="Mangunan Yogyakarta" class="card-img">
-        <div class="card-body-custom">
-          <h4>Mangunan Yogyakarta</h4>
-          <p>Mangunan adalah daerah perbukitan yang terkenal dengan pesona sawah terasering dan spot foto yang menarik, cocok untuk menikmati keindahan alam Yogyakarta.</p>
-          <div class="btn-wrapper">
-            <a href="https://maps.app.goo.gl/VPARov2kFjncvpS5A" class="btn-custom" target="_blank">Lihat Maps</a>
+      <div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
+        <div class="enhanced-destination-card">
+          <div class="destination-img-container">
+            <img src="/assets/homepage/img/destinasi/5.png" alt="Mangunan Yogyakarta" class="destination-img">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="destination-content">
+            <h4 class="destination-title">Mangunan Yogyakarta</h4>
+            <p class="destination-text">Mangunan adalah daerah perbukitan yang terkenal dengan pesona sawah terasering dan spot foto yang menarik, cocok untuk menikmati keindahan alam Yogyakarta.</p>
+            <a href="https://maps.app.goo.gl/VPARov2kFjncvpS5A" class="enhanced-destination-btn" target="_blank">
+                <span>Lihat Maps</span>
+                <i class="fas fa-map-marker-alt"></i>
+            </a>
           </div>
         </div>
       </div>
 
-      <div class="card-custom">
-        <img src="/assets/homepage/img/destinasi/1.png" alt="Bukit Bintang" class="card-img">
-        <div class="card-body-custom">
-          <h4>Bukit Bintang</h4>
-          <p>Bukit Bintang menawarkan pemandangan spektakuler Kota Yogyakarta dari ketinggian, tempat favorit untuk menikmati panorama dan gemerlap malam.</p>
-          <div class="btn-wrapper">
-            <a href="https://maps.app.goo.gl/FgnNE6dUi71mULE27" class="btn-custom" target="_blank">Lihat Maps</a>
+      <div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="500">
+        <div class="enhanced-destination-card">
+          <div class="destination-img-container">
+            <img src="/assets/homepage/img/destinasi/1.png" alt="Bukit Bintang" class="destination-img">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="destination-content">
+            <h4 class="destination-title">Bukit Bintang</h4>
+            <p class="destination-text">Bukit Bintang menawarkan pemandangan spektakuler Kota Yogyakarta dari ketinggian, tempat favorit untuk menikmati panorama dan gemerlap malam.</p>
+            <a href="https://maps.app.goo.gl/FgnNE6dUi71mULE27" class="enhanced-destination-btn" target="_blank">
+                <span>Lihat Maps</span>
+                <i class="fas fa-map-marker-alt"></i>
+            </a>
           </div>
         </div>
       </div>
 
-      <div class="card-custom">
-        <img src="/assets/homepage/img/destinasi/6.png" alt="Merapi Park" class="card-img">
-        <div class="card-body-custom">
-          <h4>Merapi Park</h4>
-          <p>Merapi Park di Sleman menawarkan berbagai miniatur landmark dunia, tempat wisata unik yang cocok untuk keluarga dan pecinta fotografi.</p>
-          <div class="btn-wrapper">
-            <a href="https://maps.app.goo.gl/s791foTg1ttBx6um7" class="btn-custom" target="_blank">Lihat Maps</a>
+      <div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="600">
+        <div class="enhanced-destination-card">
+          <div class="destination-img-container">
+            <img src="/assets/homepage/img/destinasi/6.png" alt="Merapi Park" class="destination-img">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="destination-content">
+            <h4 class="destination-title">Merapi Park</h4>
+            <p class="destination-text">Merapi Park di Sleman menawarkan berbagai miniatur landmark dunia, tempat wisata unik yang cocok untuk keluarga dan pecinta fotografi.</p>
+            <a href="https://maps.app.goo.gl/s791foTg1ttBx6um7" class="enhanced-destination-btn" target="_blank">
+                <span>Lihat Maps</span>
+                <i class="fas fa-map-marker-alt"></i>
+            </a>
           </div>
         </div>
       </div>
 
-      <div class="card-custom">
-        <img src="/assets/homepage/img/destinasi/7.png" alt="Sungai Mudal" class="card-img">
-        <div class="card-body-custom">
-          <h4>Sungai Mudal</h4>
-          <p>Sungai Mudal di Kulon Progo adalah tempat wisata alam dengan air jernih dan suasana alami, cocok untuk relaksasi dan menikmati keindahan alam.</p>
-          <div class="btn-wrapper">
-            <a href="https://maps.app.goo.gl/onBqxuNzR4kXVqEf8" class="custom-btn" target="_blank">Lihat Maps</a>
+      <div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="700">
+        <div class="enhanced-destination-card">
+          <div class="destination-img-container">
+            <img src="/assets/homepage/img/destinasi/7.png" alt="Sungai Mudal" class="destination-img">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="destination-content">
+            <h4 class="destination-title">Sungai Mudal</h4>
+            <p class="destination-text">Sungai Mudal di Kulon Progo adalah tempat wisata alam dengan air jernih dan suasana alami, cocok untuk relaksasi dan menikmati keindahan alam.</p>
+            <a href="https://maps.app.goo.gl/onBqxuNzR4kXVqEf8" class="enhanced-destination-btn" target="_blank">
+                <span>Lihat Maps</span>
+                <i class="fas fa-map-marker-alt"></i>
+            </a>
           </div>
         </div>
       </div>
 
-      <div class="card-custom">
-        <img src="/assets/homepage/img/destinasi/9.png" alt="Candi Prambanan" class="card-img">
-        <div class="card-body-custom">
-          <h4>Candi Prambanan</h4>
-          <p>Candi Prambanan adalah kompleks candi Hindu terbesar dan tercantik di Indonesia, serta situs warisan dunia UNESCO yang terkenal di Yogyakarta.</p>
-          <div class="btn-wrapper">
-            <a href="https://maps.app.goo.gl/BNNDnb4SqQDZ2NmSA" class="custom-btn" target="_blank">Lihat Maps</a>
+      <div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="800">
+        <div class="enhanced-destination-card">
+          <div class="destination-img-container">
+            <img src="/assets/homepage/img/destinasi/9.png" class="destination-img" alt="Candi Prambanan">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="destination-content">
+            <h4 class="destination-title">Candi Prambanan</h4>
+            <p class="destination-text">Candi Prambanan adalah kompleks candi Hindu terbesar dan tercantik di Indonesia, serta situs warisan dunia UNESCO yang terkenal di Yogyakarta.</p>
+            <a href="https://maps.app.goo.gl/BNNDnb4SqQDZ2NmSA" class="enhanced-destination-btn" target="_blank">
+                <span>Lihat Maps</span>
+                <i class="fas fa-map-marker-alt"></i>
+            </a>
           </div>
         </div>
       </div>
 
-      <div class="card-custom">
-        <img src="/assets/homepage/img/destinasi/8.png" alt="Benteng Vredeburg" class="card-img">
-        <div class="card-body-custom">
-          <h4>Benteng Vredeburg</h4>
-          <p>Benteng Vredeburg adalah benteng bersejarah di pusat Kota Yogyakarta yang kini menjadi museum perjuangan nasional Indonesia.</p>
-          <div class="btn-wrapper">
-            <a href="https://maps.app.goo.gl/EPz2nv6MZuivYQ6G8" class="custom-btn" target="_blank">Lihat Maps</a>
+      <div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="900">
+        <div class="enhanced-destination-card">
+          <div class="destination-img-container">
+            <img src="/assets/homepage/img/destinasi/8.png" class="destination-img" alt="Benteng Vredeburg">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="destination-content">
+            <h4 class="destination-title">Benteng Vredeburg</h4>
+            <p class="destination-text">Benteng Vredeburg adalah benteng bersejarah di pusat Kota Yogyakarta yang kini menjadi museum perjuangan nasional Indonesia.</p>
+            <a href="https://maps.app.goo.gl/EPz2nv6MZuivYQ6G8" class="enhanced-destination-btn" target="_blank">
+                <span>Lihat Maps</span>
+                <i class="fas fa-map-marker-alt"></i>
+            </a>
           </div>
         </div>
       </div>
 
-      <div class="card-custom">
-        <img src="/assets/homepage/img/destinasi/10.png" alt="Malioboro" class="card-img">
-        <div class="card-body-custom">
-          <h4>Malioboro</h4>
-          <p>Jalan Malioboro adalah ikon wisata belanja dan kuliner Yogyakarta, penuh dengan pertokoan, pedagang kaki lima, dan suasana kota yang ramai.</p>
-          <div class="btn-wrapper">
-            <a href="https://maps.app.goo.gl/4mP3RCB5nQLi4NpE7" class="custom-btn" target="_blank">Lihat Maps</a>
+      <div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="1000">
+        <div class="enhanced-destination-card">
+          <div class="destination-img-container">
+            <img src="/assets/homepage/img/destinasi/10.png" class="destination-img" alt="Malioboro">
+            <div class="img-overlay"></div>
+          </div>
+          <div class="destination-content">
+            <h4 class="destination-title">Malioboro</h4>
+            <p class="destination-text">Jalan Malioboro adalah ikon wisata belanja dan kuliner Yogyakarta, penuh dengan pertokoan, pedagang kaki lima, dan suasana kota yang ramai.</p>
+            <a href="https://maps.app.goo.gl/4mP3RCB5nQLi4NpE7" class="enhanced-destination-btn" target="_blank">
+                <span>Lihat Maps</span>
+                <i class="fas fa-map-marker-alt"></i>
+            </a>
           </div>
         </div>
       </div>
 
     </div>
   </div>
-</section>
-<style>
-/* Style umum */
-#rekomendasi-destinasi {
-  padding: 50px 0;
-  background-color: #f9f9f9;
-}
 
-.section-title h2 {
-  text-align: center;
-  font-weight: bold;
-  margin-bottom: 40px;
-  color: #333;
-}
+  <!-- ENHANCED TOURISM DESTINATIONS STYLES -->
+  <style>
+    .enhanced-tourism-destinations {
+        background: linear-gradient(135deg, #F8F9FA 0%, #FEFDED 100%);
+        position: relative;
+        overflow: hidden;
+    }
 
-/* Wrapper card */
-.card-wrapper {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  padding-bottom: 20px;
-  scroll-behavior: smooth;
-}
+    .enhanced-tourism-destinations::before {
+        content: ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><defs><pattern id=\'dots\' width=\'10\' height=\'10\' patternUnits=\'userSpaceOnUse\'><circle cx=\'2\' cy=\'2\' r=\'1\' fill=\'rgba(116,233,213,0.1)\'/></pattern></defs><rect width=\'100\' height=\'100\' fill=\'url(%23dots)\'/></svg>");
+        opacity: 0.5;
+        pointer-events: none;
+    }
 
-/* Mobile responsive: Change to grid layout */
-@media (max-width: 768px) {
-  .card-wrapper {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 20px !important;
-    overflow-x: visible !important;
-    padding: 0 15px !important;
-  }
-}
+    .tourism-icon .icon-container {
+        background: linear-gradient(135deg, #FFBFA3, #99a3e3);
+        box-shadow: 0 10px 30px rgba(255, 191, 163, 0.3);
+    }
 
-.card-wrapper::-webkit-scrollbar {
-  height: 8px;
-}
+    .tourism-icon .icon-glow {
+        background: radial-gradient(circle, rgba(255, 191, 163, 0.3) 0%, transparent 70%);
+    }
 
-.card-wrapper::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 4px;
-}
+    .enhanced-destination-card {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        overflow: hidden;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
 
-.card-wrapper::-webkit-scrollbar-track {
-  background: transparent;
-}
+    .enhanced-destination-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
 
-/* Card Style */
-.card-custom {
-  min-width: 300px;
-  max-width: 300px;
-  background: #fff;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-}
+    .destination-img-container {
+        position: relative;
+        height: 180px;
+        overflow: hidden;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
 
-/* Mobile responsive cards */
-@media (max-width: 768px) {
-  .card-custom {
-    min-width: 100% !important;
-    max-width: 100% !important;
-  }
-}
+    .destination-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
 
+    .enhanced-destination-card:hover .destination-img {
+        transform: scale(1.1);
+    }
+
+    .destination-content {
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+
+    .destination-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .destination-text {
+        font-size: 0.95rem;
+        color: #6c757d;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        flex-grow: 1;
+        text-align: center;
+    }
+
+    .enhanced-destination-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        background: linear-gradient(135deg, #FFBFA3, #99a3e3);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(255, 191, 163, 0.3);
+    }
+
+    .enhanced-destination-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(255, 191, 163, 0.4);
+        color: white;
+    }
+
+    .enhanced-destination-btn i {
+        transition: transform 0.3s ease;
+    }
+
+    .enhanced-destination-btn:hover i {
+        transform: translateX(5px);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .destination-title {
+            font-size: 1.2rem;
+        }
+        .destination-text {
+            font-size: 0.85rem;
+        }
+        .enhanced-destination-btn {
+            padding: 8px 15px;
+            font-size: 0.8rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .destination-content {
+            padding: 20px;
+        }
+        .destination-title {
+            font-size: 1.1rem;
+        }
+        .destination-text {
+            font-size: 0.8rem;
+        }
+    }
+  </style>
 .card-img {
   width: 100%;
   height: 200px;
@@ -2047,7 +2322,7 @@
           <h5 class="mb-1 fw-bold" style="color: #2c3e50;">Bagikan Pengalaman Anda</h5>
           <p class="mb-0 text-muted" style="font-size: 0.9rem;">Ceritakan pengalaman wellness Anda bersama kami</p>
         </div>
-        <a href="#" class="btn btn-lg" style="background: linear-gradient(135deg, #99a3e3, #74e9d5); color: white; border: none; border-radius: 15px; padding: 12px 30px; font-weight: 600; text-decoration: none; box-shadow: 0 8px 20px rgba(153, 163, 227, 0.3); transition: all 0.3s ease;">
+        <a href="{{ route('dashboard') }}" class="btn btn-lg" style="background: linear-gradient(135deg, #99a3e3, #74e9d5); color: white; border: none; border-radius: 15px; padding: 12px 30px; font-weight: 600; text-decoration: none; box-shadow: 0 8px 20px rgba(153, 163, 227, 0.3); transition: all 0.3s ease;">
           <i class="fas fa-pen-alt me-2"></i>
           Tulis Review
         </a>

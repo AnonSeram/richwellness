@@ -12,7 +12,7 @@ class PemesananController extends Controller
     public function index()
     {
         return view('tamu.pesanReservasi', [
-            'datakamar' => DataKamar::all()
+            'dataKamar' => DataKamar::all()
         ]);
     }
 
