@@ -146,17 +146,6 @@
             padding-top: 160px;
         }
         
-        .logo img {
-            width: auto;
-            margin-left: 10px;
-            margin-right: 15px; /* tambahkan ini */
-        }
-
-        .logo h1 {
-            margin: 0;
-            font-size: 28px;
-            line-height: 1.2;
-        }
     </style>
 </head>
 
