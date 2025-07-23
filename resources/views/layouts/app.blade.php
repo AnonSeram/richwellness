@@ -93,10 +93,6 @@
         .btn-primary:hover {
             background-color: #0056b3;
         }
-        .btn-daftar:hover {
-            background-color: #99a3e3;
-            color: white;
-        }
         .dropdown {
             position: relative;
             display: inline-block;

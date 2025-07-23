@@ -156,26 +156,6 @@
       background-color: #0056b3;
     }
 
-    .btn-daftar {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      padding: 10px 20px;
-      border: 2px solid #99a3e3;
-      border-radius: 50px;
-      color: #99a3e3;
-      font-size: 16px;
-      transition: all 0.3s ease;
-      width: 100px;
-      margin-left: 10px;
-      text-decoration: none;
-    }
-
-    .btn-daftar:hover {
-      background-color: #99a3e3;
-      color: white;
-    }
-
     .dropdown {
       position: relative;
       display: inline-block;
