@@ -539,7 +539,7 @@
             <h2>Fasilitas Hotel</h2>
             <p>Terdiri dari beberapa jenis fasilitas yang tersedia :</p>
         </div>
-        <div class="row g-4 justify-content-center" data-aos="fade-up">
+        <div class="row g-4 justify-content-center">
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="service-item text-center">
                     <div class="service-img mb-3">
@@ -574,7 +574,7 @@
             </div>
         </div>
 
-        <div class="row g-4 justify-content-center mt-4" data-aos="fade-up">
+        <div class="row g-4 justify-content-center mt-4">
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="service-item text-center">
                     <div class="service-img mb-3">
@@ -1051,36 +1051,167 @@
         <!-- End Rekomendasi Destinasi -->
 
         <!-- Testimoni -->
-<<section id="existing-ratings" data-aos="fade-up"  class="existing-ratings mt-5 px-3 px-md-5">
-  <h3 class="text-center mb-5 fw-bold" style="font-size: 2.5rem;">Apa Kata Pengunjung?</h3>
-  <div class="row g-4">
-    @foreach($ratings as $rating)
-      <div class="col-md-6 col-lg-4">
-        <div class="card rating-zoom border-0 shadow-sm rounded-4 p-4 h-100">
-          <div class="d-flex align-items-center mb-3">
-            <div class="rounded-circle bg-light d-flex justify-content-center align-items-center shadow-sm" style="width: 50px; height: 50px;">
-              <span class="fw-semibold text-primary" style="font-size: 1.25rem;">
-                {{ strtoupper(substr($rating->user->name ?? 'U', 0, 1)) }}
-              </span>
-            </div>
-            <div class="ms-3">
-              <div class="fw-semibold text-dark" style="font-size: 1rem;">
-                {{ $rating->user->name ?? 'Pengguna' }}
-              </div>
-              <small class="text-muted">{{ $rating->created_at->format('d M Y') }}</small>
-            </div>
-          </div>
-          <div class="mb-2" style="color: #f5b301; font-size: 1.1rem;">
-            {{ str_repeat('★', $rating->rating) }}{{ str_repeat('☆', 5 - $rating->rating) }}
-          </div>
-          <p class="mb-0 text-secondary" style="font-size: 0.95rem; line-height: 1.6;">
-            {{ $rating->description }}
-          </p>
-        </div>
+<section id="existing-ratings" data-aos="fade-up" class="existing-ratings py-5" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); position: relative; overflow: hidden;">
+  <!-- Background decorative elements -->
+  <div class="position-absolute" style="top: -50px; right: -50px; width: 200px; height: 200px; background: rgba(153, 175, 227, 0.1); border-radius: 50%; z-index: 1;"></div>
+  <div class="position-absolute" style="bottom: -30px; left: -30px; width: 150px; height: 150px; background: rgba(255, 191, 163, 0.1); border-radius: 50%; z-index: 1;"></div>
+  
+  <div class="container position-relative" style="z-index: 2;">
+    <!-- Enhanced Section Header -->
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px; background: linear-gradient(135deg, #99a3e3, #74e9d5); border-radius: 50%; box-shadow: 0 10px 30px rgba(153, 163, 227, 0.3);">
+        <i class="fas fa-quote-left text-white" style="font-size: 2rem;"></i>
       </div>
-    @endforeach
+      <h3 class="fw-bold mb-3" style="font-size: 2.8rem; color: #2c3e50; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        Apa Kata Pengunjung?
+      </h3>
+      <p class="text-muted mb-0" style="font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
+        Dengarkan pengalaman nyata dari tamu-tamu yang telah merasakan layanan terbaik Rich Wellness
+      </p>
+      <div class="mt-3" style="width: 100px; height: 4px; background: linear-gradient(90deg, #99a3e3, #74e9d5); margin: 0 auto; border-radius: 2px;"></div>
+    </div>
+
+    <!-- Enhanced Reviews Grid -->
+    <div class="row g-4">
+      @foreach($ratings as $rating)
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
+          <div class="review-card position-relative h-100" style="background: white; border-radius: 20px; padding: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); border: 1px solid rgba(255,255,255,0.2); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); overflow: hidden;">
+            
+            <!-- Card decorative top border -->
+            <div class="position-absolute top-0 start-0 w-100" style="height: 4px; background: linear-gradient(90deg, #99a3e3, #74e9d5, #FFBFA3);"></div>
+            
+            <!-- Quote icon background -->
+            <div class="position-absolute" style="top: -10px; right: -10px; width: 60px; height: 60px; background: rgba(153, 163, 227, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+              <i class="fas fa-quote-right" style="color: rgba(153, 163, 227, 0.3); font-size: 1.5rem;"></i>
+            </div>
+
+            <!-- User Info Section -->
+            <div class="d-flex align-items-center mb-4">
+              <div class="position-relative">
+                <div class="rounded-circle d-flex justify-content-center align-items-center shadow-lg" style="width: 60px; height: 60px; background: linear-gradient(135deg, #99a3e3, #74e9d5); border: 3px solid white;">
+                  <span class="fw-bold text-white" style="font-size: 1.4rem; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">
+                    {{ strtoupper(substr($rating->user->name ?? 'U', 0, 1)) }}
+                  </span>
+                </div>
+                <!-- Online indicator -->
+                <div class="position-absolute bottom-0 end-0" style="width: 18px; height: 18px; background: #28a745; border: 3px solid white; border-radius: 50%;"></div>
+              </div>
+              <div class="ms-3 flex-grow-1">
+                <div class="fw-bold text-dark mb-1" style="font-size: 1.1rem;">
+                  {{ $rating->user->name ?? 'Pengguna' }}
+                </div>
+                <div class="d-flex align-items-center">
+                  <small class="text-muted me-2">
+                    <i class="fas fa-calendar-alt me-1"></i>
+                    {{ $rating->created_at->format('d M Y') }}
+                  </small>
+                  <span class="badge" style="background: linear-gradient(135deg, #99a3e3, #74e9d5); font-size: 0.7rem; padding: 4px 8px;">
+                    Verified
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Enhanced Rating Stars -->
+            <div class="mb-3 d-flex align-items-center justify-content-between">
+              <div class="rating-stars" style="font-size: 1.3rem;">
+                @for($i = 1; $i <= 5; $i++)
+                  @if($i <= $rating->rating)
+                    <i class="fas fa-star" style="color: #ffc107; text-shadow: 0 1px 3px rgba(255, 193, 7, 0.4); margin-right: 2px;"></i>
+                  @else
+                    <i class="far fa-star" style="color: #e9ecef; margin-right: 2px;"></i>
+                  @endif
+                @endfor
+              </div>
+              <div class="rating-badge" style="background: rgba(255, 193, 7, 0.1); color: #ffc107; padding: 4px 12px; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">
+                {{ $rating->rating }}.0
+              </div>
+            </div>
+
+            <!-- Review Text -->
+            <div class="review-text position-relative">
+              <p class="mb-0 text-secondary" style="font-size: 1rem; line-height: 1.7; font-style: italic; position: relative; z-index: 2;">
+                "{{ $rating->description }}"
+              </p>
+            </div>
+
+            <!-- Card hover effect overlay -->
+            <div class="position-absolute top-0 start-0 w-100 h-100 opacity-0 transition-opacity" style="background: linear-gradient(135deg, rgba(153, 163, 227, 0.05), rgba(116, 233, 213, 0.05)); border-radius: 20px; pointer-events: none;"></div>
+          </div>
+        </div>
+      @endforeach
+    </div>
+
+    <!-- Call to Action -->
+    <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="600">
+      <div class="d-inline-flex align-items-center justify-content-center p-4" style="background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+        <div class="me-4">
+          <h5 class="mb-1 fw-bold" style="color: #2c3e50;">Bagikan Pengalaman Anda</h5>
+          <p class="mb-0 text-muted" style="font-size: 0.9rem;">Ceritakan pengalaman wellness Anda bersama kami</p>
+        </div>
+        <a href="#" class="btn btn-lg" style="background: linear-gradient(135deg, #99a3e3, #74e9d5); color: white; border: none; border-radius: 15px; padding: 12px 30px; font-weight: 600; text-decoration: none; box-shadow: 0 8px 20px rgba(153, 163, 227, 0.3); transition: all 0.3s ease;">
+          <i class="fas fa-pen-alt me-2"></i>
+          Tulis Review
+        </a>
+      </div>
+    </div>
   </div>
 </section>
+
+<!-- Enhanced CSS for Review Cards -->
+<style>
+.review-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15) !important;
+}
+
+.review-card:hover .position-absolute.opacity-0 {
+  opacity: 1 !important;
+}
+
+.rating-stars i {
+  transition: all 0.3s ease;
+}
+
+.review-card:hover .rating-stars i.fas {
+  transform: scale(1.1);
+}
+
+.review-text::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 30px;
+  height: 30px;
+  background: rgba(153, 163, 227, 0.1);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .review-card {
+    padding: 20px !important;
+  }
+  
+  .existing-ratings h3 {
+    font-size: 2.2rem !important;
+  }
+  
+  .review-card .rounded-circle {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  
+  .review-card .rounded-circle span {
+    font-size: 1.2rem !important;
+  }
+}
+
+.transition-opacity {
+  transition: opacity 0.3s ease;
+}
+</style>
 
         <!-- ======= Contact Section ======= -->
         <section id="contact" class="contact">
