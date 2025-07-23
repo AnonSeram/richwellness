@@ -35,30 +35,25 @@ class RatingController extends Controller
   public function update(Request $request, $id)
 {
     $request->validate([
-        'pemesanan_id' => 'required|exists:pemesanan,id', // pastikan nama tabel valid
+        'pemesanan_id' => 'required|exists:pemesanan,id',
         'rating' => 'required|integer|min:1|max:5',
         'description' => 'required|string|max:1000',
     ]);
 
-    $rating = Rating::find($id);
+    $rating = Rating::findOrFail($id);
 
-    if (!$rating) {
-        // Jika belum ada, buat baru
-        Rating::create([
-            'pemesanan_id' => $request->pemesanan_id,
-            'user_id' => auth()->id(),
-            'rating' => $request->rating,
-            'description' => $request->description,
-        ]);
-    } else {
-        // Jika sudah ada, update
-        $rating->update([
-            'rating' => $request->rating,
-            'description' => $request->description,
-        ]);
+    // Pastikan user yang sedang login adalah pemilik rating ini
+    if ($rating->user_id !== auth()->id()) {
+        return back()->with('error', 'Anda tidak memiliki akses untuk mengubah review ini.');
     }
 
-    return back()->with('success', 'Review berhasil disimpan!');
+    // Update rating yang sudah ada
+    $rating->update([
+        'rating' => $request->rating,
+        'description' => $request->description,
+    ]);
+
+    return back()->with('success', 'Review berhasil diperbarui!');
 }
 
 }

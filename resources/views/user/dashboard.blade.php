@@ -190,11 +190,10 @@
                                                         <!-- Modal Review Baru -->
                                                         <div class="modal fade" id="reviewModal{{ $pesanan->id }}" tabindex="-1" role="dialog">
                                                             <div class="modal-dialog modal-dialog-centered" role="document">
-                                                                <form method="POST" action="{{ route("ratings.update", $pesanan->id) }}">
+                                                                <form method="POST" action="{{ route("ratings.store") }}">
                                                                     @csrf
-                                                                    @method("PUT")
                                                                     <input type="hidden" name="pemesanan_id" value="{{ $pesanan->id }}">
-                                                                    <input type="hidden" name="rating" id="editRatingInput{{ $pesanan->id }}">
+                                                                    <input type="hidden" name="rating" id="ratingInput{{ $pesanan->id }}">
 
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
@@ -202,7 +201,7 @@
                                                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                                         </div>
                                                                         <div class="modal-body text-center">
-                                                                            <div class="star-rating" id="editStarContainer{{ $pesanan->id }}">
+                                                                            <div class="star-rating" id="starContainer{{ $pesanan->id }}">
                                                                                 @for ($i = 1; $i <= 5; $i++)
                                                                                     <span data-value="{{ $i }}">★</span>
                                                                                 @endfor
@@ -279,7 +278,22 @@
 
                 <script>
                     document.addEventListener("DOMContentLoaded", function () {
-                        document.querySelectorAll("[id^="editStarContainer"]").forEach(container => {
+                        // Handle star rating untuk review baru
+                        document.querySelectorAll("[id^='starContainer']").forEach(container => {
+                            const id = container.id.replace("starContainer", "");
+                            const input = document.getElementById("ratingInput" + id);
+                            const stars = container.querySelectorAll("span");
+
+                            stars.forEach((star, index) => {
+                                star.addEventListener("click", () => {
+                                    input.value = index + 1;
+                                    stars.forEach((s, i) => s.classList.toggle("active", i <= index));
+                                });
+                            });
+                        });
+
+                        // Handle star rating untuk edit review
+                        document.querySelectorAll("[id^='editStarContainer']").forEach(container => {
                             const id = container.id.replace("editStarContainer", "");
                             const input = document.getElementById("editRatingInput" + id);
                             const stars = container.querySelectorAll("span");

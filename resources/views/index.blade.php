@@ -781,6 +781,9 @@
   .enhanced-navbar ul {
     flex-direction: column;
     gap: 10px;
+    .enhanced-navbar ul {
+  flex-wrap: wrap;
+}
   }
   
   .enhanced-btn {
