@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\PemesananController;
+use App\Http\Controllers\RatingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::post('/midtrans/notification', [PemesananController::class, 'handleNotification']);
 
 // Midtrans Status
 Route::post('/midtrans/callback', [PemesananController::class, 'handleNotification']);
