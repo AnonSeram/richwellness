@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DataReservasi;
 use App\Models\DataKamar;
+use App\Models\DataReservasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -12,80 +12,92 @@ class PemesananController extends Controller
     public function index()
     {
         return view('tamu.pesanReservasi', [
-            'dataKamar' => DataKamar::all()
+            'dataKamar' => DataKamar::getKamarTersedia()
         ]);
     }
 
     public function store(Request $request)
     {
-        // Validasi data awal
         $validatedData = $request->validate([
             'nama_tamu' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255',
-            'no_hp' => 'required|string|max:255',
-            'nik' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'no_hp' => 'required|string|max:20',
+            'nik' => 'required|string|max:20',
             'tipe_kamar' => 'required|exists:data_kamar,id',
             'jumlah_kamar' => 'required|integer|min:1',
             'tgl_check_in' => 'required|date|after_or_equal:today',
             'tgl_check_out' => 'required|date|after:tgl_check_in',
-            'metode_pembayaran' => 'required|string|in:online,offline',
+            'metode_pembayaran' => 'required|in:online,offline',
         ]);
 
-        $dataKamar = DataKamar::findOrFail($request->tipe_kamar);
+        $dataKamar = DataKamar::findOrFail($validatedData['tipe_kamar']);
 
-        if ($dataKamar->jumlah_kamar < $request->jumlah_kamar) {
+        if ($dataKamar->jumlah_tersedia < $validatedData['jumlah_kamar']) {
             return redirect()->route('pesanReservasi.index')
-                ->withErrors(['tipe_kamar' => 'Kamar tidak tersedia, silakan pilih kamar lain.'])
+                ->withErrors(['tipe_kamar' => 'Jumlah kamar tidak mencukupi.'])
                 ->withInput();
         }
 
-        // Hitung total harga
-        $jumlahMalam = (new \DateTime($request->tgl_check_out))->diff(new \DateTime($request->tgl_check_in))->days;
-        $totalHarga = $dataKamar->harga * $request->jumlah_kamar * $jumlahMalam;
+        // Hitung jumlah malam & harga
+        $jumlahMalam = (new \DateTime($validatedData['tgl_check_out']))
+                            ->diff(new \DateTime($validatedData['tgl_check_in']))->days;
 
-        // Simpan data reservasi
+        $totalHarga = $dataKamar->harga * $validatedData['jumlah_kamar'] * $jumlahMalam;
+
+        // Simpan reservasi
         $validatedData['harga'] = $totalHarga;
         $validatedData['kode_booking'] = $this->generateBookingCode();
         $validatedData['status_pembayaran'] = 'Belum Bayar';
 
+        try {
+            $dataKamar->kurangiJumlahKamar($validatedData['jumlah_kamar']);
+        } catch (\Exception $e) {
+            return redirect()->route('pesanReservasi.index')
+                ->withErrors(['tipe_kamar' => 'Kamar tidak mencukupi atau error saat mengurangi jumlah.'])
+                ->withInput();
+        }
+
         $dataReservasi = DataReservasi::create($validatedData);
-        $dataKamar->kurangJumlahKamar($request->jumlah_kamar);
 
-        // Jika metode pembayaran online, langsung redirect ke Midtrans
-        if ($request->metode_pembayaran === 'online') {
-            \Midtrans\Config::$serverKey = config('midtrans.serverkey');
-            \Midtrans\Config::$isProduction = config('midtrans.isProduction');
-            \Midtrans\Config::$isSanitized = config('midtrans.isSanitized');
-            \Midtrans\Config::$is3ds = config('midtrans.is3ds');
-
-            $params = [
-                'transaction_details' => [
-                    'order_id' => $dataReservasi->kode_booking,
-                    'gross_amount' => (int) $dataReservasi->harga,
-                ],
-                'customer_details' => [
-                    'first_name' => $dataReservasi->nama_tamu,
-                    'email' => $dataReservasi->email,
-                    'phone' => $dataReservasi->no_hp,
-                ],
-            ];
-
-            try {
-                $snapToken = \Midtrans\Snap::getSnapToken($params);
-                return view('reservasi.bayar', [
-                    'snapToken' => $snapToken,
-                    'kode_booking' => $dataReservasi->kode_booking,
-                    'dataReservasi' => $dataReservasi
-                ]);
-            } catch (\Exception $e) {
-                Log::error('Midtrans Error: ' . $e->getMessage());
-                return redirect()->route('pesanReservasi.index')
-                    ->withErrors(['midtrans' => 'Gagal menghubungi Midtrans: ' . $e->getMessage()]);
-            }
+        if ($validatedData['metode_pembayaran'] === 'online') {
+            return $this->bayarDenganMidtrans($dataReservasi);
         }
 
         return redirect()->route('cetak.bukti', ['kode_booking' => $dataReservasi->kode_booking])
             ->with('message', 'Pemesanan berhasil!');
+    }
+
+    private function bayarDenganMidtrans($dataReservasi)
+    {
+        \Midtrans\Config::$serverKey = config('midtrans.serverkey');
+        \Midtrans\Config::$isProduction = config('midtrans.isProduction');
+        \Midtrans\Config::$isSanitized = config('midtrans.isSanitized');
+        \Midtrans\Config::$is3ds = config('midtrans.is3ds');
+
+        $params = [
+            'transaction_details' => [
+                'order_id' => $dataReservasi->kode_booking,
+                'gross_amount' => (int) $dataReservasi->harga,
+            ],
+            'customer_details' => [
+                'first_name' => $dataReservasi->nama_tamu,
+                'email' => $dataReservasi->email,
+                'phone' => $dataReservasi->no_hp,
+            ],
+        ];
+
+        try {
+            $snapToken = \Midtrans\Snap::getSnapToken($params);
+            return view('reservasi.bayar', [
+                'snapToken' => $snapToken,
+                'kode_booking' => $dataReservasi->kode_booking,
+                'dataReservasi' => $dataReservasi
+            ]);
+        } catch (\Exception $e) {
+            Log::error('Midtrans Error: ' . $e->getMessage());
+            return redirect()->route('pesanReservasi.index')
+                ->withErrors(['midtrans' => 'Gagal menghubungi Midtrans: ' . $e->getMessage()]);
+        }
     }
 
     public function cetakBukti($kode_booking)
@@ -97,9 +109,8 @@ class PemesananController extends Controller
     public function handleNotification(Request $request)
     {
         try {
-            // Log incoming request untuk debugging
             Log::info('Midtrans Notification Received', $request->all());
-            
+
             \Midtrans\Config::$serverKey = config('midtrans.serverkey');
             \Midtrans\Config::$isProduction = config('midtrans.isProduction');
 
@@ -109,26 +120,32 @@ class PemesananController extends Controller
             $orderId = $notif->order_id;
 
             $reservasi = DataReservasi::where('kode_booking', $orderId)->first();
-            
+
             if (!$reservasi) {
                 Log::error('Reservasi not found for order_id: ' . $orderId);
-                return response()->json(['status' => 'error', 'message' => 'Reservasi not found'], 404);
+                return response()->json(['status' => 'error', 'message' => 'Reservasi tidak ditemukan'], 404);
             }
 
             if (($transaction == 'capture' && $fraud == 'accept') || $transaction == 'settlement') {
                 $reservasi->status_pembayaran = 'Sudah Bayar';
+            } elseif ($transaction == 'cancel' || $transaction == 'expire') {
+                $reservasi->status_pembayaran = 'Gagal';
+                // Jika dibatalkan, kembalikan kamar
+                $dataKamar = DataKamar::find($reservasi->tipe_kamar);
+                if ($dataKamar) {
+                    $dataKamar->tambahJumlahKamar($reservasi->jumlah_kamar);
+                }
             } else {
                 $reservasi->status_pembayaran = 'Belum Bayar';
             }
 
             $reservasi->save();
-            
-            Log::info('Payment status updated for order_id: ' . $orderId . ' to ' . $reservasi->status_pembayaran);
-            
+
+            Log::info('Status pembayaran diupdate: ' . $orderId . ' menjadi ' . $reservasi->status_pembayaran);
+
             return response()->json(['status' => 'ok']);
-            
         } catch (\Exception $e) {
-            Log::error('Midtrans Notification Error: ' . $e->getMessage());
+            Log::error('Notifikasi Midtrans gagal: ' . $e->getMessage());
             return response()->json(['status' => 'error', 'message' => $e->getMessage()], 500);
         }
     }
@@ -162,35 +179,6 @@ class PemesananController extends Controller
             ->where('status_pembayaran', 'Belum Bayar')
             ->firstOrFail();
 
-        \Midtrans\Config::$serverKey = config('midtrans.serverkey');
-        \Midtrans\Config::$isProduction = config('midtrans.isProduction');
-        \Midtrans\Config::$isSanitized = config('midtrans.isSanitized');
-        \Midtrans\Config::$is3ds = config('midtrans.is3ds');
-
-        $params = [
-            'transaction_details' => [
-                'order_id' => $dataReservasi->kode_booking,
-                'gross_amount' => (int) $dataReservasi->harga,
-            ],
-            'customer_details' => [
-                'first_name' => $dataReservasi->nama_tamu,
-                'email' => $dataReservasi->email,
-                'phone' => $dataReservasi->no_hp,
-            ],
-        ];
-
-        try {
-            $snapToken = \Midtrans\Snap::getSnapToken($params);
-            return view('reservasi.bayar', [
-                'snapToken' => $snapToken,
-                'kode_booking' => $dataReservasi->kode_booking,
-                'dataReservasi' => $dataReservasi
-            ]);
-        } catch (\Exception $e) {
-            Log::error('Midtrans Error: ' . $e->getMessage());
-            return redirect()->back()
-                ->withErrors(['midtrans' => 'Gagal menghubungi Midtrans: ' . $e->getMessage()]);
-        }
+        return $this->bayarDenganMidtrans($dataReservasi);
     }
 }
-
