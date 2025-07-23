@@ -33,7 +33,8 @@ class PemesananController extends Controller
 
         $dataKamar = DataKamar::findOrFail($request->tipe_kamar);
 
-        if ($dataKamar->jumlah_kamar < $request->jumlah_kamar) {
+        // Perbaikan di sini: cek berdasarkan jumlah_tersedia, bukan jumlah total
+        if ($dataKamar->jumlah_tersedia < $request->jumlah_kamar) {
             return redirect()->route('pesanReservasi.index')
                 ->withErrors(['tipe_kamar' => 'Kamar tidak tersedia, silakan pilih kamar lain.'])
                 ->withInput();
@@ -49,9 +50,9 @@ class PemesananController extends Controller
         $validatedData['status_pembayaran'] = 'Belum Bayar';
 
         $dataReservasi = DataReservasi::create($validatedData);
-        $dataKamar->kurangJumlahKamar($request->jumlah_kamar);
+        $dataKamar->kurangJumlahKamar($request->jumlah_kamar); // method dari model
 
-        // Jika metode pembayaran online, langsung redirect ke Midtrans
+        // Jika metode pembayaran online, arahkan ke Midtrans
         if ($request->metode_pembayaran === 'online') {
             \Midtrans\Config::$serverKey = config('midtrans.serverkey');
             \Midtrans\Config::$isProduction = config('midtrans.isProduction');
@@ -97,9 +98,8 @@ class PemesananController extends Controller
     public function handleNotification(Request $request)
     {
         try {
-            // Log incoming request untuk debugging
             Log::info('Midtrans Notification Received', $request->all());
-            
+
             \Midtrans\Config::$serverKey = config('midtrans.serverkey');
             \Midtrans\Config::$isProduction = config('midtrans.isProduction');
 
@@ -109,7 +109,7 @@ class PemesananController extends Controller
             $orderId = $notif->order_id;
 
             $reservasi = DataReservasi::where('kode_booking', $orderId)->first();
-            
+
             if (!$reservasi) {
                 Log::error('Reservasi not found for order_id: ' . $orderId);
                 return response()->json(['status' => 'error', 'message' => 'Reservasi not found'], 404);
@@ -122,11 +122,10 @@ class PemesananController extends Controller
             }
 
             $reservasi->save();
-            
+
             Log::info('Payment status updated for order_id: ' . $orderId . ' to ' . $reservasi->status_pembayaran);
-            
+
             return response()->json(['status' => 'ok']);
-            
         } catch (\Exception $e) {
             Log::error('Midtrans Notification Error: ' . $e->getMessage());
             return response()->json(['status' => 'error', 'message' => $e->getMessage()], 500);
@@ -193,4 +192,3 @@ class PemesananController extends Controller
         }
     }
 }
-

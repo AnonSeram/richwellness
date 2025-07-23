@@ -158,9 +158,9 @@
             line-height: 1.2;
         }
     </style>
+</head>
 
-
-
+<body>
 
 <!-- ======= Header ======= -->
 <header id="header" class="fixed-top d-flex align-items-center">
@@ -228,9 +228,6 @@
         </nav>
     </div>
 </header>
-</head>
-
-<body>
 
 <!-- ======= Main Content ======= -->
 <div class="container">
