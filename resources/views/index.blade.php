@@ -727,7 +727,7 @@
   align-items: center;
   gap: 8px;
   transition: all 0.3s ease;
-  margin-left: 10px;
+   margin-left: 4px; /* atau 0 */
 }
 
 .enhanced-register-btn:hover {
