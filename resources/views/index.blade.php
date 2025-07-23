@@ -411,7 +411,7 @@
               {{ __("messages.login") }}
             </a></li>
             <li><a class="btn-daftar enhanced-register-btn" href="{{ route('register') }}">
-              <i class="fas fa-user-plus me-2"></i>
+              <i class="fas  me-2"></i>
               {{ __("messages.register") }}
             </a></li>
           @endauth
