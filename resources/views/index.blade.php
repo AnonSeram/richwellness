@@ -1114,6 +1114,7 @@
     max-width: 600px;
     margin: 0 auto;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    align-items: center;
 }
 
 .enhanced-package-card {
@@ -1420,23 +1421,20 @@
 </section>
 
 
-
-        
         <!-- ======= More Services Section ======= -->
         <section id="more-services" class="more-services py-5" style="background-color: #f4f4f4;">
     <div class="container">
-    <div class="section-title" data-aos="fade-up">
-            <h2>Fasilitas Hotel</h2>
-            <p>Terdiri dari beberapa jenis fasilitas yang tersedia :</p>
+        <div class="section-title text-center" data-aos="fade-up">
+            <h2 style="font-weight: 700; font-size: 2.5rem; color: #2c3e50; margin-bottom: 20px;">Fasilitas Hotel</h2>
+            <p style="color: #6c757d; font-size: 1.1rem; margin-bottom: 40px;">Terdiri dari beberapa jenis fasilitas yang tersedia</p>
         </div>
-        <div class="row g-4 justify-content-center" data-aos="fade-up">
         <div class="row g-4 justify-content-center">
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="service-item text-center">
                     <div class="service-img mb-3">
                         <img src="nyoba/images/fasilitas/1.jpg" alt="Swimming Pool">
                     </div>
-                    <h5>Swimming Pool</h5>
+                    <h5 style="font-weight: 600; color: #2c3e50; font-size: 1.2rem;">Swimming Pool</h5>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
@@ -1444,7 +1442,7 @@
                     <div class="service-img mb-3">
                         <img src="nyoba/images/fasilitas/6.jpg" alt="SPA">
                     </div>
-                    <h5>SPA</h5>
+                    <h5 style="font-weight: 600; color: #2c3e50; font-size: 1.2rem;">SPA</h5>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
@@ -1452,7 +1450,7 @@
                     <div class="service-img mb-3">
                         <img src="nyoba/images/fasilitas/7.jpg" alt="Fitness Center">
                     </div>
-                    <h5>Fitness Center</h5>
+                    <h5 style="font-weight: 600; color: #2c3e50; font-size: 1.2rem;">Fitness Center</h5>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
@@ -1460,19 +1458,18 @@
                     <div class="service-img mb-3">
                         <img src="nyoba/images/fasilitas/8.jpg" alt="Sauna">
                     </div>
-                    <h5>Sauna</h5>
+                    <h5 style="font-weight: 600; color: #2c3e50; font-size: 1.2rem;">Sauna</h5>
                 </div>
             </div>
         </div>
 
-        <div class="row g-4 justify-content-center mt-4" data-aos="fade-up">
         <div class="row g-4 justify-content-center mt-4">
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="service-item text-center">
                     <div class="service-img mb-3">
                         <img src="nyoba/images/fasilitas/3.jpg" alt="Breakfast">
                     </div>
-                    <h5>Breakfast</h5>
+                    <h5 style="font-weight: 600; color: #2c3e50; font-size: 1.2rem;">Breakfast</h5>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
@@ -1480,7 +1477,7 @@
                     <div class="service-img mb-3">
                         <img src="nyoba/images/fasilitas/4.jpg" alt="Parking Lot">
                     </div>
-                    <h5>Parking Lot</h5>
+                    <h5 style="font-weight: 600; color: #2c3e50; font-size: 1.2rem;">Parking Lot</h5>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
@@ -1488,7 +1485,7 @@
                     <div class="service-img mb-3">
                         <img src="nyoba/images/fasilitas/5.jpg" alt="Lunch">
                     </div>
-                    <h5>Lunch</h5>
+                    <h5 style="font-weight: 600; color: #2c3e50; font-size: 1.2rem;">Lunch</h5>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
@@ -1496,7 +1493,7 @@
                     <div class="service-img mb-3">
                         <img src="nyoba/images/fasilitas/2.jpg" alt="Wifi">
                     </div>
-                    <h5>Wifi</h5>
+                    <h5 style="font-weight: 600; color: #2c3e50; font-size: 1.2rem;">Wi-Fi</h5>
                 </div>
             </div>
         </div>
@@ -1545,7 +1542,6 @@
     }
 </style>
         <!-- End More Services Section -->
-        <!-- End More Services Section -->
 
         <!-- Rekomendasi Layanan kesehatan Section -->
        <!-- Enhanced Rekomendasi Layanan kesehatan Section -->
@@ -1561,7 +1557,7 @@
         </div>
         <h2 class="enhanced-title">Rekomendasi Layanan Kesehatan Spesialis</h2>
         <div class="title-underline"></div>
-        <p class="section-subtitle" style="text-align:center;">Temukan layanan kesehatan terbaik untuk kebutuhan spesifik Anda</p>
+        <p class="section-subtitle">Temukan layanan kesehatan terbaik untuk kebutuhan spesifik Anda</p>
     </div>
 
     <div class="row justify-content-center">
@@ -1802,7 +1798,7 @@
 
         <!-- End Rekomendasi Layanan kesehatan -->
 
-       <!-- Enhanced Rekomendasi Destinasi Section -->
+        <!-- Enhanced Rekomendasi Destinasi Section -->
         <section id="rekomendasi-destinasi" class="enhanced-tourism-destinations" style="padding: 80px 0;">
   <div class="container">
     <!-- Enhanced Section Header -->
@@ -1815,7 +1811,7 @@
         </div>
         <h2 class="enhanced-title">Rekomendasi Destinasi Wisata Yogyakarta</h2>
         <div class="title-underline"></div>
-        <p class="section-subtitle" style="text-align: center;">Jelajahi keindahan Yogyakarta dengan rekomendasi destinasi terbaik kami</p>
+        <p class="section-subtitle">Jelajahi keindahan Yogyakarta dengan rekomendasi destinasi terbaik kami</p>
     </div>
 
     <!-- Swiper Container for Tourism Destinations -->
@@ -2208,7 +2204,6 @@
     }
   </style>
 </section>
-        <!-- End Rekomendasi Destinasi -->
 
         <!-- Testimoni -->
 <section id="existing-ratings" data-aos="fade-up" class="existing-ratings py-5" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); position: relative; overflow: hidden;">
@@ -2309,7 +2304,7 @@
           <h5 class="mb-1 fw-bold" style="color: #2c3e50;">Bagikan Pengalaman Anda</h5>
           <p class="mb-0 text-muted" style="font-size: 0.9rem;">Ceritakan pengalaman wellness Anda bersama kami</p>
         </div>
-        <a href="" class="btn btn-lg" style="background: linear-gradient(135deg, #99a3e3, #74e9d5); color: white; border: none; border-radius: 15px; padding: 12px 30px; font-weight: 600; text-decoration: none; box-shadow: 0 8px 20px rgba(153, 163, 227, 0.3); transition: all 0.3s ease;">
+        <a href="#" class="btn btn-lg" style="background: linear-gradient(135deg, #99a3e3, #74e9d5); color: white; border: none; border-radius: 15px; padding: 12px 30px; font-weight: 600; text-decoration: none; box-shadow: 0 8px 20px rgba(153, 163, 227, 0.3); transition: all 0.3s ease;">
           <i class="fas fa-pen-alt me-2"></i>
           Tulis Review
         </a>
@@ -2483,6 +2478,44 @@ var rekomendasiSwiper = new Swiper('.rekomendasi-swiper', {
     },
 });
 
+// Inisialisasi Swiper untuk Tourism Destinations
+var tourismSwiper = new Swiper('.tourism-swiper', {
+    direction: 'horizontal',
+    loop: true,
+    slidesPerView: 4,
+    spaceBetween: 30,
+    pagination: {
+        el: '.tourism-pagination',
+        clickable: true,
+    },
+    navigation: {
+        nextEl: '.tourism-next',
+        prevEl: '.tourism-prev',
+    },
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+    },
+    breakpoints: {
+        320: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+        },
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 25,
+        },
+        1024: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+        },
+        1200: {
+            slidesPerView: 4,
+            spaceBetween: 30,
+        },
+    },
+});
+
 // Inisialisasi Swiper untuk Testimonials
 var testimonialsSwiper = new Swiper('.testimonials-swiper', {
     direction: 'horizontal',
@@ -2529,4 +2562,3 @@ var mainCarouselSwiper = new Swiper('.main-carousel', {
 </body>
 
 </html>
-
