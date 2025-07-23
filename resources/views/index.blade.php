@@ -390,7 +390,7 @@
               <i class="fas fa-sign-in-alt me-2"></i>
               {{ __("messages.login") }}
             </a></li>
-            <li><a class="btn-daftar enhanced-btn" href="{{ route('register') }}">
+            <li><a class="btn-daftar enhanced-register-btn" href="{{ route('register') }}">
               <i class="fas fa-user-plus me-2"></i>
               {{ __("messages.register") }}
             </a></li>
@@ -708,7 +708,7 @@
   gap: 8px;
   transition: all 0.3s ease;
   margin-left: 10px;
-  min-width: auto;  /* atau bisa auto */
+  min-width: 100px;  /* atau bisa auto */
   overflow: visible; /* penting agar teks tidak terpotong */
   white-space: nowrap; /* mencegah patah baris */
 }
