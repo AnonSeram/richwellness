@@ -51,7 +51,7 @@
 
     .swiper {
       background: transparent;
-      padding: 20px 0;
+      padding: 30px 0;
     }
 
     .swiper-slide {
@@ -870,7 +870,7 @@
             </div>
             <h2 class="enhanced-title">{{ __('messages.featured_packages') }}</h2>
             <div class="title-underline"></div>
-            <p class="section-subtitle">Pilih paket wellness terbaik untuk perjalanan kesehatan Anda</p>
+            <p class="section-subtitle" style="text-align: center;">Pilih paket wellness terbaik untuk perjalanan kesehatan Anda</p>
         </div>
         
         <div class="row justify-content-center">
@@ -1421,6 +1421,7 @@
 
 
 
+        
         <!-- ======= More Services Section ======= -->
         <section id="more-services" class="more-services py-5" style="background-color: #f4f4f4;">
     <div class="container">
@@ -1428,6 +1429,7 @@
             <h2>Fasilitas Hotel</h2>
             <p>Terdiri dari beberapa jenis fasilitas yang tersedia :</p>
         </div>
+        <div class="row g-4 justify-content-center" data-aos="fade-up">
         <div class="row g-4 justify-content-center">
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="service-item text-center">
@@ -1463,6 +1465,7 @@
             </div>
         </div>
 
+        <div class="row g-4 justify-content-center mt-4" data-aos="fade-up">
         <div class="row g-4 justify-content-center mt-4">
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="service-item text-center">
@@ -1542,6 +1545,7 @@
     }
 </style>
         <!-- End More Services Section -->
+        <!-- End More Services Section -->
 
         <!-- Rekomendasi Layanan kesehatan Section -->
        <!-- Enhanced Rekomendasi Layanan kesehatan Section -->
@@ -1557,7 +1561,7 @@
         </div>
         <h2 class="enhanced-title">Rekomendasi Layanan Kesehatan Spesialis</h2>
         <div class="title-underline"></div>
-        <p class="section-subtitle">Temukan layanan kesehatan terbaik untuk kebutuhan spesifik Anda</p>
+        <p class="section-subtitle" style="text-align:center;">Temukan layanan kesehatan terbaik untuk kebutuhan spesifik Anda</p>
     </div>
 
     <div class="row justify-content-center">
@@ -1798,7 +1802,7 @@
 
         <!-- End Rekomendasi Layanan kesehatan -->
 
-        <!-- Enhanced Rekomendasi Destinasi Section -->
+       <!-- Enhanced Rekomendasi Destinasi Section -->
         <section id="rekomendasi-destinasi" class="enhanced-tourism-destinations" style="padding: 80px 0;">
   <div class="container">
     <!-- Enhanced Section Header -->
@@ -1811,181 +1815,191 @@
         </div>
         <h2 class="enhanced-title">Rekomendasi Destinasi Wisata Yogyakarta</h2>
         <div class="title-underline"></div>
-        <p class="section-subtitle">Jelajahi keindahan Yogyakarta dengan rekomendasi destinasi terbaik kami</p>
+        <p class="section-subtitle" style="text-align: center;">Jelajahi keindahan Yogyakarta dengan rekomendasi destinasi terbaik kami</p>
     </div>
 
-    <div class="row justify-content-center">
+    <!-- Swiper Container for Tourism Destinations -->
+    <div class="swiper tourism-swiper" data-aos="fade-up" data-aos-delay="200">
+      <div class="swiper-wrapper">
+        
+        <div class="swiper-slide">
+          <div class="enhanced-destination-card">
+            <div class="destination-img-container">
+              <img src="/assets/homepage/img/destinasi/4.png" alt="Heha Sky View" class="destination-img">
+              <div class="img-overlay"></div>
+            </div>
+            <div class="destination-content">
+              <h4 class="destination-title">Heha Sky View</h4>
+              <p class="destination-text">HeHa Sky View di Gunungkidul, Yogyakarta, menawarkan pemandangan indah dari ketinggian, lengkap dengan restoran dan spot foto Instagramable.</p>
+              <a href="https://www.google.com/maps/search/heha+sky+view/@-7.9774678,110.3051026,11z/data=!3m1!4b1?entry=ttu" class="enhanced-destination-btn" target="_blank">
+                  <span>Lihat Maps</span>
+                  <i class="fas fa-map-marker-alt"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="enhanced-destination-card">
+            <div class="destination-img-container">
+              <img src="/assets/homepage/img/destinasi/3.png" alt="Waduk Sermo" class="destination-img">
+              <div class="img-overlay"></div>
+            </div>
+            <div class="destination-content">
+              <h4 class="destination-title">Waduk Sermo</h4>
+              <p class="destination-text">Waduk Sermo merupakan waduk di Kulon Progo, Yogyakarta, berfungsi sebagai sumber air dan tempat rekreasi. Pengunjung bisa menikmati pemandangan dan aktivitas seperti naik perahu serta memancing.</p>
+              <a href="https://maps.app.goo.gl/ASE7cBjm6QmCmuTU7" class="enhanced-destination-btn" target="_blank">
+                  <span>Lihat Maps</span>
+                  <i class="fas fa-map-marker-alt"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="enhanced-destination-card">
+            <div class="destination-img-container">
+              <img src="/assets/homepage/img/destinasi/2.png" alt="Pantai Parangtritis" class="destination-img">
+              <div class="img-overlay"></div>
+            </div>
+            <div class="destination-content">
+              <h4 class="destination-title">Pantai Parangtritis</h4>
+              <p class="destination-text">Pantai Parangtritis di Bantul, Yogyakarta, terkenal dengan ombak besar dan panorama senja yang menakjubkan, menjadi tujuan favorit untuk menikmati laut dan sunset.</p>
+              <a href="https://maps.app.goo.gl/n6XTkuQifzwpuynh7" class="enhanced-destination-btn" target="_blank">
+                  <span>Lihat Maps</span>
+                  <i class="fas fa-map-marker-alt"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="enhanced-destination-card">
+            <div class="destination-img-container">
+              <img src="/assets/homepage/img/destinasi/5.png" alt="Mangunan Yogyakarta" class="destination-img">
+              <div class="img-overlay"></div>
+            </div>
+            <div class="destination-content">
+              <h4 class="destination-title">Mangunan Yogyakarta</h4>
+              <p class="destination-text">Mangunan adalah daerah perbukitan yang terkenal dengan pesona sawah terasering dan spot foto yang menarik, cocok untuk menikmati keindahan alam Yogyakarta.</p>
+              <a href="https://maps.app.goo.gl/VPARov2kFjncvpS5A" class="enhanced-destination-btn" target="_blank">
+                  <span>Lihat Maps</span>
+                  <i class="fas fa-map-marker-alt"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="enhanced-destination-card">
+            <div class="destination-img-container">
+              <img src="/assets/homepage/img/destinasi/1.png" alt="Bukit Bintang" class="destination-img">
+              <div class="img-overlay"></div>
+            </div>
+            <div class="destination-content">
+              <h4 class="destination-title">Bukit Bintang</h4>
+              <p class="destination-text">Bukit Bintang menawarkan pemandangan spektakuler Kota Yogyakarta dari ketinggian, tempat favorit untuk menikmati panorama dan gemerlap malam.</p>
+              <a href="https://maps.app.goo.gl/FgnNE6dUi71mULE27" class="enhanced-destination-btn" target="_blank">
+                  <span>Lihat Maps</span>
+                  <i class="fas fa-map-marker-alt"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="enhanced-destination-card">
+            <div class="destination-img-container">
+              <img src="/assets/homepage/img/destinasi/6.png" alt="Merapi Park" class="destination-img">
+              <div class="img-overlay"></div>
+            </div>
+            <div class="destination-content">
+              <h4 class="destination-title">Merapi Park</h4>
+              <p class="destination-text">Merapi Park di Sleman menawarkan berbagai miniatur landmark dunia, tempat wisata unik yang cocok untuk keluarga dan pecinta fotografi.</p>
+              <a href="https://maps.app.goo.gl/s791foTg1ttBx6um7" class="enhanced-destination-btn" target="_blank">
+                  <span>Lihat Maps</span>
+                  <i class="fas fa-map-marker-alt"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="enhanced-destination-card">
+            <div class="destination-img-container">
+              <img src="/assets/homepage/img/destinasi/7.png" alt="Sungai Mudal" class="destination-img">
+              <div class="img-overlay"></div>
+            </div>
+            <div class="destination-content">
+              <h4 class="destination-title">Sungai Mudal</h4>
+              <p class="destination-text">Sungai Mudal di Kulon Progo adalah tempat wisata alam dengan air jernih dan suasana alami, cocok untuk relaksasi dan menikmati keindahan alam.</p>
+              <a href="https://maps.app.goo.gl/onBqxuNzR4kXVqEf8" class="enhanced-destination-btn" target="_blank">
+                  <span>Lihat Maps</span>
+                  <i class="fas fa-map-marker-alt"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="enhanced-destination-card">
+            <div class="destination-img-container">
+              <img src="/assets/homepage/img/destinasi/9.png" class="destination-img" alt="Candi Prambanan">
+              <div class="img-overlay"></div>
+            </div>
+            <div class="destination-content">
+              <h4 class="destination-title">Candi Prambanan</h4>
+              <p class="destination-text">Candi Prambanan adalah kompleks candi Hindu terbesar dan tercantik di Indonesia, serta situs warisan dunia UNESCO yang terkenal di Yogyakarta.</p>
+              <a href="https://maps.app.goo.gl/BNNDnb4SqQDZ2NmSA" class="enhanced-destination-btn" target="_blank">
+                  <span>Lihat Maps</span>
+                  <i class="fas fa-map-marker-alt"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="enhanced-destination-card">
+            <div class="destination-img-container">
+              <img src="/assets/homepage/img/destinasi/8.png" class="destination-img" alt="Benteng Vredeburg">
+              <div class="img-overlay"></div>
+            </div>
+            <div class="destination-content">
+              <h4 class="destination-title">Benteng Vredeburg</h4>
+              <p class="destination-text">Benteng Vredeburg adalah benteng bersejarah di pusat Kota Yogyakarta yang kini menjadi museum perjuangan nasional Indonesia.</p>
+              <a href="https://maps.app.goo.gl/EPz2nv6MZuivYQ6G8" class="enhanced-destination-btn" target="_blank">
+                  <span>Lihat Maps</span>
+                  <i class="fas fa-map-marker-alt"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="enhanced-destination-card">
+            <div class="destination-img-container">
+              <img src="/assets/homepage/img/destinasi/10.png" class="destination-img" alt="Malioboro">
+              <div class="img-overlay"></div>
+            </div>
+            <div class="destination-content">
+              <h4 class="destination-title">Malioboro</h4>
+              <p class="destination-text">Jalan Malioboro adalah ikon wisata belanja dan kuliner Yogyakarta, penuh dengan pertokoan, pedagang kaki lima, dan suasana kota yang ramai.</p>
+              <a href="https://maps.app.goo.gl/4mP3RCB5nQLi4NpE7" class="enhanced-destination-btn" target="_blank">
+                  <span>Lihat Maps</span>
+                  <i class="fas fa-map-marker-alt"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
       
-      <div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-        <div class="enhanced-destination-card">
-          <div class="destination-img-container">
-            <img src="/assets/homepage/img/destinasi/4.png" alt="Heha Sky View" class="destination-img">
-            <div class="img-overlay"></div>
-          </div>
-          <div class="destination-content">
-            <h4 class="destination-title">Heha Sky View</h4>
-            <p class="destination-text">HeHa Sky View di Gunungkidul, Yogyakarta, menawarkan pemandangan indah dari ketinggian, lengkap dengan restoran dan spot foto Instagramable.</p>
-            <a href="https://www.google.com/maps/search/heha+sky+view/@-7.9774678,110.3051026,11z/data=!3m1!4b1?entry=ttu" class="enhanced-destination-btn" target="_blank">
-                <span>Lihat Maps</span>
-                <i class="fas fa-map-marker-alt"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-        <div class="enhanced-destination-card">
-          <div class="destination-img-container">
-            <img src="/assets/homepage/img/destinasi/3.png" alt="Waduk Sermo" class="destination-img">
-            <div class="img-overlay"></div>
-          </div>
-          <div class="destination-content">
-            <h4 class="destination-title">Waduk Sermo</h4>
-            <p class="destination-text">Waduk Sermo merupakan waduk di Kulon Progo, Yogyakarta, berfungsi sebagai sumber air dan tempat rekreasi. Pengunjung bisa menikmati pemandangan dan aktivitas seperti naik perahu serta memancing.</p>
-            <a href="https://maps.app.goo.gl/ASE7cBjm6QmCmuTU7" class="enhanced-destination-btn" target="_blank">
-                <span>Lihat Maps</span>
-                <i class="fas fa-map-marker-alt"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-        <div class="enhanced-destination-card">
-          <div class="destination-img-container">
-            <img src="/assets/homepage/img/destinasi/2.png" alt="Pantai Parangritis" class="destination-img">
-            <div class="img-overlay"></div>
-          </div>
-          <div class="destination-content">
-            <h4 class="destination-title">Pantai Parangritis</h4>
-            <p class="destination-text">Pantai Parangtritis di Bantul, Yogyakarta, terkenal dengan ombak besar dan panorama senja yang menakjubkan, menjadi tujuan favorit untuk menikmati laut dan sunset.</p>
-            <a href="https://maps.app.goo.gl/n6XTkuQifzwpuynh7" class="enhanced-destination-btn" target="_blank">
-                <span>Lihat Maps</span>
-                <i class="fas fa-map-marker-alt"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-        <div class="enhanced-destination-card">
-          <div class="destination-img-container">
-            <img src="/assets/homepage/img/destinasi/5.png" alt="Mangunan Yogyakarta" class="destination-img">
-            <div class="img-overlay"></div>
-          </div>
-          <div class="destination-content">
-            <h4 class="destination-title">Mangunan Yogyakarta</h4>
-            <p class="destination-text">Mangunan adalah daerah perbukitan yang terkenal dengan pesona sawah terasering dan spot foto yang menarik, cocok untuk menikmati keindahan alam Yogyakarta.</p>
-            <a href="https://maps.app.goo.gl/VPARov2kFjncvpS5A" class="enhanced-destination-btn" target="_blank">
-                <span>Lihat Maps</span>
-                <i class="fas fa-map-marker-alt"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="500">
-        <div class="enhanced-destination-card">
-          <div class="destination-img-container">
-            <img src="/assets/homepage/img/destinasi/1.png" alt="Bukit Bintang" class="destination-img">
-            <div class="img-overlay"></div>
-          </div>
-          <div class="destination-content">
-            <h4 class="destination-title">Bukit Bintang</h4>
-            <p class="destination-text">Bukit Bintang menawarkan pemandangan spektakuler Kota Yogyakarta dari ketinggian, tempat favorit untuk menikmati panorama dan gemerlap malam.</p>
-            <a href="https://maps.app.goo.gl/FgnNE6dUi71mULE27" class="enhanced-destination-btn" target="_blank">
-                <span>Lihat Maps</span>
-                <i class="fas fa-map-marker-alt"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="600">
-        <div class="enhanced-destination-card">
-          <div class="destination-img-container">
-            <img src="/assets/homepage/img/destinasi/6.png" alt="Merapi Park" class="destination-img">
-            <div class="img-overlay"></div>
-          </div>
-          <div class="destination-content">
-            <h4 class="destination-title">Merapi Park</h4>
-            <p class="destination-text">Merapi Park di Sleman menawarkan berbagai miniatur landmark dunia, tempat wisata unik yang cocok untuk keluarga dan pecinta fotografi.</p>
-            <a href="https://maps.app.goo.gl/s791foTg1ttBx6um7" class="enhanced-destination-btn" target="_blank">
-                <span>Lihat Maps</span>
-                <i class="fas fa-map-marker-alt"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="700">
-        <div class="enhanced-destination-card">
-          <div class="destination-img-container">
-            <img src="/assets/homepage/img/destinasi/7.png" alt="Sungai Mudal" class="destination-img">
-            <div class="img-overlay"></div>
-          </div>
-          <div class="destination-content">
-            <h4 class="destination-title">Sungai Mudal</h4>
-            <p class="destination-text">Sungai Mudal di Kulon Progo adalah tempat wisata alam dengan air jernih dan suasana alami, cocok untuk relaksasi dan menikmati keindahan alam.</p>
-            <a href="https://maps.app.goo.gl/onBqxuNzR4kXVqEf8" class="enhanced-destination-btn" target="_blank">
-                <span>Lihat Maps</span>
-                <i class="fas fa-map-marker-alt"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="800">
-        <div class="enhanced-destination-card">
-          <div class="destination-img-container">
-            <img src="/assets/homepage/img/destinasi/9.png" class="destination-img" alt="Candi Prambanan">
-            <div class="img-overlay"></div>
-          </div>
-          <div class="destination-content">
-            <h4 class="destination-title">Candi Prambanan</h4>
-            <p class="destination-text">Candi Prambanan adalah kompleks candi Hindu terbesar dan tercantik di Indonesia, serta situs warisan dunia UNESCO yang terkenal di Yogyakarta.</p>
-            <a href="https://maps.app.goo.gl/BNNDnb4SqQDZ2NmSA" class="enhanced-destination-btn" target="_blank">
-                <span>Lihat Maps</span>
-                <i class="fas fa-map-marker-alt"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="900">
-        <div class="enhanced-destination-card">
-          <div class="destination-img-container">
-            <img src="/assets/homepage/img/destinasi/8.png" class="destination-img" alt="Benteng Vredeburg">
-            <div class="img-overlay"></div>
-          </div>
-          <div class="destination-content">
-            <h4 class="destination-title">Benteng Vredeburg</h4>
-            <p class="destination-text">Benteng Vredeburg adalah benteng bersejarah di pusat Kota Yogyakarta yang kini menjadi museum perjuangan nasional Indonesia.</p>
-            <a href="https://maps.app.goo.gl/EPz2nv6MZuivYQ6G8" class="enhanced-destination-btn" target="_blank">
-                <span>Lihat Maps</span>
-                <i class="fas fa-map-marker-alt"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="1000">
-        <div class="enhanced-destination-card">
-          <div class="destination-img-container">
-            <img src="/assets/homepage/img/destinasi/10.png" class="destination-img" alt="Malioboro">
-            <div class="img-overlay"></div>
-          </div>
-          <div class="destination-content">
-            <h4 class="destination-title">Malioboro</h4>
-            <p class="destination-text">Jalan Malioboro adalah ikon wisata belanja dan kuliner Yogyakarta, penuh dengan pertokoan, pedagang kaki lima, dan suasana kota yang ramai.</p>
-            <a href="https://maps.app.goo.gl/4mP3RCB5nQLi4NpE7" class="enhanced-destination-btn" target="_blank">
-                <span>Lihat Maps</span>
-                <i class="fas fa-map-marker-alt"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-
+      <!-- Swiper Navigation -->
+      <div class="swiper-button-next tourism-next"></div>
+      <div class="swiper-button-prev tourism-prev"></div>
+      
+      <!-- Swiper Pagination -->
+      <div class="swiper-pagination tourism-pagination"></div>
     </div>
   </div>
 
@@ -1998,13 +2012,13 @@
     }
 
     .enhanced-tourism-destinations::before {
-        content: ";
+        content: "";
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        background: url("data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><defs><pattern id=\'dots\' width=\'10\' height=\'10\' patternUnits=\'userSpaceOnUse\'><circle cx=\'2\' cy=\'2\' r=\'1\' fill=\'rgba(116,233,213,0.1)\'/></pattern></defs><rect width=\'100\' height=\'100\' fill=\'url(%23dots)\'/></svg>");
+        background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><pattern id='dots' width='10' height='10' patternUnits='userSpaceOnUse'><circle cx='2' cy='2' r='1' fill='rgba(116,233,213,0.1)'/></pattern></defs><rect width='100' height='100' fill='url(%23dots)'/></svg>");
         opacity: 0.5;
         pointer-events: none;
     }
@@ -2018,6 +2032,16 @@
         background: radial-gradient(circle, rgba(255, 191, 163, 0.3) 0%, transparent 70%);
     }
 
+    .tourism-swiper {
+        padding: 20px 0 60px 0;
+    }
+
+    .tourism-swiper .swiper-slide {
+        height: auto;
+        display: flex;
+        align-items: stretch;
+    }
+
     .enhanced-destination-card {
         background: white;
         border-radius: 20px;
@@ -2027,6 +2051,7 @@
         height: 100%;
         display: flex;
         flex-direction: column;
+        width: 100%;
     }
 
     .enhanced-destination-card:hover {
@@ -2107,6 +2132,49 @@
         transform: translateX(5px);
     }
 
+    /* Swiper Navigation Styles */
+    .tourism-next,
+    .tourism-prev {
+        width: 50px;
+        height: 50px;
+        background: white;
+        border-radius: 50%;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        color: #FFBFA3;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+    }
+
+    .tourism-next:hover,
+    .tourism-prev:hover {
+        background: linear-gradient(135deg, #FFBFA3, #99a3e3);
+        color: white;
+        transform: scale(1.1);
+    }
+
+    .tourism-next::after,
+    .tourism-prev::after {
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+
+    .tourism-pagination {
+        bottom: 20px;
+    }
+
+    .tourism-pagination .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+        background: rgba(255, 191, 163, 0.3);
+        opacity: 1;
+        transition: all 0.3s ease;
+    }
+
+    .tourism-pagination .swiper-pagination-bullet-active {
+        background: linear-gradient(135deg, #FFBFA3, #99a3e3);
+        transform: scale(1.2);
+    }
+
     /* Mobile Responsive */
     @media (max-width: 768px) {
         .destination-title {
@@ -2118,6 +2186,12 @@
         .enhanced-destination-btn {
             padding: 8px 15px;
             font-size: 0.8rem;
+        }
+        .tourism-next,
+        .tourism-prev {
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
         }
     }
 
@@ -2133,85 +2207,7 @@
         }
     }
   </style>
-.card-img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.card-body-custom {
-  padding: 20px;
-  text-align: justify;
-  display: flex;
-  flex-direction: column;
-  height: 280px;
-}
-
-/* Mobile responsive card body */
-@media (max-width: 768px) {
-  .card-body-custom {
-    height: auto !important;
-    padding: 15px !important;
-  }
-  
-  .card-body-custom h4 {
-    font-size: 18px !important;
-  }
-  
-  .card-body-custom p {
-    font-size: 14px !important;
-  }
-}
-
-@media (max-width: 480px) {
-  .card-body-custom h4 {
-    font-size: 16px !important;
-  }
-  
-  .card-body-custom p {
-    font-size: 13px !important;
-  }
-}
-
-.card-body-custom h4 {
-  font-size: 20px;
-  color: #7AA2E3;
-  font-weight: bold;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-.card-body-custom p {
-  font-size: 14px;
-  color: #555;
-  flex-grow: 1;
-}
-
-.btn-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.btn-custom {
-  background-color: #7AA2E3;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 25px;
-  text-decoration: none;
-  font-size: 14px;
-  transition: background 0.3s ease;
-}
-
-.btn-custom:hover {
-  background-color: #557cd2;
-}
-
-.rating-zoom:hover{
-    transform: scale(1.05);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
-}
-</style>
+</section>
         <!-- End Rekomendasi Destinasi -->
 
         <!-- Testimoni -->
