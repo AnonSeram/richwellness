@@ -314,7 +314,7 @@
 <body>
 
 <!-- ======= Header ======= -->
-<header id="header" class="fixed-top d-flex align-items-center enhanced-header">
+<header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
         <div class="logo d-flex align-items-center">
             <img src="{{ asset('assets/homepage/img/logo.png') }}" alt="Rich Wellness Logo">
