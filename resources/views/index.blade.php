@@ -313,121 +313,72 @@
 </head>
 <body>
 
-  <!-- ======= Enhanced Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center enhanced-header" style="z-index: 9999;">
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top d-flex align-items-center enhanced-header">
     <div class="container d-flex align-items-center justify-content-between">
-      <div class="logo d-flex align-items-center enhanced-logo">
-        <div class="logo-container">
-          <img src="assets/homepage/img/logo.png" alt="Rich Wellness Logo" class="logo-img" />
-          <div class="logo-glow"></div>
+        <div class="logo d-flex align-items-center">
+            <img src="{{ asset('assets/homepage/img/logo.png') }}" alt="Rich Wellness Logo">
+            <h1><a href="/">Rich Wellness</a></h1>
         </div>
-        <div class="brand-text">
-          <h1><a href="/">Rich Wellness</a></h1>
-          <span class="tagline">Transform Your Health Journey</span>
-        </div>
-      </div>
-      
-      <nav id="navbar" class="navbar enhanced-navbar">
-        <ul class="d-flex align-items-center">
-          <li><a class="nav-link scrollto active" href="#hero">{{ __("messages.home") }}</a></li>
-          <li><a class="nav-link scrollto" href="#paket-unggulan">{{ __("messages.featured_packages") }}</a></li>
-          <li><a class="nav-link scrollto" href="#kamar">{{ __("messages.rooms") }}</a></li>
-          <li><a class="nav-link scrollto" href="#fasilitas">{{ __("messages.facilities") }}</a></li>
-          <li><a class="nav-link scrollto" href="#rekomendasi-kesehatan">{{ __("messages.health") }}</a></li>
-          <li><a class="nav-link scrollto" href="#rekomendasi-destinasi">{{ __("messages.tourism") }}</a></li>
-          <li><a class="nav-link scrollto" href="#existing-ratings">{{ __("messages.ratings") }}</a></li>
-          <li><a class="nav-link scrollto" href="#contact">{{ __("messages.contact") }}</a></li>
-          
-          <!-- Enhanced Language Switcher -->
-          <li class="dropdown enhanced-dropdown" style="z-index: 10000;">
-            <a class="nav-link scrollto language-switcher" href="#" style="display: flex; align-items: center;">
-              <div class="language-icon">
-                <i class="fas fa-globe"></i>
-              </div>
-              <span class="language-text">{{ app()->getLocale() == 'id' ? 'ID' : 'EN' }}</span>
-              <i class="fas fa-chevron-down dropdown-arrow"></i>
-            </a>
-            <ul class="dropdown-menu enhanced-dropdown-menu" style="z-index: 10000;">
-              <li><a href="{{ route('language.switch', 'id') }}" class="dropdown-item">
-                <img src="https://flagcdn.com/w20/id.png" alt="ID" class="flag-icon">
-                <span>Bahasa Indonesia</span>
-              </a></li>
-              <li><a href="{{ route('language.switch', 'en') }}" class="dropdown-item">
-                <img src="https://flagcdn.com/w20/us.png" alt="EN" class="flag-icon">
-                <span>English</span>
-              </a></li>
+        <nav id="navbar" class="navbar">
+            <ul class="d-flex align-items-center">
+                <li><a class="nav-link scrollto" href="/">{{ __('messages.home') }}</a></li>
+                <li><a class="nav-link scrollto" href="/#paket-unggulan">{{ __('messages.featured_packages') }}</a></li>
+                <li><a class="nav-link scrollto" href="/#kamar">{{ __('messages.rooms') }}</a></li>
+                <li><a class="nav-link scrollto" href="/#fasilitas">{{ __('messages.facilities') }}</a></li>
+                <li><a class="nav-link scrollto" href="/#rekomendasi-kesehatan">{{ __('messages.health') }}</a></li>
+                <li><a class="nav-link scrollto" href="/#rekomendasi-destinasi">{{ __('messages.tourism') }}</a></li>
+                <li><a class="nav-link scrollto" href="/#penilaian">{{ __('messages.ratings') }}</a></li>
+                <li><a class="nav-link scrollto" href="/#contact">{{ __('messages.contact') }}</a></li>
+                
+                <!-- Language Switcher -->
+                <li class="dropdown">
+                    <a class="nav-link scrollto" href="#" style="display: flex; align-items: center;">
+                        <i class="fas fa-globe me-1"></i>
+                        {{ app()->getLocale() == 'id' ? 'ID' : 'EN' }}
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ route('language.switch', 'id') }}">
+                            <img src="https://flagcdn.com/w20/id.png" alt="ID" style="width: 20px; margin-right: 8px;">
+                            Bahasa Indonesia
+                        </a></li>
+                        <li><a href="{{ route('language.switch', 'en') }}">
+                            <img src="https://flagcdn.com/w20/us.png" alt="EN" style="width: 20px; margin-right: 8px;">
+                            English
+                        </a></li>
+                    </ul>
+                </li>
+
+                @auth
+                    @if(auth()->user()->role === 'admin')
+                        <li><a class="getstarted scrollto" href="{{ route('admin.home') }}">{{ __('messages.dashboard') }}</a></li>
+                    @else
+                        <li class="dropdown">
+                            <a class="getstarted scrollto" href="#">{{ auth()->user()->name }}</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ route('user.profile') }}"><i class="fas fa-id-badge me-2"></i> {{ __('messages.profile') }}</a></li>
+                                <li><a href="{{ route('dashboard') }}"><i class="fas fa-receipt me-2"></i> {{ __('messages.transactions') }}</a></li>
+                                <li><a href="{{ route('keranjang') }}"><i class="fas fa-bucket me-2"></i> {{ __('messages.cart') }}</a></li>
+                                <li>
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <button type="submit" style="background: none; border: none; color: #333; cursor: pointer;">
+                                            <i class="fas fa-sign-out-alt me-2"></i> {{ __('messages.logout') }}
+                                        </button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    @endif
+                @else
+                    <li><a class="getstarted scrollto" href="{{ route('login') }}">{{ __('messages.login') }}</a></li>
+                    <li><a class="btn-daftar scrollto" href="{{ route('register') }}">{{ __('messages.register') }}</a></li>
+                @endauth
             </ul>
-          </li>
-
-          @auth
-            @if(auth()->user()->role === 'admin')
-              <li><a class="getstarted enhanced-btn" href="{{ route('admin.home') }}">
-                <i class="fas fa-tachometer-alt me-2"></i>
-                {{ __("messages.dashboard") }}
-              </a></li>
-            @elseif(auth()->user()->role === 'resepsionis')
-              <li><a class="getstarted enhanced-btn" href="{{ route('resepsionis') }}">
-                <i class="fas fa-tachometer-alt me-2"></i>
-                {{ __("messages.dashboard") }}
-              </a></li>
-            @else
-              <li class="dropdown enhanced-dropdown user-dropdown" style="z-index: 10000;">
-                <a class="getstarted enhanced-btn user-btn" href="#">
-                  <div class="user-avatar">
-                    <span>{{ strtoupper(substr(auth()->user()->name, 0, 1)) }}</span>
-                  </div>
-                  <span class="user-name">{{ auth()->user()->name }}</span>
-                  <i class="fas fa-chevron-down dropdown-arrow"></i>
-                </a>
-                <ul class="dropdown-menu enhanced-dropdown-menu user-menu" style="z-index: 10000;">
-                  <li><a href="{{ route('user.profile') }}" class="dropdown-item">
-                    <i class="fas fa-id-badge"></i>
-                    <span>{{ __("messages.profile") }}</span>
-                  </a></li>
-                  <li><a href="{{ route('dashboard') }}" class="dropdown-item">
-                    <i class="fas fa-receipt"></i>
-                    <span>{{ __("messages.transactions") }}</span>
-                  </a></li>
-                  <li><a href="{{ route('keranjang') }}" class="dropdown-item">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span>{{ __("messages.cart") }}</span>
-                  </a></li>
-                  <li class="dropdown-divider"></li>
-                  <li>
-                    <form method="POST" action="{{ route('logout') }}">
-                      @csrf
-                      <button type="submit" class="dropdown-item logout-btn">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <span>{{ __("messages.logout") }}</span>
-                      </button>
-                    </form>
-                  </li>
-                </ul>
-              </li>
-            @endif
-          @else
-            <li><a class="getstarted enhanced-btn login-btn" href="{{ route('login') }}">
-              <i class="fas fa-sign-in-alt me-2"></i>
-              {{ __("messages.login") }}
-            </a></li>
-            <li><a class="btn-daftar enhanced-register-btn" href="{{ route('register') }}">
-              <i class="fas fa-user-plus me-2"></i>
-              {{ __("messages.register") }}
-            </a></li>
-          @endauth
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle enhanced-mobile-toggle"></i>
-      </nav>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
     </div>
-    
-    <!-- Header background decoration -->
-    <div class="header-decoration">
-      <div class="decoration-circle circle-1"></div>
-      <div class="decoration-circle circle-2"></div>
-    </div>
-  </header>
-  <!-- End Enhanced Header -->
-
+</header>
 <!-- Enhanced Header Styles -->
 <style>
 .enhanced-header {
