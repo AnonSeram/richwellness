@@ -1509,15 +1509,14 @@
     .more-services {
         padding: 60px 0;
     }
-    .section-title h2 {
-        font-weight: bold;
-        font-size: 36px;
-        margin-bottom: 10px;
-    }
-    .section-title p {
-        color: #777;
-        margin-bottom: 40px;
-    }
+    
+    .section-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
     .service-item {
         background: #fff;
         border-radius: 15px;
