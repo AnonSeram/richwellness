@@ -665,7 +665,6 @@
       <nav id="navbar" class="navbar enhanced-navbar">
         <ul class="d-flex align-items-center">
           <li><a class="nav-link scrollto" href="#hero">{{ __("messages.home") }}</a></li>
-          <li><a class="nav-link scrollto active" href="#about">About Us</a></li>
           <li><a class="nav-link scrollto" href="#paket-unggulan">{{ __("messages.featured_packages") }}</a></li>
           <li><a class="nav-link scrollto" href="#kamar">{{ __("messages.rooms") }}</a></li>
           <li><a class="nav-link scrollto" href="#rekomendasi-kesehatan">{{ __("messages.health") }}</a></li>
