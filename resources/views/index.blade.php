@@ -137,7 +137,7 @@
 
     .logo img {
       width: auto;
-      margin-left: 20px;
+      margin-left: 30px;
     }
 
     .btn-primary {
@@ -503,6 +503,7 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   transition: all 0.3s ease;
+  margin-left: 20px;
 }
 
 .brand-text h1 a {
