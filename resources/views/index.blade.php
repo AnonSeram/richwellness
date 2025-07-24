@@ -2312,7 +2312,7 @@
         </div>
         <a href="{{ route('dashboard') }}" class="btn btn-lg" style="background: linear-gradient(135deg, #99a3e3, #74e9d5); color: white; border: none; border-radius: 15px; padding: 12px 30px; font-weight: 600; text-decoration: none; box-shadow: 0 8px 20px rgba(153, 163, 227, 0.3); transition: all 0.3s ease;">
           <i class="fas fa-pen-alt me-2"></i>
-          Tulis Review
+          {{ __("messages.write_review") }}
         </a>
       </div>
     </div>
@@ -2378,17 +2378,13 @@
         <section id="contact" class="contact">
             <div class="container">
                 <div class="section-title" data-aos="fade-up">
-                    <h2>Kontak Kami</h2>
+                    <h2>{{ __("messages.contact_us") }}</h2>
                 </div>
                 <div class="row">
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                         <div class="contact-about">
                             <h3>Rich Wellness</h3>
-                            <p> Adalah tujuan utama untuk kesehatan dan kebugaran di Hotel The Rich Jogja. Terletak di
-                                jantung kota Jogja, kami menawarkan pengalaman unik dalam wisata kesehatan yang berfokus
-                                pada kesehatan dan kebugaran. Dengan fasilitas modern dan program kesehatan yang
-                                disesuaikan, kami berkomitmen untuk meningkatkan kualitas hidup dan memberikan
-                                kesempatan untuk meremajakan tubuh, pikiran, dan jiwa.</p>
+                            <p>{{ __("messages.contact_us_description") }} </p>
                             <div class="social-links">
                                 <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
                                 <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>

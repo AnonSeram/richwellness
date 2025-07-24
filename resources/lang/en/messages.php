@@ -159,8 +159,10 @@ return [
 
     // Testimonials
     'what_visitors_say' => 'What Visitors Say?',
+    'testi_subtitle' => 'Hear real-life experiences from guests who have experienced Rich Wellnes',
     'call_action' => 'Share Your Experience',
     'call_testi' => 'Tell us about your wellness experience',
+    'write_testi' => 'Write Review',
 
     // Contact
     'contact_us' => 'Contact Us',
