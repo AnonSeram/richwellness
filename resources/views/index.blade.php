@@ -391,7 +391,7 @@
               {{ __("messages.login") }}
             </a></li>
             <li><a class="btn-daftar enhanced-register-btn" href="{{ route('register') }}">
-              <i class="fas fa-user-plus me-2"></i>
+              <i class="fas fa-user-plus me-2 register-btn"></i>
               {{ __("messages.register") }}
             </a></li>
           @endauth
@@ -694,11 +694,18 @@
   white-space: nowrap;
 }
 
+.register-btn {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  align-items: center;
+}
+
 .enhanced-register-btn {
   background: transparent;
   color: #99a3e3;
   border: 2px solid #99a3e3;
-  padding: 8px 18px;
+  padding: 8px 16px;
   border-radius: 25px;
   text-decoration: none;
   font-weight: 600;
@@ -708,7 +715,6 @@
   gap: 8px;
   transition: all 0.3s ease;
   margin-left: 10px;
-  margin-right: 15px; /* Added margin to the right */
   overflow: visible; /* penting agar teks tidak terpotong */
   white-space: nowrap; /* mencegah patah baris */
   align-items: center;
@@ -776,12 +782,6 @@
     font-size: 0.8rem;
   }
   
-  .enhanced-register-btn {
-    margin-right: 10px; /* Reduced margin for mobile */
-    padding: 6px 14px; /* Smaller padding for mobile */
-    font-size: 0.85rem;
-  }
-  
   .user-name {
     display: none;
   }
@@ -802,12 +802,6 @@
   
   .logo-img {
     height: 30px;
-  }
-  
-  .enhanced-register-btn {
-    margin-right: 8px; /* Further reduced margin for very small screens */
-    padding: 5px 12px; /* Even smaller padding */
-    font-size: 0.8rem;
   }
 }
 </style>
@@ -2577,4 +2571,3 @@ var mainCarouselSwiper = new Swiper('.main-carousel', {
 </body>
 
 </html>
-
