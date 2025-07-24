@@ -40,7 +40,7 @@
             margin: 0;
             padding: 0;
             background-color: #f8f9fa;
-            padding-top: 100px; /* Reduced padding to match index.blade.php */
+            padding-top: 120px; /* Reduced padding to match index.blade.php */
         }
         .container {
             max-width: 1200px;
@@ -51,7 +51,7 @@
         /* Header Background - Match index.blade.php */
         #header {
             background-color: #FEFDED;
-            height: 100px; /* Fixed height to match index.blade.php */
+            height: 120px; /* Fixed height to match index.blade.php */
             padding: 15px 0; /* Reduced padding */
         }
         
