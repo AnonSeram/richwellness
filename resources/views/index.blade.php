@@ -389,7 +389,7 @@
               <i class="fas fa-sign-in-alt me-2"></i>
               {{ __("messages.login") }}
             </a></li>
-            <li class="enhanced-register-btn"><a href="{{ route('register') }}">
+            <li class="enhanced-register-btn" style="font-weight: 600;"><a href="{{ route('register') }}">
               <i class="fas fa-user-plus me-2"></i>
               {{ __("messages.register") }}
             </a></li>
