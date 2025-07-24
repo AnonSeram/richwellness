@@ -1382,8 +1382,8 @@
 <section id="kamar" class="services" style="background: #f8f9fa; padding: 50px 0;">
     <div class="container">
         <div class="section-title text-center" data-aos="fade-up" style="margin-bottom: 30px;">
-            <h2 style="font-weight: 700;">Fasilitas Kamar</h2>
-            <p style="margin-bottom: 10px;"><strong>Terdiri dari beberapa jenis fasilitas kamar yang diberikan:</strong></p>
+            <h2 style="font-weight: 700;">{{ __("messages.room_facilities") }}</h2>
+            <p style="margin-bottom: 10px;"><strong>T{{ __("messages.room_facilities_description") }}</strong></p>
         </div>
 
         <div class="row justify-content-center">
@@ -1413,10 +1413,10 @@
         <section id="more-services" class="more-services py-5" style="background-color: #f4f4f4;">
     <div class="container">
         <div class="section-title text-center" data-aos="fade-up">
-            <h2 style="font-weight: 700; font-size: 2.5rem; color: #2c3e50; margin-bottom: 20px;">Fasilitas Hotel</h2>
-            <p style="color: #6c757d; font-size: 1.1rem; margin-bottom: 40px;">Terdiri dari beberapa jenis fasilitas yang tersedia</p>
+            <h2 style="font-weight: 700; font-size: 2.5rem; color: #2c3e50; margin-bottom: 20px;">{{ __("messages.hotel_facilities") }}</h2>
+            <p style="color: #6c757d; font-size: 1.1rem; margin-bottom: 40px;">{{ __("messages.hotel_facilities_description") }}</p>
         </div>
-        <div class="row g-4 justify-content-center">
+        <div class="row g-4 justify-content-center" data-aos="fade-up">
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="service-item text-center">
                     <div class="service-img mb-3">
@@ -1451,7 +1451,7 @@
             </div>
         </div>
 
-        <div class="row g-4 justify-content-center mt-4">
+        <div class="row g-4 justify-content-center mt-4" data-aos="fade-up">
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="service-item text-center">
                     <div class="service-img mb-3">
