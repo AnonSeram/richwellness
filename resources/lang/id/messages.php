@@ -93,6 +93,7 @@ return [
     'hero_description' => 'Selamat datang di Rich Wellness, oase kesehatan dan kebugaran di jantung kota Jogja. Kami menghadirkan fasilitas modern dan program khusus untuk menyegarkan tubuh, menenangkan pikiran, dan menyeimbangkan jiwa. Bersama kami, wujudkan hidup sehat yang lebih holistik dan bermakna.',
 
     // Featured Packages
+    'pilih_paket' => 'Pilih paket wellness terbaik untuk perjalanan kesehatan Anda',
     'serenity_retreat_title' => 'Serenity Retreat',
     'serenity_retreat_description' => 'Rasakan kedamaian sejati dengan sesi yoga dan terapi spa menenangkan.',
     'renewal_journey_title' => 'Renewal Journey',
