@@ -503,7 +503,6 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   transition: all 0.3s ease;
-  margin-left: 20px;
 }
 
 .brand-text h1 a {
@@ -527,7 +526,7 @@
 
 .enhanced-navbar .nav-link {
   color: #2c3e50;
-  font-weight: 500;
+  font-weight: 700;
   font-size: 0.95rem;
   padding: 8px 16px;
   margin: 0 2px;
