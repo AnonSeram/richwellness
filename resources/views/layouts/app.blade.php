@@ -154,7 +154,6 @@
           <li><a class="nav-link scrollto active" href="#hero">{{ __("messages.home") }}</a></li>
           <li><a class="nav-link scrollto" href="#paket-unggulan">{{ __("messages.featured_packages") }}</a></li>
           <li><a class="nav-link scrollto" href="#kamar">{{ __("messages.rooms") }}</a></li>
-          <li><a class="nav-link scrollto" href="#fasilitas">{{ __("messages.facilities") }}</a></li>
           <li><a class="nav-link scrollto" href="#rekomendasi-kesehatan">{{ __("messages.health") }}</a></li>
           <li><a class="nav-link scrollto" href="#rekomendasi-destinasi">{{ __("messages.tourism") }}</a></li>
           <li><a class="nav-link scrollto" href="#existing-ratings">{{ __("messages.ratings") }}</a></li>
