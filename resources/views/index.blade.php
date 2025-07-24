@@ -137,7 +137,7 @@
 
     .logo img {
       width: auto;
-      margin-left: 30px;
+      margin-left: 20px;
     }
 
     .btn-primary {
