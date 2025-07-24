@@ -295,7 +295,7 @@
 
   <!-- ======= Enhanced Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center" style="z-index: 1050;">
-    <div class="container d-flex align-items-center justify-content-between">
+    <div class="container d-flex align-items-center justify-content-between" style="padding-right: 30px;">
       <div class="logo d-flex align-items-center enhanced-logo">
         <div class="logo-container">
           <img src="assets/homepage/img/logo.png" alt="Rich Wellness Logo" class="logo-img" />
@@ -312,6 +312,7 @@
           <li><a class="nav-link scrollto active" href="#hero">{{ __("messages.home") }}</a></li>
           <li><a class="nav-link scrollto" href="#paket-unggulan">{{ __("messages.featured_packages") }}</a></li>
           <li><a class="nav-link scrollto" href="#kamar">{{ __("messages.rooms") }}</a></li>
+          <li><a class="nav-link scrollto" href="#fasilitas">{{ __("messages.facilities") }}</a></li>
           <li><a class="nav-link scrollto" href="#rekomendasi-kesehatan">{{ __("messages.health") }}</a></li>
           <li><a class="nav-link scrollto" href="#rekomendasi-destinasi">{{ __("messages.tourism") }}</a></li>
           <li><a class="nav-link scrollto" href="#existing-ratings">{{ __("messages.ratings") }}</a></li>
@@ -389,12 +390,11 @@
               <i class="fas fa-sign-in-alt me-2"></i>
               {{ __("messages.login") }}
             </a></li>
-            <li class="enhanced-register-btn" style="font-weight: 600;"><a href="{{ route('register') }}">
+            <li><a class="btn-daftar enhanced-register-btn" href="{{ route('register') }}">
               <i class="fas fa-user-plus me-2"></i>
               {{ __("messages.register") }}
             </a></li>
           @endauth
-
         </ul>
         <i class="bi bi-list mobile-nav-toggle enhanced-mobile-toggle"></i>
       </nav>
@@ -696,13 +696,30 @@
 
 .enhanced-register-btn {
   background: transparent;
-  color: #ffffffff;
-  font-weight: 700;
+  color: #99a3e3;
+  border: 2px solid #99a3e3;
+  padding: 8px 18px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  margin-left: 10px;
+  margin-right: 20px; /* Increased margin to the right */
+  overflow: visible; /* penting agar teks tidak terpotong */
+  white-space: nowrap; /* mencegah patah baris */
+  align-items: center;
+  justify-content: center;
 }
 
 .enhanced-register-btn:hover {
+  background: #99a3e3;
   color: white;
   transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(153, 163, 227, 0.3);
 }
 
 .dropdown-divider {
@@ -759,8 +776,19 @@
     font-size: 0.8rem;
   }
   
+  .enhanced-register-btn {
+    margin-right: 15px; /* Reduced margin for mobile */
+    padding: 6px 14px; /* Smaller padding for mobile */
+    font-size: 0.85rem;
+  }
+  
   .user-name {
     display: none;
+  }
+  
+  /* Add padding to container for mobile */
+  .container {
+    padding-right: 20px !important;
   }
 }
 
@@ -779,6 +807,17 @@
   
   .logo-img {
     height: 30px;
+  }
+  
+  .enhanced-register-btn {
+    margin-right: 10px; /* Further reduced margin for very small screens */
+    padding: 5px 12px; /* Even smaller padding */
+    font-size: 0.8rem;
+  }
+  
+  /* Add more padding to container for very small screens */
+  .container {
+    padding-right: 15px !important;
   }
 }
 </style>
@@ -1474,7 +1513,6 @@
 
 <style>
     body {
-        text-align: center;
         background-color: #f4f4f4;
         font-family: 'Poppins', sans-serif;
     }
@@ -2549,3 +2587,4 @@ var mainCarouselSwiper = new Swiper('.main-carousel', {
 </body>
 
 </html>
+
