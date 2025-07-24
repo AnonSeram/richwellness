@@ -40,7 +40,7 @@
             margin: 0;
             padding: 0;
             background-color: #f8f9fa;
-            padding-top: 100px; /* Add padding to prevent navbar from covering content */
+            padding-top: 80px; /* Reduced padding to match index.blade.php */
         }
         .container {
             max-width: 1200px;
@@ -48,11 +48,14 @@
             padding: 20px;
         }
         
-        /* Enhanced Header Styles */
-         #header {
+        /* Header Background - Match index.blade.php */
+        #header {
             background-color: #FEFDED;
-            }
-
+            height: 80px; /* Fixed height to match index.blade.php */
+            padding: 15px 0; /* Reduced padding */
+        }
+        
+        /* Enhanced Header Styles */
         .enhanced-header.scrolled {
           background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 249, 250, 0.98) 100%);
           box-shadow: 0 4px 30px rgba(0, 0, 0, 0.12);
@@ -109,7 +112,7 @@
 
         .logo-img {
           width: auto;
-          height: 45px;
+          height: 35px; /* Reduced from 45px to match index.blade.php */
           transition: all 0.3s ease;
           position: relative;
           z-index: 2;
@@ -138,7 +141,7 @@
 
         .brand-text h1 {
           margin: 0;
-          font-size: 1.8rem;
+          font-size: 1.5rem; /* Reduced from 1.8rem to match index.blade.php */
           font-weight: 700;
           background: linear-gradient(135deg, #99a3e3, #74e9d5);
           -webkit-background-clip: text;
@@ -154,7 +157,7 @@
 
         .tagline {
           display: block;
-          font-size: 0.75rem;
+          font-size: 0.65rem; /* Reduced from 0.75rem */
           color: #6c757d;
           font-weight: 500;
           margin-top: -2px;
@@ -169,9 +172,9 @@
         .enhanced-navbar .nav-link {
           color: #2c3e50;
           font-weight: 500;
-          font-size: 0.95rem;
-          padding: 8px 16px;
-          margin: 0 2px;
+          font-size: 0.85rem; /* Reduced from 0.95rem to match index.blade.php */
+          padding: 6px 12px; /* Reduced padding */
+          margin: 0 1px; /* Reduced margin */
           border-radius: 25px;
           transition: all 0.3s ease;
           position: relative;
@@ -208,31 +211,31 @@
         .language-switcher {
           background: rgba(153, 163, 227, 0.1);
           border-radius: 20px;
-          padding: 8px 12px;
+          padding: 6px 10px; /* Reduced padding */
           display: flex;
           align-items: center;
-          gap: 8px;
+          gap: 6px; /* Reduced gap */
         }
 
         .language-icon {
-          width: 20px;
-          height: 20px;
+          width: 18px; /* Reduced from 20px */
+          height: 18px;
           background: linear-gradient(135deg, #99a3e3, #74e9d5);
           border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
           color: white;
-          font-size: 0.8rem;
+          font-size: 0.7rem; /* Reduced font size */
         }
 
         .language-text {
           font-weight: 600;
-          font-size: 0.9rem;
+          font-size: 0.8rem; /* Reduced from 0.9rem */
         }
 
         .dropdown-arrow {
-          font-size: 0.7rem;
+          font-size: 0.6rem; /* Reduced from 0.7rem */
           transition: transform 0.3s ease;
         }
 
@@ -290,14 +293,14 @@
         .enhanced-btn {
           background: linear-gradient(135deg, #99a3e3, #74e9d5);
           color: white;
-          padding: 10px 20px;
+          padding: 8px 16px; /* Reduced padding */
           border-radius: 25px;
           text-decoration: none;
           font-weight: 600;
-          font-size: 0.9rem;
+          font-size: 0.8rem; /* Reduced from 0.9rem */
           display: flex;
           align-items: center;
-          gap: 8px;
+          gap: 6px; /* Reduced gap */
           transition: all 0.3s ease;
           border: none;
           cursor: pointer;
@@ -317,8 +320,8 @@
         }
 
         .user-avatar {
-          width: 30px;
-          height: 30px;
+          width: 26px; /* Reduced from 30px */
+          height: 26px;
           background: linear-gradient(135deg, #99a3e3, #74e9d5);
           border-radius: 50%;
           display: flex;
@@ -326,7 +329,7 @@
           justify-content: center;
           color: white;
           font-weight: 600;
-          font-size: 0.8rem;
+          font-size: 0.7rem; /* Reduced font size */
         }
 
         .user-name {
@@ -338,13 +341,20 @@
 
         .enhanced-register-btn {
           background: transparent;
-          color: #ffffffff;
+          color: #2c3e50; /* Changed to match index.blade.php */
           font-weight: 700;
-          margin-right: 20px;
+          margin-right: 15px; /* Reduced margin */
+          padding: 8px 16px; /* Added padding */
+          border-radius: 25px;
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          transition: all 0.3s ease;
         }
 
         .enhanced-register-btn:hover {
-          color: white;
+          color: #99a3e3;
           transform: translateY(-2px);
         }
 
@@ -364,7 +374,7 @@
         }
 
         .enhanced-mobile-toggle {
-          font-size: 1.5rem;
+          font-size: 1.3rem; /* Reduced from 1.5rem */
           color: #99a3e3;
           cursor: pointer;
           transition: all 0.3s ease;
@@ -547,25 +557,25 @@
         /* Mobile Responsive */
         @media (max-width: 768px) {
           .brand-text h1 {
-            font-size: 1.4rem;
+            font-size: 1.2rem; /* Reduced for mobile */
           }
           
           .tagline {
-            font-size: 0.7rem;
+            font-size: 0.6rem;
           }
           
           .logo-img {
-            height: 35px;
+            height: 30px; /* Reduced for mobile */
           }
           
           .enhanced-navbar ul {
             flex-direction: column;
-            gap: 10px;
+            gap: 8px;
           }
           
           .enhanced-btn {
-            padding: 8px 16px;
-            font-size: 0.8rem;
+            padding: 6px 12px;
+            font-size: 0.75rem;
           }
           
           .user-name {
@@ -573,7 +583,12 @@
           }
           
           body {
-            padding-top: 80px;
+            padding-top: 70px; /* Reduced for mobile */
+          }
+          
+          #header {
+            height: 70px; /* Reduced height for mobile */
+            padding: 10px 0;
           }
           
           .about-content {
@@ -595,11 +610,11 @@
 
         @media (max-width: 480px) {
           .enhanced-header {
-            padding: 10px 0;
+            padding: 8px 0;
           }
           
           .brand-text h1 {
-            font-size: 1.2rem;
+            font-size: 1rem;
           }
           
           .tagline {
@@ -607,11 +622,26 @@
           }
           
           .logo-img {
-            height: 30px;
+            height: 25px;
           }
           
           body {
-            padding-top: 70px;
+            padding-top: 60px;
+          }
+          
+          #header {
+            height: 60px;
+            padding: 8px 0;
+          }
+          
+          .enhanced-navbar .nav-link {
+            font-size: 0.75rem;
+            padding: 4px 8px;
+          }
+          
+          .enhanced-btn {
+            padding: 5px 10px;
+            font-size: 0.7rem;
           }
         }
     </style>
@@ -635,6 +665,7 @@
       <nav id="navbar" class="navbar enhanced-navbar">
         <ul class="d-flex align-items-center">
           <li><a class="nav-link scrollto" href="#hero">{{ __("messages.home") }}</a></li>
+          <li><a class="nav-link scrollto active" href="#about">About Us</a></li>
           <li><a class="nav-link scrollto" href="#paket-unggulan">{{ __("messages.featured_packages") }}</a></li>
           <li><a class="nav-link scrollto" href="#kamar">{{ __("messages.rooms") }}</a></li>
           <li><a class="nav-link scrollto" href="#rekomendasi-kesehatan">{{ __("messages.health") }}</a></li>
