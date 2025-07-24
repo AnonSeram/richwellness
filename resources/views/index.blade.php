@@ -1490,6 +1490,7 @@
 
 <style>
     body {
+        text-align: center;
         background-color: #f4f4f4;
         font-family: 'Poppins', sans-serif;
     }
