@@ -694,7 +694,18 @@
   white-space: nowrap;
 }
 
+.enhanced-register-btn {
+  background: transparent;
+  color: #ffffffff;
+  border: 2px solid #99a3e3;
+}
 
+.enhanced-register-btn:hover {
+  background: #99a3e3;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(153, 163, 227, 0.3);
+}
 
 .dropdown-divider {
   height: 1px;
