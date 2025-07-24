@@ -699,13 +699,14 @@
   margin-right: auto;
   text-align: center;
   align-items: center;
+  padding: 0px;
 }
 
 .enhanced-register-btn {
   background: transparent;
   color: #99a3e3;
   border: 2px solid #99a3e3;
-  padding: 8px 16px;
+  padding: 0px;
   border-radius: 25px;
   text-decoration: none;
   font-weight: 600;
