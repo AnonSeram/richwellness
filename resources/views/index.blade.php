@@ -697,6 +697,7 @@
 .enhanced-register-btn {
   background: transparent;
   color: #ffffffff;
+  font-weight: 700;
 }
 
 .enhanced-register-btn:hover {
