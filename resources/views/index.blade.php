@@ -526,7 +526,7 @@
 
 .enhanced-navbar .nav-link {
   color: #2c3e50;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 0.95rem;
   padding: 8px 16px;
   margin: 0 2px;
@@ -2420,7 +2420,7 @@
                         &copy; Copyright <strong>Rich Wellness</strong>. All Rights Reserved
                     </div>
                     <div class="credits">
-                        Designed by <a href="{{ route('team.index') }}">Kelompok 9</a>
+                        Designed by <a href="{{ route('team.index') }}">Richwellness Team</a>
                     </div>
                 </div>
                 <div class="col-lg-6">
