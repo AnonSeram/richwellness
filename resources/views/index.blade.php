@@ -697,6 +697,9 @@
 .enhanced-register-btn {
   background: transparent;
   color: #ffffffff;
+  border:#99a3e3;
+  padding: 8px 16px;
+  border-radius: 25px;
   padding: 0px;
   text-decoration: none;
   font-weight: 600;
