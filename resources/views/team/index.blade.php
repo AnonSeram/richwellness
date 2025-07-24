@@ -49,6 +49,10 @@
         }
         
         /* Enhanced Header Styles */
+        .header {
+            background-color: FEFDED;
+        }
+        
         .enhanced-header.scrolled {
           background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 249, 250, 0.98) 100%);
           box-shadow: 0 4px 30px rgba(0, 0, 0, 0.12);
