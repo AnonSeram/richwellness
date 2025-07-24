@@ -1817,7 +1817,7 @@
                 <div class="icon-glow"></div>
             </div>
         </div>
-        <h2 class="enhanced-title">Rekomendasi Destinasi Wisata Yogyakarta</h2>
+        <h2 class="enhanced-title">{{ __("messages.tourism_destination_recommendation_title")}}</h2>
         <div class="title-underline"></div>
         <p class="section-subtitle">Jelajahi keindahan Yogyakarta dengan rekomendasi destinasi terbaik kami</p>
     </div>
