@@ -389,9 +389,10 @@
               <i class="fas fa-sign-in-alt me-2"></i>
               {{ __("messages.login") }}
             </a></li>
-            <li><a class="getstarted enhanced-btn" href="{{ route('register') }}">
+            <li class="enhanced-register-btn"><a href="{{ route('register') }}">
               <i class="fas fa-user-plus me-2"></i>
-              {{ __("messages.register") }}</a></li>
+              {{ __("messages.register") }}
+            </a></li>
           @endauth
 
         </ul>
