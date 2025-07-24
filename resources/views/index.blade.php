@@ -696,7 +696,7 @@
 
 .enhanced-register-btn {
   background: transparent;
-  color: #99a3e3;
+  color: #ffffffff;
   border: 2px solid #99a3e3;
   padding: 0px;
   border-radius: 25px;
@@ -705,9 +705,9 @@
   font-size: 0.9rem;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   transition: all 0.3s ease;
-  margin-left: 10px;
+  margin-left: 5px;
   overflow: visible; /* penting agar teks tidak terpotong */
   white-space: nowrap; /* mencegah patah baris */
   text-align: center;
