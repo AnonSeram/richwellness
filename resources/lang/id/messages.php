@@ -162,7 +162,7 @@ return [
     'testi_subtitle' => 'Dengarkan pengalaman nyata dari tamu-tamu yang telah merasakan layanan terbaik Rich Wellness',
     'call_action' => 'Bagikan Pengalaman Anda',
     'call_testi' => 'Ceritakan pengalaman wellness Anda bersama kami',
-    'write_testi' => 'Tulis Review',
+    'write_review' => 'Tulis Review',
 
     // Contact
     'contact_us' => 'Kontak Kami',
