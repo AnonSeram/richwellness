@@ -390,11 +390,11 @@
               <i class="fas fa-sign-in-alt me-2"></i>
               {{ __("messages.login") }}
             </a></li>
-            <div>
-            <li><a class="btn-daftar enhanced-register-btn" href="{{ route('register') }}">
-              <i class="fas fa-user-plus me-2"></i>{{ __("messages.register") }}</a></li>
+            <li><a class="getstarted enhanced-btn login-btn" href="{{ route('login') }}">
+              <i class="fas fa-sign-in-alt me-2"></i>
+              {{ __("messages.login") }}
+            </a></li>
           @endauth
-            </div>
         </ul>
         <i class="bi bi-list mobile-nav-toggle enhanced-mobile-toggle"></i>
       </nav>
