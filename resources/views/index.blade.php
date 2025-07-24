@@ -857,7 +857,7 @@
             </div>
             <h2 class="enhanced-title">{{ __('messages.featured_packages') }}</h2>
             <div class="title-underline"></div>
-            <p class="section-subtitle" style="text-align: center;">{{ ('messages.pilih_paket') }}</p>
+            <p class="section-subtitle" style="text-align: center;">{{ __('messages.pilih_paket') }}</p>
         </div>
         
         <div class="row justify-content-center">
