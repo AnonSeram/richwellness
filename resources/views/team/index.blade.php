@@ -296,7 +296,7 @@
                 <!-- Zahra Aulia - System Analyst -->
                 <div class="team-member-card">
                     <img src="zahra_aulia.png" alt="Zahra Aulia">
-                    <h4>Zahra Aulia</h4>
+                    <h4>Zahra Aulia Ananta</h4>
                     <p>System Analyst</p>
                     <div class="description">
                         Analyzes business requirements, designs system architecture, creates technical specifications, and bridges the gap between business needs and technical implementation.
@@ -310,7 +310,7 @@
                 <!-- Launia Izzati - System Analyst -->
                 <div class="team-member-card">
                     <img src="launia_izzati.png" alt="Launia Izzati">
-                    <h4>Launia Izzati</h4>
+                    <h4>Launia Izzati Zawwardah</h4>
                     <p>System Analyst</p>
                     <div class="description">
                         Conducts thorough testing of applications, identifies bugs and issues, ensures software quality standards, and validates that all features work correctly before deployment.
@@ -324,7 +324,7 @@
                 <!-- Muhammad Rafa - Front-end Developer -->
                 <div class="team-member-card">
                     <img src="muhammad_rafa.png" alt="Muhammad Rafa">
-                    <h4>Muhammad Rafa</h4>
+                    <h4>Muhammad Rafa Prasetya</h4>
                     <p>Front-end Developer</p>
                     <div class="description">
                         Develops user-facing features, creates responsive and interactive interfaces, implements design mockups, and ensures optimal user experience across different devices and browsers.
@@ -352,7 +352,7 @@
                 <!-- Muhammad Syamsudhuha A - Fullstack Developer -->
                 <div class="team-member-card">
                     <img src="muhammad_syamsudhuha_a.png" alt="Muhammad Syamsudhuha A">
-                    <h4>Muhammad Syamsudhuha A</h4>
+                    <h4>Muhammad Syamsudhuha Abdullah</h4>
                     <p>Fullstack Developer</p>
                     <div class="description">
                         Works on both frontend and backend development, integrates different system components, ensures seamless communication between client and server, and provides versatile technical solutions.
@@ -366,7 +366,7 @@
                 <!-- Annisa Ashadia - Quality Assurance -->
                 <div class="team-member-card">
                     <img src="annisa_ashadia.png" alt="Annisa Ashadia">
-                    <h4>Annisa Ashadia</h4>
+                    <h4>Annisa Ashadia Nurhaliza</h4>
                     <p>Quality Assurance</p>
                     <div class="description">
                         Conducts thorough testing of applications, identifies bugs and issues, ensures software quality standards, and validates that all features work correctly before deployment.
