@@ -718,6 +718,7 @@
 .enhanced-register-btn:hover {
   color: white;
   transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(153, 163, 227, 0.3);
 }
 
 .dropdown-divider {
