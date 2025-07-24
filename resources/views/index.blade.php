@@ -697,28 +697,14 @@
 .enhanced-register-btn {
   background: transparent;
   color: #ffffffff;
-  border:#99a3e3;
-  padding: 8px 16px;
+  border: 2px solid #99a3e3;
   border-radius: 25px;
-  padding: 0px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9rem;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  transition: all 0.3s ease;
-  margin-left: 20px;
-  overflow: visible; /* penting agar teks tidak terpotong */
-  white-space: nowrap; /* mencegah patah baris */
   text-align: center;
-  justify-content: center;
 }
 
 .enhanced-register-btn:hover {
   color: white;
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(153, 163, 227, 0.3);
 }
 
 .dropdown-divider {
