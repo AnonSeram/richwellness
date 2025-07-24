@@ -74,11 +74,12 @@
             display: flex;
             align-items: center;
             padding-right: 30px;
-        }
+          }
+
         .logo img {
             width: auto;
             margin-left: 30px;
-        }
+          }
         .btn-primary {
             background-color: #007bff;
             color: #fff;
