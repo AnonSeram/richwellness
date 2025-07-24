@@ -121,6 +121,7 @@ return [
 
     // Health Services Recommendation
     'health_services_recommendation_title' => 'Rekomendasi Layanan Kesehatan Spesialis Organ Tubuh',
+    'health_services_recommendation_subtitle' => 'Temukan layanan kesehatan terbaik untuk kebutuhan spesifik Anda',
     'eye_clinic_sardjito_title' => 'Poliklinik Mata RSUP Dr. Sardjito',
     'eye_clinic_sardjito_description' => 'Jika Anda atau orang terdekat membutuhkan perawatan mata berkualitas, RSUP Dr. Sardjito dengan dokter berpengalaman dan fasilitas canggih adalah pilihan tepat.',
     'skin_clinic_panti_rapih_title' => 'Klinik Kulit RS. Panti Rapih',
@@ -133,6 +134,7 @@ return [
 
     // Tourism Destination Recommendation
     'tourism_destination_recommendation_title' => 'Rekomendasi Destinasi Wisata Yogyakarta',
+    'tourism_destination_recommendation_subtitle' => 'Jelajahi keindahan Yogyakarta dengan rekomendasi destinasi terbaik kami',
     'heha_sky_view_title' => 'Heha Sky View',
     'heha_sky_view_description' => 'HeHa Sky View di Gunungkidul, Yogyakarta, menawarkan pemandangan indah dari ketinggian, lengkap dengan restoran dan spot foto Instagramable.',
     'sermo_reservoir_title' => 'Waduk Sermo',
@@ -157,6 +159,9 @@ return [
 
     // Testimonials
     'what_visitors_say' => 'Apa Kata Pengunjung?',
+    'testi_subtitle' => 'Dengarkan pengalaman nyata dari tamu-tamu yang telah merasakan layanan terbaik Rich Wellness',
+    'call_action' => 'Bagikan Pengalaman Anda',
+    'call_testi' => 'Ceritakan pengalaman wellness Anda bersama kami',
 
     // Contact
     'contact_us' => 'Kontak Kami',

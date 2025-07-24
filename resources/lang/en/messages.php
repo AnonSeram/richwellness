@@ -121,6 +121,7 @@ return [
 
     // Health Services Recommendation
     'health_services_recommendation_title' => 'Recommended Health Services for Body Organs Specialists',
+    'health_services_recommendation_subtitle' => 'Find the best healthcare for your specific needs',
     'eye_clinic_sardjito_title' => 'RSUP Dr. Sardjito Eye Clinic',
     'eye_clinic_sardjito_description' => 'If you or your loved ones need quality eye care, RSUP Dr. Sardjito with experienced doctors and advanced facilities is the right choice.',
     'skin_clinic_panti_rapih_title' => 'RS. Panti Rapih Skin Clinic',
@@ -133,6 +134,7 @@ return [
 
     // Tourism Destination Recommendation
     'tourism_destination_recommendation_title' => 'Recommended Yogyakarta Tourism Destinations',
+    'tourism_destination_recommendation_subtitle' => 'Explore the beauty of Yogyakarta with our top destination recommendations',
     'heha_sky_view_title' => 'Heha Sky View',
     'heha_sky_view_description' => 'HeHa Sky View in Gunungkidul, Yogyakarta, offers beautiful views from a height, complete with restaurants and Instagrammable photo spots.',
     'sermo_reservoir_title' => 'Sermo Reservoir',
@@ -157,6 +159,8 @@ return [
 
     // Testimonials
     'what_visitors_say' => 'What Visitors Say?',
+    'call_action' => 'Share Your Experience',
+    'call_testi' => 'Tell us about your wellness experience',
 
     // Contact
     'contact_us' => 'Contact Us',

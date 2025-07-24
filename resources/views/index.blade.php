@@ -1563,9 +1563,9 @@
                 <div class="icon-glow"></div>
             </div>
         </div>
-        <h2 class="enhanced-title">Rekomendasi Layanan Kesehatan Spesialis</h2>
+        <h2 class="enhanced-title">{{ __("messages.health_services_recommendation_title") }}</h2>
         <div class="title-underline"></div>
-        <p class="section-subtitle">Temukan layanan kesehatan terbaik untuk kebutuhan spesifik Anda</p>
+        <p class="section-subtitle">{{ __("messages.health_services_recommendation_subtitle") }}</p>
     </div>
 
     <div class="row justify-content-center">
@@ -1819,7 +1819,7 @@
         </div>
         <h2 class="enhanced-title">{{ __("messages.tourism_destination_recommendation_title")}}</h2>
         <div class="title-underline"></div>
-        <p class="section-subtitle">Jelajahi keindahan Yogyakarta dengan rekomendasi destinasi terbaik kami</p>
+        <p class="section-subtitle">{{ __("messages.tourism_destination_recommendation_subtitle")}}</p>
     </div>
 
     <!-- Swiper Container for Tourism Destinations -->
@@ -2225,11 +2225,9 @@
       <div class="d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px; background: linear-gradient(135deg, #99a3e3, #74e9d5); border-radius: 50%; box-shadow: 0 10px 30px rgba(153, 163, 227, 0.3);">
         <i class="fas fa-quote-left text-white" style="font-size: 2rem;"></i>
       </div>
-      <h3 class="fw-bold mb-3" style="font-size: 2.8rem; color: #2c3e50; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-        Apa Kata Pengunjung?
-      </h3>
+      <h3 class="fw-bold mb-3" style="font-size: 2.8rem; color: #2c3e50; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">{{ __("messages.what_visitors_say") }}</h3>
       <p class="text-muted mb-0" style="font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
-        Dengarkan pengalaman nyata dari tamu-tamu yang telah merasakan layanan terbaik Rich Wellness
+        {{ __("messages.testi_subtitle") }}
       </p>
       <div class="mt-3" style="width: 100px; height: 4px; background: linear-gradient(90deg, #99a3e3, #74e9d5); margin: 0 auto; border-radius: 2px;"></div>
     </div>
@@ -2309,8 +2307,8 @@
     <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="600">
       <div class="d-inline-flex align-items-center justify-content-center p-4" style="background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
         <div class="me-4">
-          <h5 class="mb-1 fw-bold" style="color: #2c3e50;">Bagikan Pengalaman Anda</h5>
-          <p class="mb-0 text-muted" style="font-size: 0.9rem;">Ceritakan pengalaman wellness Anda bersama kami</p>
+          <h5 class="mb-1 fw-bold" style="color: #2c3e50;">{{ __("messages.call_action") }}</h5>
+          <p class="mb-0 text-muted" style="font-size: 0.9rem;">{{ __("messages.call_testi") }}</p>
         </div>
         <a href="{{ route('dashboard') }}" class="btn btn-lg" style="background: linear-gradient(135deg, #99a3e3, #74e9d5); color: white; border: none; border-radius: 15px; padding: 12px 30px; font-weight: 600; text-decoration: none; box-shadow: 0 8px 20px rgba(153, 163, 227, 0.3); transition: all 0.3s ease;">
           <i class="fas fa-pen-alt me-2"></i>
