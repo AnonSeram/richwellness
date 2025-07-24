@@ -231,7 +231,7 @@
               <i class="fas fa-sign-in-alt me-2"></i>
               {{ __("messages.login") }}
             </a></li>
-            <li><a class="btn-daftar enhanced-register-btn" href="{{ route('register') }}">
+            <li><a class="btn-daftar enhanced-register-btn" style="background-color:#fff" href="{{ route('register') }}">
               <i class="fas fa-user-plus me-2"></i>
               {{ __("messages.register") }}
             </a></li>
